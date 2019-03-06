@@ -1,0 +1,29 @@
+{
+  "name": "weatherwise",
+  "version": "1.0.0",
+  "description": "There is something about knowing the weather that is comforting...",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WildPastry/WeatherWise.git"
+  },
+  "keywords": [
+    "Weather",
+    "Team",
+    "project",
+    "App",
+    "Global",
+    "Dark",
+    "Sky",
+    "Api"
+  ],
+  "author": "Lisa, Mike, Hannah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WildPastry/WeatherWise/issues"
+  },
+  "homepage": "https://github.com/WildPastry/WeatherWise#readme"
+}
