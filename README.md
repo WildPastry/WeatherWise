@@ -9,6 +9,8 @@ There are very few instances in which we can know a little bit about what the fu
 
 • Create your folder with: gruntfile.js, css & js
 
+• Copy the gruntfile.js and insert your name into all of the 'xxxx's 
+
 • Create your own local branch (git checkout -b BRANCH_NAME)
 
 • Push your local branch to the remote repository (git push -u origin BRANCH_NAME)

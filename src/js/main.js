@@ -1,0 +1,1 @@
+/*jslint browser:true */

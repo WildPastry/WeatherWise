@@ -4,8 +4,28 @@ module.exports = function (grunt) {
 
         // TASKS
 
+        // UGLIFY
+        uglify: {
+            build: {
+                src: 'xxxx/js/main.js',
+                dest: 'src/js/main.min.js'
+            }
+        },
+
+        // CONCAT
+        concat: {
+            options: {
+              separator: ';',
+            },
+            dist: {
+              src: ['xxxx/main.css'],
+              dest: 'src/main.css',
+            },
+          },
+
+        // JSHINT
         jshint: {
-            all: ['gruntfile.js', '**/*.js'],
+            all: ['gruntfile.js', 'xxxx/**/*.js', 'src/**/*.js'],
             options: {
                 globals: {
                     curly: true,
@@ -26,13 +46,14 @@ module.exports = function (grunt) {
                 files: '**/*.js',
                 tasks: ['jshint'],
                 options: {
-                    livereload: true,
+                    // livereload: true,
                 },
             },
             css: {
                 files: '**/*.css',
+                tasks: ['concat'],
                 options: {
-                    livereload: true,
+                    // livereload: true,
                 },
             },
         },
@@ -40,11 +61,13 @@ module.exports = function (grunt) {
     });
 
     // LOAD TASKS
+    grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-compress');
 
     // REGISTER TASKS
-    grunt.registerTask('default', ['watch', 'jshint']);
+    grunt.registerTask('default', ['watch', 'concat', 'jshint', 'uglify']);
 
 };

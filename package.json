@@ -25,6 +25,7 @@
   "devDependencies": {
     "bootstrap": "^4.3.1",
     "grunt": "^1.0.3",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-compress": "^1.4.3",
     "grunt-contrib-jshint": "^2.0.0",
     "grunt-contrib-uglify": "^4.0.0",
