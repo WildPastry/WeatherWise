@@ -1,2 +1,4 @@
 /node_modules
+/production
+/src/.DS_Store
 /.DS_Store
