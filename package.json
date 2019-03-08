@@ -1,48 +1,57 @@
 {
-  "name": "weatherwise",
-  "version": "1.0.0",
-  "description": "There is something about knowing the weather that is comforting...",
-  "main": "main.js",
-  "scripts": {
-    "watch": "grunt",
-    "build": "grunt build"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/WildPastry/WeatherWise.git"
-  },
-  "keywords": [
-    "Weather",
-    "Forecast",
-    "Data",
-    "Visual",
-    "Design",
-    "Development",
-    "Team",
-    "project",
-    "App",
-    "Global",
-    "DarkSkyApi"
-  ],
-  "author": "Hannah Wehipeihana, Lisa Simpson, Mike Parker",
-  "license": "ISC",
-  "devDependencies": {
-    "grunt": "^1.0.3",
-    "grunt-contrib-clean": "^2.0.0",
-    "grunt-contrib-compress": "^1.4.3",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-copy": "^1.0.0",
-    "grunt-contrib-cssmin": "^3.0.0",
-    "grunt-contrib-htmlmin": "^3.0.0",
-    "grunt-contrib-jshint": "^2.0.0",
-    "grunt-contrib-uglify": "^4.0.0",
-    "grunt-contrib-watch": "^1.1.0",
-    "grunt-sass": "^3.0.2",
-    "matchdep": "^2.0.0",
-    "node-sass": "^4.11.0"
-  },
-  "bugs": {
-    "url": "https://github.com/WildPastry/WeatherWise/issues"
-  },
-  "homepage": "https://github.com/WildPastry/WeatherWise#readme"
+	"name": "weatherwise",
+	"version": "1.0.0",
+	"description": "There is something about knowing the weather that is comforting...",
+	"main": "main.js",
+	"scripts": {
+		"watch": "grunt",
+		"build": "grunt build"
+	},
+	"_inBundle": false,
+	"engines": {
+		"node": ">=10.0.0",
+		"npm": ">=6.0.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/WildPastry/WeatherWise.git"
+	},
+	"keywords": [
+		"Weather",
+		"Forecast",
+		"Data",
+		"Visual",
+		"Design",
+		"Development",
+		"Collaboration",
+		"Project",
+		"App",
+		"Global",
+		"DarkSkyApi"
+	],
+	"contributors": [
+		"Mike Parker <mykdsn@gmail.com> (http://www.mykdesign.co.nz/)",
+		"Hannah Wehipeihana <hannah.wehipeihana@gmail.com>",
+		"Lisa Simpson <lisa-maree-simpson@live.com>"
+	],
+	"license": "ISC",
+	"devDependencies": {
+		"grunt": "^1.0.3",
+		"grunt-contrib-clean": "^2.0.0",
+		"grunt-contrib-compress": "^1.4.3",
+		"grunt-contrib-concat": "^1.0.1",
+		"grunt-contrib-copy": "^1.0.0",
+		"grunt-contrib-cssmin": "^3.0.0",
+		"grunt-contrib-htmlmin": "^3.0.0",
+		"grunt-contrib-jshint": "^2.0.0",
+		"grunt-contrib-uglify": "^4.0.0",
+		"grunt-contrib-watch": "^1.1.0",
+		"grunt-sass": "^3.0.2",
+		"matchdep": "^2.0.0",
+		"node-sass": "^4.11.0"
+	},
+	"bugs": {
+		"url": "https://github.com/WildPastry/WeatherWise/issues"
+	},
+	"homepage": "https://github.com/WildPastry/WeatherWise#readme"
 }

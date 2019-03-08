@@ -3,9 +3,3 @@
 config.json
 *.DS_Store
 *Thumbs.db
-_hannah.scss
-_lisa.scss
-_mike.scss
-hannah.js
-lisa.js
-mike.js
