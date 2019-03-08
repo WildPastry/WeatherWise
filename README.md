@@ -3,7 +3,7 @@ There is something about knowing the weather that is comforting...
 
 There are very few instances in which we can know a little bit about what the future will be like. Weather is one of those things where someone can predict what's to come and be right. Having that kind of stability about the scary unknown is nice.
 
-Weatherwise is a contemporary APP which brings you more than the daily forecast. Minimilistic design is paired with coherent data to bring a unique and powerful user-interface to your disposal.
+Weatherwise is a contemporary App which brings you more than the daily forecast. Minimilistic design is paired with coherent data to bring a unique and powerful user-interface to your disposal.
 
 (https://'#')
 
@@ -38,12 +38,10 @@ Weatherwise is a contemporary APP which brings you more than the daily forecast.
 
 • Every time you merge to the master-dev branch, let the other team members know. They MUST switch to the master-dev branch ASAP and pull (git checkout -b master-dev) + (git pull origin master-dev) Once this has been done you can switch back to your branch and continue working
 
-• We should merge to master-dev often to keep conflicts resolved
-
-• Only at the very end will we merge a conflict-free master-dev branch into the actual master branch
+• Merge to master-dev often to keep conflicts resolved
 
 # Design and Development
-WeatherWise is a collaborative project that was designed and developed by Hannah Wehipeihana, Lisa Simpson and Mike Parker.
+WeatherWise is a collaborative student project designed and developed by Mike Parker, Lisa Simpson and Hannah Wehipeihana @ Yoobee School of Design.
 
 # Copyrights
 Weather data and api service provided by Dark Sky API (https://darksky.net/dev)
