@@ -4,7 +4,8 @@
   "description": "There is something about knowing the weather that is comforting...",
   "main": "main.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "grunt",
+    "build": "grunt build"
   },
   "repository": {
     "type": "git",
@@ -12,26 +13,33 @@
   },
   "keywords": [
     "Weather",
+    "Forecast",
+    "Data",
+    "Visual",
+    "Design",
+    "Development",
     "Team",
     "project",
     "App",
     "Global",
-    "Dark",
-    "Sky",
-    "Api"
+    "DarkSkyApi"
   ],
-  "author": "Lisa, Mike, Hannah",
+  "author": "Hannah Wehipeihana, Lisa Simpson, Mike Parker",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^4.3.1",
     "grunt": "^1.0.3",
-    "grunt-browser-sync": "^2.2.0",
+    "grunt-contrib-clean": "^2.0.0",
     "grunt-contrib-compress": "^1.4.3",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-contrib-htmlmin": "^3.0.0",
     "grunt-contrib-jshint": "^2.0.0",
     "grunt-contrib-uglify": "^4.0.0",
     "grunt-contrib-watch": "^1.1.0",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.14.7"
+    "grunt-sass": "^3.0.2",
+    "matchdep": "^2.0.0",
+    "node-sass": "^4.11.0"
   },
   "bugs": {
     "url": "https://github.com/WildPastry/WeatherWise/issues"

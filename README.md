@@ -1,31 +1,53 @@
 # WeatherWise
 There is something about knowing the weather that is comforting...
 
-There are very few instances in which we can know a little bit about what the future will be like.
- Weather is one of those things where someone can predict what's to come and be right. Having that kind of stability about the scary unknown is nice.
+There are very few instances in which we can know a little bit about what the future will be like. Weather is one of those things where someone can predict what's to come and be right. Having that kind of stability about the scary unknown is nice.
 
-# GitHub rules and guidelines
+Weatherwise is a contemporary APP which brings you more than the daily forecast. Minimilistic design is paired with coherent data to bring a unique and powerful user-interface to your disposal.
+
+(https://'#')
+
+# GitHub team instrcutions
 • Clone the repository to your machine
 
-• Create your folder with: gruntfile.js, css & js
+• Create a sass partial in /src/scss as: _yourname.scss
 
-• Copy the gruntfile.js and insert your name into all of the 'xxxx's 
+• Create a script file in /src/js as: yourname.js
 
-• Create your own local branch (git checkout -b BRANCH_NAME)
+• Edit main.scss to enable your partial
 
-• Push your local branch to the remote repository (git push -u origin BRANCH_NAME)
+• Navigate to the root directory of the repository in your terminal
 
-• Don't create any extra folders or files UNLESS they are added to your .gitignore
+• Check node version is at least 10 (node -v)
+
+• Check npm version is at least 6 (node -v)
+
+• If your versions are up to date then: npm install
+
+• Create your local branch (git checkout -b yourname)
+
+• Push your local branch to the remote repository (git push -u origin yourname)
+
+• Don't create any extra folders or files UNLESS they are added to the .gitignore
 
 • NEVER work on or push to the master branch
 
-• Once you have finished 'milestone' sections of code: first push to your remote branch so it's up to date, then push to the master-dev branch and resolve any conflicts 
+• In the terminal run: grunt
 
-• Every time you merge to the master-dev branch, let the other team members know. Then they MUST immediately switch to the master-dev branch locally and pull (git checkout -b master-dev) + (git pull origin master-dev) Once this has been pulled you can switch back to your branch
+• Once you have finished 'milestone' sections of code: first push to your remote branch so it's up to date, then push to the master-dev branch and resolve any conflicts
+
+• Every time you merge to the master-dev branch, let the other team members know. They MUST switch to the master-dev branch ASAP and pull (git checkout -b master-dev) + (git pull origin master-dev) Once this has been done you can switch back to your branch and continue working
 
 • We should merge to master-dev often to keep conflicts resolved
 
-• Only at the very end will we merge a conflict-free master-dev into the actual master branch
+• Only at the very end will we merge a conflict-free master-dev branch into the actual master branch
 
 # Design and Development
-Designed and developed by Hannah Wehipeihana, Lisa Simpson and Mike Parker.
+WeatherWise is a collaborative project that was designed and developed by Hannah Wehipeihana, Lisa Simpson and Mike Parker.
+
+# Copyrights
+Weather data and api service provided by Dark Sky API (https://darksky.net/dev)
+
+Some framework using Bootstrap (https://getbootstrap.com/)
+
+Some javascript functionality using jquery (http://jquery.com/)

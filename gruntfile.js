@@ -1,74 +1,152 @@
+// NODE SASS
+const sass = require('node-sass');
+
+// GRUNT
 module.exports = function (grunt) {
-    grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+  'use strict';
 
-        // TASKS
+  //  LOAD NPM TASKS
+  require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
 
-        // UGLIFY
-        uglify: {
-            build: {
-                src: 'xxxx/js/main.js',
-                dest: 'src/js/main.min.js'
-            }
+  // GRUNT CONFIG
+  grunt.initConfig({
+    pkg: grunt.file.readJSON('package.json'),
+
+    // SASS
+    sass: {
+      compile: {
+        options: {
+          implementation: sass,
+          style: 'compressed',
+          sourceMap: true
         },
+        files: {
+          'src/css/main.css': [
+            'src/scss/main.scss',
+            'src/scss/*/*.scss',
+            'src/scss/*/*/*.scss',
+            'src/scss/*/*/*/*.scss'
+          ]
+        }
+      }
+    },
 
-        // CONCAT
-        concat: {
-            options: {
-              separator: ';',
-            },
-            dist: {
-              src: ['xxxx/main.css'],
-              dest: 'src/main.css',
-            },
-          },
+    // UGLIFY
+    uglify: {
+      options: {
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+          '<%= grunt.template.today("yyyy-mm-dd") %> */ \n'
+      },
+      targets: {
+        files: {
+          'dist/js/main.js': 'src/js/main.js',
+        }
+      }
+    },
 
-        // JSHINT
-        jshint: {
-            all: ['gruntfile.js', 'xxxx/**/*.js', 'src/**/*.js'],
-            options: {
-                globals: {
-                    curly: true,
-                    eqeqeq: true,
-                    eqnull: true,
-                    browser: true,
-                    jQuery: true,
-                    console: true,
-                    module: true,
-                    document: true
-                }
-            }
+    // CLEAN
+    clean: {
+      js: ['src/js/main.js']
+    },
+
+    // JSHINT
+    jshint: {
+      all: ['src/js/*.js'],
+      options: {
+        globals: {
+          curly: true,
+          eqeqeq: true,
+          eqnull: true,
+          browser: true,
+          jQuery: true,
+          console: true,
+          module: true,
+          document: true
+        }
+      }
+    },
+
+    // CONCAT
+    concat: {
+      options: {
+        banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+          '<%= grunt.template.today("yyyy-mm-dd") %> */ \n'
+      },
+      targets: {
+        files: {
+          'src/js/main.js': ['src/js/**/*.js'],
+        }
+      }
+    },
+
+    // CSS-MIN
+    cssmin: {
+      files: {
+        expand: true,
+        cwd: 'src/css/',
+        src: ['*.css'],
+        dest: 'dist/css/',
+      }
+    },
+
+    // HTML-MIN
+    htmlmin: {
+      dev: {
+        options: {
+          removeComments: true,
+          removeEmptyElements: true,
+          collapseWhitespace: true
         },
+        files: [{
+          expand: true,
+          cwd: 'src',
+          src: ['**/*.html'],
+          dest: 'dist'
+        }]
+      }
+    },
 
-        // WATCH
-        watch: {
-            js: {
-                files: '**/*.js',
-                tasks: ['jshint'],
-                options: {
-                    // livereload: true,
-                },
-            },
-            css: {
-                files: '**/*.css',
-                tasks: ['concat'],
-                options: {
-                    // livereload: true,
-                },
-            },
-        },
+    // COPY
+    copy: {
+      icon: {
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['src/icon/*'],
+          dest: 'dist/icon/',
+          filter: 'isFile'
+        }, ],
+      },
+      framework: {
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['src/framework/*'],
+          dest: 'dist/framework/',
+          filter: 'isFile'
+        }, ],
+      }
+    },
 
-    });
+    // WATCHERS
+    watch: {
+      scripts: {
+        files: ['src/js/**/*.js', '!src/js/main.js'],
+        tasks: ['jshint', 'clean', 'concat']
+      },
+      sass: {
+        files: ['src/scss/**/*.scss'],
+        tasks: ['sass']
+      },
+      html: {
+        files: ['src/**/*.html'],
+      }
+    }
 
-    // LOAD TASKS
-    grunt.loadNpmTasks('grunt-browser-sync');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-compress');
+  }); //GRUNT CONFIG
 
-    // REGISTER TASKS
-    grunt.registerTask('default', ['watch', 'concat', 'jshint', 'uglify']);
+  // TASKS
+  grunt.registerTask('default', ['watch']);
+  grunt.registerTask('build', ['jshint', 'clean', 'concat', 'sass', 'cssmin', 'uglify', 'htmlmin', 'copy']);
 
-};
+} //GRUNT

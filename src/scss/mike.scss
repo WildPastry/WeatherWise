@@ -1,0 +1,17 @@
+// IMPORT VARIABLES
+@import "variables";
+
+* {
+    border: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+	background: $d-blu;
+	font-family: $main-font;
+	color: $wht;
+}
