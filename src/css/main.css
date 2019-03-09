@@ -1122,8 +1122,29 @@ html {
   text-decoration: none; }
 
 body {
-  background: #102949;
-  font-family: "Poppins", sans-serif;
-  color: #fff; }
+  background: #2484c6;
+  color: #fff;
+  font-family: "Poppins", sans-serif; }
+
+.master {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 100%; }
+
+.master--warning {
+  height: 300px;
+  left: 50%;
+  margin-left: -150px;
+  margin-top: -150px;
+  position: absolute;
+  top: 50%;
+  width: 300px; }
+
+.container-fluid {
+  max-width: 600px;
+  padding: 1em;
+  position: relative;
+  width: 95%; }
 
 /*# sourceMappingURL=main.css.map */

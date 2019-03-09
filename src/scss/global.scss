@@ -3,16 +3,43 @@
 @import "variables";
 
 * {
-    border: 0;
-    box-sizing: border-box;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
+	border: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	text-decoration: none;
 }
 
 body {
-	background: $d-blu;
-	font-family: $main-font;
+	background: $l-blu;
 	color: $wht;
+	font-family: $main-font;
+}
+
+// MASTER
+.master {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
+}
+
+// MASTER WARNING
+.master--warning {
+	height: 300px;
+	left: 50%;
+	margin-left: -150px;
+	margin-top: -150px;
+	position: absolute;
+	top: 50%;
+	width: 300px;
+  }
+
+// CONTAINER
+.container-fluid {
+	max-width: 600px;
+	padding: 1em;
+	position: relative;
+	width: 95%;
 }
