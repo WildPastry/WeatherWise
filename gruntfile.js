@@ -1,18 +1,10 @@
-// NODE SASS
-const sass = require('node-sass');
-
 // GRUNT
+const sass = require('node-sass');
 module.exports = function (grunt) {
 	'use strict';
-
-	//  LOAD NPM TASKS
 	require("matchdep").filterDev("grunt-*").forEach(grunt.loadNpmTasks);
-
-	// GRUNT CONFIG
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
-
-		// SASS
 		sass: {
 			compile: {
 				options: {
@@ -28,8 +20,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-		// UGLIFY
 		uglify: {
 			options: {
 				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -41,13 +31,9 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-		// CLEAN
 		clean: {
 			js: ['src/js/main.js']
 		},
-
-		// JSHINT
 		jshint: {
 			all: ['src/js/*.js'],
 			options: {
@@ -63,8 +49,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-		// CONCAT
 		concat: {
 			options: {
 				banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
@@ -76,8 +60,6 @@ module.exports = function (grunt) {
 				}
 			}
 		},
-
-		// CSS-MIN
 		cssmin: {
 			files: {
 				expand: true,
@@ -86,8 +68,6 @@ module.exports = function (grunt) {
 				dest: 'dist/css/',
 			}
 		},
-
-		// HTML-MIN
 		htmlmin: {
 			dev: {
 				options: {
@@ -103,8 +83,6 @@ module.exports = function (grunt) {
 				}]
 			}
 		},
-
-		// COPY
 		copy: {
 			icon: {
 				files: [{
@@ -125,8 +103,6 @@ module.exports = function (grunt) {
 				}, ],
 			}
 		},
-
-		// WATCHERS
 		watch: {
 			options: {
 				dateFormat: function (time) {
@@ -146,11 +122,7 @@ module.exports = function (grunt) {
 				files: ['src/**/*.html'],
 			},
 		}
-
-	}); //GRUNT CONFIG
-
-	// TASKS
+	});
 	grunt.registerTask('default', ['watch']);
 	grunt.registerTask('build', ['jshint', 'clean', 'concat', 'sass', 'cssmin', 'uglify', 'htmlmin', 'copy']);
-
-} //GRUNT
+}

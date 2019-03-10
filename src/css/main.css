@@ -1122,7 +1122,7 @@ html {
   text-decoration: none; }
 
 body {
-  background: #2484c6;
+  background: #102949;
   color: #fff;
   font-family: "Poppins", sans-serif; }
 
@@ -1133,18 +1133,34 @@ body {
   width: 100%; }
 
 .master--warning {
-  height: 300px;
+  background: linear-gradient(to right, #102949, #2484c6);
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  z-index: 10; }
+
+.master--warning-img {
+  height: 280px;
   left: 50%;
-  margin-left: -150px;
-  margin-top: -150px;
+  margin-left: -140px;
+  margin-top: -140px;
   position: absolute;
   top: 50%;
-  width: 300px; }
+  width: 280px; }
 
 .container-fluid {
   max-width: 600px;
   padding: 1em;
   position: relative;
   width: 95%; }
+
+@media screen and (min-width: 500px) {
+  .master--warning {
+    display: block; } }
+
+@media screen and (min-height: 800px) {
+  .master--warning {
+    display: block; } }
 
 /*# sourceMappingURL=main.css.map */
