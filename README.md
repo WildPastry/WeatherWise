@@ -41,7 +41,7 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 • Merge to master-dev often to keep conflicts resolved
 
 # Design and Development
-WeatherWise is a collaborative student project designed and developed by Mike Parker, Hannah Wehipeihana and Lisa Simpson @ Yoobee School of Design.
+WeatherWise is a collaborative student project designed and developed by Michael Parker, Hannah Wehipeihana and Lisa Simpson @ Yoobee School of Design.
 
 # Copyrights
 Weather data and API service provided by Dark Sky API (https://darksky.net/dev)
