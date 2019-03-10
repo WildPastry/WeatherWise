@@ -7,7 +7,7 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 
 (http://weatherwise.mykdesign.co.nz/)
 
-# GitHub team instrcutions
+# GitHub team instructions
 • Clone the repository to your machine
 
 • Navigate to the root directory of the repository in your terminal
