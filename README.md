@@ -14,7 +14,7 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 
 • Check node version is at least 10 (node -v)
 
-• Check npm version is at least 6 (node -v)
+• Check npm version is at least 6 (npm -v)
 
 • npm install
 
@@ -30,7 +30,7 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 
 • Push your local branch to the remote repository (git push -u origin yourname)
 
-• Don't create any extra folders or files UNLESS they are added to the .gitignore
+• Files not related to the project must be added to the .gitignore
 
 • NEVER work on or push to the master branch
 
@@ -46,8 +46,12 @@ WeatherWise is a collaborative student project designed and developed by Michael
 # Copyrights
 Weather data and API service provided by Dark Sky API (https://darksky.net/dev)
 
+Weather Underground Icons by Ashley Jager (https://www.npmjs.com/package/weather-underground-icons)
+
 Some framework using Bootstrap (https://getbootstrap.com/)
 
 Some javascript functionality using jquery (http://jquery.com/)
+
+Some javascript functionality using popper (https://popper.js.org/)
 
 Graph API by Google Charts (https://developers.google.com/chart/)
