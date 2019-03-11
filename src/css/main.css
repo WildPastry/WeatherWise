@@ -1124,7 +1124,27 @@ html {
 body {
   background: #102949;
   color: #fff;
-  font-family: "Poppins", sans-serif; }
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-size: 1em; }
+
+h1 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 4em; }
+
+h2 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 2.5em; }
+
+h3 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 1.5em; }
 
 .master {
   align-items: center;
@@ -1149,8 +1169,11 @@ body {
   top: 50%;
   width: 280px; }
 
+.section {
+  margin-top: 100px; }
+
 .container-fluid {
-  max-width: 600px;
+  max-width: 500px;
   padding: 1em;
   position: relative;
   width: 95%; }

@@ -2,6 +2,7 @@
 // IMPORT VARIABLES
 @import "variables";
 
+// RESETS
 * {
 	border: 0;
 	box-sizing: border-box;
@@ -11,10 +12,34 @@
 	text-decoration: none;
 }
 
+// FONT
 body {
 	background: $d-blu;
 	color: $wht;
 	font-family: $main-font;
+	font-weight: $lgt;
+	font-size: $bdy;
+}
+
+h1 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h1;
+}
+
+h2 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $reg;
+	font-size: $h2;
+}
+
+h3 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $reg;
+	font-size: $h3;
 }
 
 // MASTER
