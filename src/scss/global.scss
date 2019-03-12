@@ -94,19 +94,78 @@ h3 {
 	line-height: 40px;
 	height: 40px;
 	display: block;
-	background-color: $d-blu-v;
 	border: 1px solid $wht;
 	text-align: center;
 	margin-top: 20px;
 	font-family: $main-font;
 	font-size: $h2;
-	color: $wht;
 }
 
 .btn--search {
 	color: $d-blu-v;
 	background-color: $wht;
 	cursor: pointer;
+}
+
+.btn--input {
+	color: $wht;
+	background-color: $d-blu-v;
+	cursor: pointer;
+}
+
+// ICON
+.icon--bg {
+	width: 100px;
+	height: 100px;
+}
+.icon--md {
+	width: 64px;
+	height: 64px;	
+}
+.icon--sml {
+	width: 32px;
+	height: 32px;
+}
+
+// BACKGROUNDS
+.bckgd--y-m{
+	background: $ylw;
+}
+.bckgd--y-p{
+	background: $ylw-p;
+}
+.bckgd--y-v{
+	background: $ylw-v;
+}
+
+.bckgd--g-m{
+	background: $gry;
+}
+.bckgd--g-p{
+	background: $gry-p;
+}
+.bckgd--g-v{
+	background: $gry-v;
+}
+
+.bckgd--b-m{
+	background: $l-blu;
+}
+.bckgd--b-p{
+	background: $l-blu-p;
+}
+.bckgd--b-v{
+	background: $l-blu-v;
+}
+
+.bckgd--db-m{
+	background: $d-blu;
+}
+.bckgd--db-p{
+	background: $d-blu-p;
+}
+.bckgd--db-v{
+	background: $d-blu-v;
 }
 
 // MEDIA
