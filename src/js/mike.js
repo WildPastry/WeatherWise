@@ -85,8 +85,14 @@ function getSkyData() {
 				//     console.log('Tuesday');
 				// } //IF
 
-				// var actualDate = month + '-' + day + '-' + year;
-				// console.log(actualDate);
+				var dailyDate = month + '-' + day + '-' + year;
+				var dailySummary = skyData.daily.data[i].summary;
+				var dailyIcon = skyData.daily.data[i].icon;
+				// console.log(dailyDate);
+				document.getElementById("data--daily--date").innerHTML += dailyDate + '<br>';
+				document.getElementById("data--daily--summary").innerHTML += dailySummary + '<br>';
+				document.getElementById("data--daily--icon").innerHTML += dailyIcon + '<br>';
+
 				// console.log(skyData.daily.data[i].summary);
 				// console.log("Humidity:");
 				// console.log(skyData.daily.data[i].humidity);
@@ -106,59 +112,7 @@ function getSkyData() {
 	}); //AJAX
 } //FUNCTION
 
-// ICON WORK
-function skycons() {
-	var i,
-		icons = new Skycons({
-			"color": "#FFFFFF",
-			"resizeClear": true // nasty android hack
-		}),
-		list = [ // listing of all possible icons
-			"clear-day",
-			"clear-night",
-			"partly-cloudy-day",
-			"partly-cloudy-night",
-			"cloudy",
-			"rain",
-			"sleet",
-			"snow",
-			"wind",
-			"fog"
-		];
-
-	// loop thru icon list array
-	for (i = list.length; i--;) {
-		var weatherType = list[i], // select each icon from list array
-			// icons will have the name in the array above attached to the
-			// canvas element as a class so let's hook into them.
-			elements = document.getElementsByClassName(weatherType);
-
-		// loop thru the elements now and set them up
-		for (e = elements.length; e--;) {
-			icons.set(elements[e], weatherType);
-		}
-	}
-
-	// animate the icons
-	icons.play();
-}
-
-// TOOLTIPS
-// $( document ).ready(function() {
-// 	$( '[data-toggle="tooltip"]' ).each(function() {
-// 	  new Tooltip($(this), {
-// 		placement: 'bottom',
-// 	  });
-// 	});
-//   });
-
 // TOOLTIP
-// $(document).ready(function(){
-
-// $('[data-toggle="tooltip"]').tooltip();
-
-//   });
-
 $(document).ready(function () {
 	$('.icon--info').tooltip({
 		title: "<h2>WeatherWise aims to prioritize<br>preparedness so that users<br>know how to best dress and<br>prepare for the weather</h2>",
@@ -168,14 +122,10 @@ $(document).ready(function () {
 	});
 });
 
-//   $("[data-placement=right]").hover(function(){
-//     $('.tooltip').css('top',parseInt($('.tooltip').css('top')) + 8 + 'px')
-// });
-
 // ICON WORK
-// function skycons() {
+// function dataIcons() {
 // 	var i,
-// 		icons = new Skycons({
+// 		icons = new dataIcons({
 // 			"color": "#FFFFFF",
 // 			"resizeClear": true // nasty android hack
 // 		}),
