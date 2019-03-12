@@ -48,6 +48,48 @@ function getSkyData() {
 			document.getElementById("data--temp").innerHTML = '<h1>' + tempData + '°' + '</h1>';
 			document.getElementById("data--temp--icon").innerHTML = tempIcon;
 
+			// DYNAMIC BACKGROUNDS
+			if (tempIcon == 'clear-day') {
+				console.log("Changed background to yellow");
+				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+			}
+			if (tempIcon == 'clear-night') {
+				console.log("Changed background to yellow");
+				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+			}
+			if (tempIcon == 'rain') {
+				console.log("Changed background to light blue");
+				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+			}
+			if (tempIcon == 'snow') {
+				console.log("Changed background to dark blue");
+				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+			}
+			if (tempIcon == 'sleet') {
+				console.log("Changed background to dark blue");
+				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+			}
+			if (tempIcon == 'wind') {
+				console.log("Changed background to grey");
+				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+			}
+			if (tempIcon == 'fog') {
+				console.log("Changed background to grey");
+				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+			}
+			if (tempIcon == 'cloudy') {
+				console.log("Changed background to grey");
+				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+			}
+			if (tempIcon == 'partly-cloudy-day') {
+				console.log("Changed background to dark grey");
+				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
+			}
+			if (tempIcon == 'partly-cloudy-night') {
+				console.log("Changed background to dark grey");
+				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
+			}
+
 			// console.log("Daily data:");
 			for (var i = 0; i < skyData.daily.data.length; i++) {
 
@@ -88,6 +130,7 @@ function getSkyData() {
 				var dailyDate = month + '-' + day + '-' + year;
 				var dailySummary = skyData.daily.data[i].summary;
 				var dailyIcon = skyData.daily.data[i].icon;
+
 				// console.log(dailyDate);
 				document.getElementById("data--daily--date").innerHTML += dailyDate + '<br>';
 				document.getElementById("data--daily--summary").innerHTML += dailySummary + '<br>';
@@ -102,7 +145,7 @@ function getSkyData() {
 				// console.log(skyData.daily.data[i].windSpeed);
 				// console.log(" ");
 
-			}
+			} //FOR
 
 		}, //SUCCESS
 		error: function (error) {
