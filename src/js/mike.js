@@ -1,4 +1,3 @@
-/*! weatherwise - v1.0.0 - 2019-03-12 */ 
 /*jslint browser:true */
 console.log('javascript ready...');
 
