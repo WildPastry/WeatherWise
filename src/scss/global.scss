@@ -13,6 +13,7 @@
 }
 
 // FONT
+// All body copy, chart text, copyrights
 body {
 	background: $d-blu;
 	color: $wht;
@@ -21,6 +22,7 @@ body {
 	font-size: $bdy;
 }
 
+// Big numbers, numeric values
 h1 {
 	color: $wht;
 	font-family: $main-font;
@@ -28,6 +30,7 @@ h1 {
 	font-size: $h1;
 }
 
+// Button text, titles for the data, eg UV Index and Humidity etc
 h2 {
 	color: $wht;
 	font-family: $main-font;
@@ -35,6 +38,7 @@ h2 {
 	font-size: $h2;
 }
 
+// Future days and temperature
 h3 {
 	color: $wht;
 	font-family: $main-font;
@@ -81,6 +85,28 @@ h3 {
 	padding: 1em;
 	position: relative;
 	width: 95%;
+	background: #464646;
+}
+
+// BUTTON
+.btn {
+	width: 90%;
+	line-height: 40px;
+	height: 40px;
+	display: block;
+	background-color: $d-blu-v;
+	border: 1px solid $wht;
+	text-align: center;
+	margin-top: 20px;
+	font-family: $main-font;
+	font-size: $h2;
+	color: $wht;
+}
+
+.btn--search {
+	color: $d-blu-v;
+	background-color: $wht;
+	cursor: pointer;
 }
 
 // MEDIA

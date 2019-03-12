@@ -18,6 +18,8 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 
 • npm install
 
+• install grunt cli (npm install -g grunt-cli)
+
 • grunt (ALWAYS run 'grunt' command before doing any work)
 
 • Create a sass partial in /src/scss as: _yourname.scss
@@ -36,7 +38,9 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 
 • Once you have finished 'milestone' sections of code: first push to your remote branch so it's up to date, then push to the master-dev branch and resolve any conflicts
 
-• Every time you merge to the master-dev branch, let the other team members know. They MUST switch to the master-dev branch ASAP and pull (git checkout -b master-dev) + (git pull origin master-dev) Once this has been done you can switch back to your branch and continue working
+• Create your local version of the master-dev (git checkout -b master-dev)
+
+• Every time you merge to the master-dev branch, let the other team members know. They MUST switch to the master-dev branch ASAP and pull (git checkout master-dev) + (git pull origin master-dev) Once this has been done you can switch back to your branch and continue working
 
 • Merge to master-dev often to keep conflicts resolved
 
