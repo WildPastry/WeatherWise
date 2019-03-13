@@ -12,7 +12,7 @@
 		"../framework/bootstrap/_grid.scss",
 		"../framework/bootstrap/utilities/_display.scss",
 		"../framework/bootstrap/utilities/_flex.scss",
-		"../scss/_lisa.scss",
+		"../scss/hannah.scss",
 		"../scss/global.scss",
 		"../scss/variables.scss"
 	],
