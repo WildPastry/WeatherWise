@@ -54,8 +54,8 @@ function getSkyData() {
 				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
 			}
 			if (tempIcon == 'clear-night') {
-				console.log("Changed background to yellow");
-				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+				console.log("Changed background to dark blue");
+				$("#dynamic > div:first-of-type").addClass("bckgd--b-v");
 			}
 			if (tempIcon == 'rain') {
 				console.log("Changed background to light blue");
@@ -66,8 +66,8 @@ function getSkyData() {
 				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
 			}
 			if (tempIcon == 'sleet') {
-				console.log("Changed background to dark blue");
-				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+				console.log("Changed background to light blue");
+				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
 			}
 			if (tempIcon == 'wind') {
 				console.log("Changed background to grey");
@@ -86,8 +86,8 @@ function getSkyData() {
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
 			}
 			if (tempIcon == 'partly-cloudy-night') {
-				console.log("Changed background to dark grey");
-				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
+				console.log("Changed background to dark blue");
+				$("#dynamic > div:first-of-type").addClass("bckgd--b-v");
 			}
 
 			// console.log("Daily data:");
