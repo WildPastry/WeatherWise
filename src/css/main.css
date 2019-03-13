@@ -1230,7 +1230,8 @@ h3 {
 
 .icon--sml {
   width: 32px;
-  height: 32px; }
+  height: 32px;
+  display: block; }
 
 .bckgd--y-m {
   background: #ffb33b; }
