@@ -5,7 +5,7 @@
 // MASTER LOGO
 .master--logo {
 	margin-top: 200px;
-	margin-bottom: 200px;
+	margin-bottom: 180px;
 }
 
 .master--logo-img {
@@ -25,6 +25,17 @@
 // 	border-left: 15px solid $wht;
 //   }
 
+// DATA LOCATION
+.data--location {
+	width: 100%;
+	height: 150px;
+	background: $d-blu-v;
+	border-top: 1px solid $wht;
+	border-bottom: 1px solid $wht;
+	padding: 0;
+	margin-bottom: 1.5em;
+}
+
 // AUTOCOMPLETE
 input {
 	font-family: $main-font;
@@ -33,8 +44,4 @@ input {
 	background: $d-blu-v;
 	color: $wht;
 	text-align: center;
-}
-
-.pac-container {
-	width: 100%;
 }

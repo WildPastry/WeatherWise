@@ -47,6 +47,8 @@ var dataIcons = [{
 	}
 ];
 
+document.getElementById("data--location").innerHTML = '<h2>' + "Wellington, New Zealand" + '</h2>';
+
 // SKY KEY
 $.ajax({
 	url: '../config.json',
@@ -80,8 +82,10 @@ function getSkyData() {
 			currentIcon = skyData.currently.icon;
 			currentDesc = skyData.currently.summary;
 
+			// document.getElementById("data--location").innerHTML = '<h2>' + input.value + '</h2>';
 			document.getElementById("data--current--temp").innerHTML = '<h1>' + currentTemp + '°' + '</h1>';
-			document.getElementById("data--current--desc").innerHTML = '<h4>' + currentDesc + '</h4>';
+			document.getElementById("data--current--desc").innerHTML = '<h3>' + currentDesc + '</h3>';
+
 			// document.getElementById("data--current--icon").innerHTML = currentIcon;
 
 			// DYNAMIC BACKGROUNDS AND ICONS
@@ -90,60 +94,70 @@ function getSkyData() {
 				console.log("clear-day icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--db-v", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'clear-night') {
 				console.log("Changed background to dark blue...");
 				console.log("clear-night icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--db-v");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'rain') {
 				console.log("Changed background to light blue...");
 				console.log("rain icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'snow') {
 				console.log("Changed background to dark blue...");
 				console.log("snow icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'sleet') {
 				console.log("Changed background to light blue...");
 				console.log("sleet icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'wind') {
 				console.log("Changed background to grey...");
 				console.log("wind icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'fog') {
 				console.log("Changed background to grey...");
 				console.log("fog icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'cloudy') {
 				console.log("Changed background to grey...");
 				console.log("cloudy icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
 			}
 			if (currentIcon == 'partly-cloudy-day') {
 				console.log("Changed background to dark grey...");
 				console.log("partly-cloudy-day icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--db-v");
 			}
 			if (currentIcon == 'partly-cloudy-night') {
 				console.log("Changed background to dark blue...");
 				console.log("partly-cloudy-night icon loaded...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--db-v");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v");
 			}
 
 			document.getElementById("data--daily--date").innerHTML = "";
@@ -275,12 +289,12 @@ $(document).ready(function () {
 });
 
 // AUTOCOMPLETE
+var input = document.getElementById('searchTextField');
+
 function init() {
 	var options = {
 		types: ['(cities)']
 	};
-
-	var input = document.getElementById('searchTextField');
 	var autocomplete = new google.maps.places.Autocomplete(input, options);
 }
 google.maps.event.addDomListener(window, 'load', init);
@@ -292,5 +306,7 @@ function sendRequest() {
 	myLat = -51.5074;
 	myLng = 0.1278;
 	getSkyData();
+	document.getElementById("data--location").innerHTML = '<h2>' + input.value + '</h2>';
+
 	console.log('Changed to London weather...');
 }
