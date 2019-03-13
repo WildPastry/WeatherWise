@@ -1113,6 +1113,12 @@ html {
   .align-self-xl-stretch {
     align-self: stretch !important; } }
 
+.copyright {
+  margin: auto; }
+
+.btn--credit {
+  margin: auto; }
+
 * {
   border: 0;
   box-sizing: border-box;
