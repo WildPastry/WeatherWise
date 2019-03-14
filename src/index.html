@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body id="dynamic">
+<body>
 
 	<!-- MASTER WARNING -->
 	<!-- <div class="master--warning">
@@ -36,10 +36,10 @@
 
 			<!-- BUTTONS -->
 			<div class="master">
-				<div class="btn btn--input"><input id="searchTextField" type="text" autocomplete="off" placeholder="ENTER LOCATION..."></div>
+				<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field" type="text" autocomplete="off" placeholder="ENTER LOCATION..."></div>
 			</div>
 			<div class="master">
-				<div id="searchButton" class="btn btn--search">SEARCH</div>
+				<div id="search--button" class="btn btn--search">SEARCH</div>
 			</div>
 
 		</div>
@@ -49,9 +49,12 @@
 		<div id="mike" class="section section--mike">
 			<!-- DATA LOCATION -->
 			<div class="row">
-				<div class="col col-lg-12 master data--location">
-					<div id="data--location">
-
+				<!-- <div class="col col-lg-1 master data--location">
+					<img class="data--location--icon" src="icon/ww-location.svg" alt="Location Marker">
+				</div> -->
+				<div id="data--location--div" class="col col-lg-12 data--location">
+					<div class="master" id="data--location">
+							<!-- <img class="data--location--icon" src="icon/ww-location.svg" alt="Location Marker"> -->
 					</div>
 				</div>
 			</div>

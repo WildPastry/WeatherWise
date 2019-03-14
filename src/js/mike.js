@@ -9,10 +9,12 @@ var skyKey;
 var dateStamp;
 var finalDateStamp;
 var months_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+var days_arr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 var currentTemp;
 var currentIcon;
 var myLat = -41.2865;
 var myLng = 174.7762;
+var body = document.body;
 
 // DATA ICONS
 var dataIcons = [{
@@ -44,10 +46,13 @@ var dataIcons = [{
 	},
 	{
 		icon: 'partly-cloudy-night.svg'
+	},
+	{
+		icon: 'ww-location.svg'
 	}
 ];
 
-document.getElementById("data--location").innerHTML = '<h2>' + "Wellington, New Zealand" + '</h2>';
+document.getElementById("data--location").innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
 
 // SKY KEY
 $.ajax({
@@ -90,74 +95,125 @@ function getSkyData() {
 
 			// DYNAMIC BACKGROUNDS AND ICONS
 			if (currentIcon == 'clear-day') {
-				console.log("Changed background to yellow...");
 				console.log("clear-day icon loaded...");
+				console.log("Yellow...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--db-v", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m");
+				body.classList.add("bckgd--y-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--b-m", "bckgd--db-m", "bckgd--g-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#ff9e3e';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#ff9e3e';
 			}
 			if (currentIcon == 'clear-night') {
-				console.log("Changed background to dark blue...");
 				console.log("clear-night icon loaded...");
+				console.log("Dark blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--db-v");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m");
+				body.classList.add("bckgd--db-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--g-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#0b1d30';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#0b1d30';
 			}
 			if (currentIcon == 'rain') {
-				console.log("Changed background to light blue...");
 				console.log("rain icon loaded...");
+				console.log("Blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m");
+				body.classList.add("bckgd--b-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#136999';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#136999';
 			}
 			if (currentIcon == 'snow') {
-				console.log("Changed background to dark blue...");
 				console.log("snow icon loaded...");
+				console.log("Dark blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m");
+				body.classList.add("bckgd--db-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--g-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#0b1d30';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#0b1d30';
 			}
 			if (currentIcon == 'sleet') {
-				console.log("Changed background to light blue...");
 				console.log("sleet icon loaded...");
+				console.log("Blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m");
+				body.classList.add("bckgd--b-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#136999';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#136999';
 			}
 			if (currentIcon == 'wind') {
-				console.log("Changed background to grey...");
 				console.log("wind icon loaded...");
+				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
+				body.classList.add("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m",  "bckgd--db-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#5a6977';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#5a6977';
 			}
 			if (currentIcon == 'fog') {
-				console.log("Changed background to grey...");
 				console.log("fog icon loaded...");
+				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
+				body.classList.add("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m",  "bckgd--db-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#5a6977';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#5a6977';
 			}
 			if (currentIcon == 'cloudy') {
-				console.log("Changed background to grey...");
 				console.log("cloudy icon loaded...");
+				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
+				body.classList.add("bckgd--g-m");
+
+				// document.getElementById("search--text--field--div").style.backgroundColor='red';
+				document.getElementById("data--location--div").style.backgroundColor = '#5a6977';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#5a6977';
+				// document.getElementById("info--icon").style.backgroundColor='#5a6977';
+
+				// $("div").on( "click", "button", function( event ) {
+				// 	$(event.delegateTarget ).css( "background-color", "green");
+				//   });
+
+				// var div = document.getElementById('search--text--field--div');
+				// div.style.backgroundColor = 'green';
+
+				// $("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m");
 			}
 			if (currentIcon == 'partly-cloudy-day') {
-				console.log("Changed background to dark grey...");
 				console.log("partly-cloudy-day icon loaded...");
+				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--db-v");
+				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
+				body.classList.add("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#5a6977';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#5a6977';
 			}
 			if (currentIcon == 'partly-cloudy-night') {
-				console.log("Changed background to dark blue...");
 				console.log("partly-cloudy-night icon loaded...");
+				console.log("Dark blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">';
-				$("#dynamic > div:first-of-type").addClass("bckgd--db-v");
-				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v");
+				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m");
+				body.classList.add("bckgd--db-m");
+				// $("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+				// $("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--g-m");
+				document.getElementById("data--location--div").style.backgroundColor = '#0b1d30';
+				document.getElementById("search--text--field--div").style.backgroundColor = '#0b1d30';
 			}
 
 			document.getElementById("data--daily--date").innerHTML = "";
@@ -178,6 +234,21 @@ function getSkyData() {
 				var year = date.getFullYear();
 				var month = months_arr[date.getMonth()];
 				var day = date.getDate();
+
+				var weekdays = new Array(7);
+				weekdays[0] = "Sunday";
+				weekdays[1] = "Monday";
+				weekdays[2] = "Tuesday";
+				weekdays[3] = "Wednesday";
+				weekdays[4] = "Thursday";
+				weekdays[5] = "Friday";
+				weekdays[6] = "Saturday";
+
+				var current_date = new Date();
+
+				weekday_value = current_date.getDay();
+
+				console.log(weekdays[weekday_value]);
 
 				// if (day == 5) {
 				//     console.log('Tuesday');
@@ -205,7 +276,7 @@ function getSkyData() {
 				// } //IF
 
 				var dailyDate = month + '-' + day + '-' + year;
-				var dailySummary = skyData.daily.data[i].summary;
+				// var dailySummary = skyData.daily.data[i].summary;
 				var dailyIconText = skyData.daily.data[i].icon;
 				var dailyIcon = skyData.daily.data[i].icon;
 				var dailyTemp = Math.trunc(skyData.daily.data[i].apparentTemperatureHigh);
@@ -218,43 +289,43 @@ function getSkyData() {
 
 				// DYNAMIC DAILY ICONS
 				if (dailyIcon == 'clear-day') {
-					console.log("clear-day icon loaded...");
+					// console.log("clear-day icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[0].icon + '">';
 				}
 				if (dailyIcon == 'clear-night') {
-					console.log("clear-night icon loaded...");
+					// console.log("clear-night icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[1].icon + '">';
 				}
 				if (dailyIcon == 'rain') {
-					console.log("rain icon loaded...");
+					// console.log("rain icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[2].icon + '">';
 				}
 				if (dailyIcon == 'snow') {
-					console.log("snow icon loaded...");
+					// console.log("snow icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[3].icon + '">';
 				}
 				if (dailyIcon == 'sleet') {
-					console.log("sleet icon loaded...");
+					// console.log("sleet icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[4].icon + '">';
 				}
 				if (dailyIcon == 'wind') {
-					console.log("wind icon loaded...");
+					// console.log("wind icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[5].icon + '">';
 				}
 				if (dailyIcon == 'fog') {
-					console.log("fog icon loaded...");
+					// console.log("fog icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[6].icon + '">';
 				}
 				if (dailyIcon == 'cloudy') {
-					console.log("cloudy icon loaded...");
+					// console.log("cloudy icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[7].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-day') {
-					console.log("partly-cloudy-day icon loaded...");
+					// console.log("partly-cloudy-day icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[8].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-night') {
-					console.log("partly-cloudy-night icon loaded...");
+					// console.log("partly-cloudy-night icon loaded...");
 					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[9].icon + '">';
 				}
 				// console.log(skyData.daily.data[i].summary);
@@ -289,24 +360,64 @@ $(document).ready(function () {
 });
 
 // AUTOCOMPLETE
-var input = document.getElementById('searchTextField');
+var input = document.getElementById('search--text--field');
 
 function init() {
 	var options = {
 		types: ['(cities)']
 	};
 	var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+	google.maps.event.addListener(autocomplete, 'place_changed', function () {
+		var place = autocomplete.getPlace();
+
+		// console.log(place.geometry.location.lat());
+		// console.log(place.geometry.location.lng());
+
+		myLat = place.geometry.location.lat();
+		myLng = place.geometry.location.lng();
+
+	});
 }
 google.maps.event.addDomListener(window, 'load', init);
 
 // SEARCH BUTTON
-document.getElementById('searchButton').addEventListener('click', sendRequest);
+document.getElementById('search--button').addEventListener('click', sendRequest);
 
 function sendRequest() {
-	myLat = -51.5074;
-	myLng = 0.1278;
+	// var place = autocomplete.getPlace();
+
+	// input.value = place.geometry.location.lat();
+	// input.value = place.geometry.location.lng();
+	// console.log(lat);
+	// console.log(lng);
+	// myLat = -51.5074;
+	// myLng = 0.1278;
 	getSkyData();
-	document.getElementById("data--location").innerHTML = '<h2>' + input.value + '</h2>';
+
+	document.getElementById("data--location").innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
 
 	console.log('Changed to London weather...');
+	// 	var place = autocomplete.getPlace();
+	// 	// get lat
+	// var lat = place.geometry.location.lat();
+	// // get lng
+	// var lng = place.geometry.location.lng();
+
 }
+
+// function initialize() {
+// 	var input = document.getElementById('search--text--field');
+// 	var autocomplete = new google.maps.places.Autocomplete(input);
+// 	google.maps.event.addListener(autocomplete, 'place_changed', function () {
+// 		var place = autocomplete.getPlace();
+// 		document.getElementById('city2').value = place.name;
+// 		document.getElementById('cityLat').value = place.geometry.location.lat();
+// 		document.getElementById('cityLng').value = place.geometry.location.lng();
+// 		//alert("This function is working!");
+// 		//alert(place.name);
+// 	   // alert(place.address_components[0].long_name);
+
+// 	});
+// }
+// google.maps.event.addDomListener(window, 'load', initialize);

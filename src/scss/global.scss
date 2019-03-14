@@ -15,7 +15,7 @@
 // FONT
 // All body copy, chart text, copyrights
 body {
-	background: $d-blu;
+	background: $blk;
 	color: $wht;
 	font-family: $main-font;
 	font-weight: $lgt;
@@ -111,7 +111,7 @@ h3 {
 
 .btn--input {
 	color: $wht;
-	background-color: $d-blu-v;
+	// background-color: $d-blu-v;
 	cursor: text;
 }
 
