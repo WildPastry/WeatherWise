@@ -101,7 +101,6 @@ function getSkyData() {
 			// CURRENT DYNAMIC BACKGROUND AND ICON
 			if (currentIcon == 'clear-day') {
 				console.log("clear-day icon loaded...");
-				console.log("Yellow...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m");
 				body.classList.add("bckgd--y-m");
@@ -111,7 +110,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'clear-night') {
 				console.log("clear-night icon loaded...");
-				console.log("Dark blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m");
 				body.classList.add("bckgd--db-m");
@@ -121,7 +119,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'rain') {
 				console.log("rain icon loaded...");
-				console.log("Blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">';
 				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m");
 				body.classList.add("bckgd--b-m");
@@ -131,7 +128,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'snow') {
 				console.log("snow icon loaded...");
-				console.log("Dark blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m");
 				body.classList.add("bckgd--db-m");
@@ -141,7 +137,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'sleet') {
 				console.log("sleet icon loaded...");
-				console.log("Blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">';
 				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m");
 				body.classList.add("bckgd--b-m");
@@ -151,7 +146,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'wind') {
 				console.log("wind icon loaded...");
-				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
 				body.classList.add("bckgd--g-m");
@@ -161,7 +155,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'fog') {
 				console.log("fog icon loaded...");
-				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
 				body.classList.add("bckgd--g-m");
@@ -171,7 +164,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'cloudy') {
 				console.log("cloudy icon loaded...");
-				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
 				body.classList.add("bckgd--g-m");
@@ -181,7 +173,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'partly-cloudy-day') {
 				console.log("partly-cloudy-day icon loaded...");
-				console.log("Grey...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
 				body.classList.add("bckgd--g-m");
@@ -191,7 +182,6 @@ function getSkyData() {
 			}
 			if (currentIcon == 'partly-cloudy-night') {
 				console.log("partly-cloudy-night icon loaded...");
-				console.log("Dark blue...");
 				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m");
 				body.classList.add("bckgd--db-m");
@@ -208,6 +198,7 @@ function getSkyData() {
 			document.getElementById("data--daily--icon").innerHTML = "";
 
 			// DAILY DATA LOOP
+			skyData.daily.data.shift();
 			for (var i = 0; i < skyData.daily.data.length; i++) {
 
 				// DATESTAMP
@@ -333,8 +324,12 @@ google.maps.event.addDomListener(window, 'load', init);
 document.getElementById('search--button').addEventListener('click', sendRequest);
 
 function sendRequest() {
+	if (input.value == null){
+		document.getElementById("search--text--field").innerHTML = '<h2>' + 'Please enter a location...' + '</h2>';
+	} else {
 	getSkyData();
 	document.getElementById("data--location").innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
 
-	console.log('Changed to London weather...');
+	console.log('Weather changed to' + input.value);
+}
 }
