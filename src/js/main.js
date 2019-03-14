@@ -7,6 +7,9 @@ $(document).ready(function () {
 	console.log("jquery ready...");
 });
 
+// LOADER
+$('#master--loader').show();
+
 // SKY KEY
 $.ajax({
 	url: '../config.json',
@@ -73,6 +76,8 @@ document.getElementById("data--location").innerHTML = '<img class="icon--md" src
 
 // DATA
 function getSkyData() {
+	// LOADER
+	$('#master--loader').show();
 	$.ajax({
 		url: 'https://api.darksky.net/forecast/' + skyKey + '/' + myLat + ',' + myLng + '?units=si',
 		dataType: 'jsonp',
@@ -270,6 +275,8 @@ function getSkyData() {
 			// WRITE CURRENT DATE TO APP
 			document.getElementById("data--current--date").innerHTML = '<h2>' + currentDate + '</h2>';
 
+			// LOADER
+			$('#master--loader').delay(350).fadeOut('slow');
 		}, //SUCCESS
 		error: function (error) {
 			console.log(error);

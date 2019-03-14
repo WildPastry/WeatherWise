@@ -2,6 +2,26 @@
 // IMPORT VARIABLES
 @import "variables";
 
+// LOADER
+#master--loader{
+	background: #0b1d30e3;
+	// display: none;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+
+.master--loader-img {
+	height: 191px;
+	left: 50%;
+	margin-left: -125px;
+	margin-top: -95.5px;
+	position: absolute;
+	top: 50%;
+	width: 250px;
+}
+
 // MASTER LOGO
 .master--logo {
 	margin-top: 200px;
