@@ -15,7 +15,7 @@
 // FONT
 // All body copy, chart text, copyrights
 body {
-	background: $blk;
+	background: linear-gradient(to right, $d-blu, $l-blu);
 	color: $wht;
 	font-family: $main-font;
 	font-weight: $lgt;
