@@ -11,7 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body>
+<body id="dynamic">
 
 	<!-- MASTER WARNING -->
 	<!-- <div class="master--warning">
@@ -21,10 +21,22 @@
 	<!-- MASTER CONTAINER -->
 	<div class="container-fluid">
 
+		<!-- INFO -->
+		<div class="icon">
+			<img class="icon--info icon--md tooltip" src="icon/ww-info.svg" alt="WeatherWise Information">
+		</div>
+
 		<!--SECTION 1 - INTRO-->
 		<div id="intro" class="section section--intro">
+
+			<!-- MASTER LOGO -->
+			<div class="master master--logo">
+				<img class="master--logo-img" src="icon/ww-logo.svg" alt="WeatherWise FOR WEATHER ADDICTS" title="WeatherWise">
+			</div>
+
+			<!-- BUTTONS -->
 			<div class="master">
-				<div class="btn">WELLINGTON NEW ZEALAND</div>
+				<div class="btn btn--input">WELLINGTON NEW ZEALAND</div>
 			</div>
 			<div class="master">
 				<div class="btn btn--search">SEARCH</div>
@@ -34,7 +46,26 @@
 		<!--INTRO-->
 
 		<!--SECTION 2 - MIKE-->
-		<div id="mike" class="section section--mike"></div>
+		<div id="mike" class="section section--mike">
+			<div class="row">
+				<div class="col col-lg-6">
+					<div id="data--temp"></div>
+				</div>
+				<div class="col col-lg-6">
+						<div id="data--temp--icon"></div>
+					</div>
+					<div class="col col-lg-2">
+						<div id="data--daily--date"></div>
+					</div>
+					<div class="col col-lg-6">
+						<div id="data--daily--summary"></div>
+					</div>
+					<div class="col col-lg-4">
+						<div id="data--daily--icon"></div>
+					</div>
+			</div>
+
+		</div>
 		<!--MIKE-->
 
 		<!--SECTION 3 - HANNAH-->
@@ -78,9 +109,11 @@
 	<!-- MASTER CONTAINER -->
 
 	<!-- SCRIPT -->
+	<!-- <script type='text/javascript' src='https://darksky.net/widget/default/-41.2887,174.7772/uk12/en.js?width=100%&height=350&title=wellington&textColor=333333&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=uk&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script> -->
 	<script src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="framework/jquery-3.3.1.min.js"></script>
 	<script src="framework/popper-1.0.0.min.js"></script>
+	<script src="framework/bootstrap-4.1.3.min.js"></script>
 	<script src="js/main.js"></script>
 	<script src="js/hannah.js"></script>
 </body>

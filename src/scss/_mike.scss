@@ -1,0 +1,26 @@
+// SASS GLOBAL
+// IMPORT VARIABLES
+@import "variables";
+
+// MASTER LOGO
+.master--logo {
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
+
+.master--logo-img {
+	height: 191px;
+	width: 250px;
+}
+
+// TOOLTIP
+.tooltip>.tooltip-inner {
+	background-color: $d-blu-v;
+	border: 1px solid $wht;
+	padding: 10px;
+	font-weight: lgt;
+}
+
+// .tooltip-arrow {
+// 	border-left: 15px solid $wht;
+//   }
