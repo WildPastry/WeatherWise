@@ -1149,6 +1149,11 @@ input {
   background: #0b1d30;
   color: #fff;
   text-align: center; }
+.copyright {
+  margin: auto; }
+
+.btn--credit {
+  margin: auto; }
 
 * {
   border: 0;
