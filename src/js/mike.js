@@ -9,9 +9,45 @@ var skyKey;
 var dateStamp;
 var finalDateStamp;
 var months_arr = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+var currentTemp;
+var currentIcon;
+var myLat = -41.2865;
+var myLng = 174.7762;
 
-var tempData;
-var tempIcon;
+// DATA ICONS
+var dataIcons = [{
+		icon: 'clear-day.svg',
+	},
+	{
+		icon: 'clear-night.svg',
+	},
+	{
+		icon: 'rain.svg'
+	},
+	{
+		icon: 'snow.svg'
+	},
+	{
+		icon: 'sleet.svg'
+	},
+	{
+		icon: 'wind.svg'
+	},
+	{
+		icon: 'fog.svg'
+	},
+	{
+		icon: 'cloudy.svg'
+	},
+	{
+		icon: 'partly-cloudy-day.svg'
+	},
+	{
+		icon: 'partly-cloudy-night.svg'
+	}
+];
+
+document.getElementById("data--location").innerHTML = '<h2>' + "Wellington, New Zealand" + '</h2>';
 
 // SKY KEY
 $.ajax({
@@ -32,7 +68,7 @@ $.ajax({
 // DATA
 function getSkyData() {
 	$.ajax({
-		url: 'https://api.darksky.net/forecast/' + skyKey + '/-41.2865,174.7762?units=si',
+		url: 'https://api.darksky.net/forecast/' + skyKey + '/' + myLat + ',' + myLng + '?units=si',
 		dataType: 'jsonp',
 		type: 'get',
 		success: function (skyData) {
@@ -42,55 +78,96 @@ function getSkyData() {
 			console.log(skyData.currently.temperature);
 			// console.log(" ");
 
-			tempData = Math.trunc(skyData.currently.temperature);
-			tempIcon = skyData.currently.icon;
+			currentTemp = Math.trunc(skyData.currently.temperature);
+			currentIcon = skyData.currently.icon;
+			currentDesc = skyData.currently.summary;
 
-			document.getElementById("data--temp").innerHTML = '<h1>' + tempData + '°' + '</h1>';
-			document.getElementById("data--temp--icon").innerHTML = tempIcon;
+			// document.getElementById("data--location").innerHTML = '<h2>' + input.value + '</h2>';
+			document.getElementById("data--current--temp").innerHTML = '<h1>' + currentTemp + '°' + '</h1>';
+			document.getElementById("data--current--desc").innerHTML = '<h3>' + currentDesc + '</h3>';
 
-			// DYNAMIC BACKGROUNDS
-			if (tempIcon == 'clear-day') {
-				console.log("Changed background to yellow");
+			// document.getElementById("data--current--icon").innerHTML = currentIcon;
+
+			// DYNAMIC BACKGROUNDS AND ICONS
+			if (currentIcon == 'clear-day') {
+				console.log("Changed background to yellow...");
+				console.log("clear-day icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--db-v", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'clear-night') {
-				console.log("Changed background to yellow");
-				$("#dynamic > div:first-of-type").addClass("bckgd--y-m");
+			if (currentIcon == 'clear-night') {
+				console.log("Changed background to dark blue...");
+				console.log("clear-night icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">';
+				$("#dynamic > div:first-of-type").addClass("bckgd--db-v");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'rain') {
-				console.log("Changed background to light blue");
+			if (currentIcon == 'rain') {
+				console.log("Changed background to light blue...");
+				console.log("rain icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'snow') {
-				console.log("Changed background to dark blue");
+			if (currentIcon == 'snow') {
+				console.log("Changed background to dark blue...");
+				console.log("snow icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'sleet') {
-				console.log("Changed background to dark blue");
-				$("#dynamic > div:first-of-type").addClass("bckgd--db-m");
+			if (currentIcon == 'sleet') {
+				console.log("Changed background to light blue...");
+				console.log("sleet icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">';
+				$("#dynamic > div:first-of-type").addClass("bckgd--b-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'wind') {
-				console.log("Changed background to grey");
+			if (currentIcon == 'wind') {
+				console.log("Changed background to grey...");
+				console.log("wind icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'fog') {
-				console.log("Changed background to grey");
+			if (currentIcon == 'fog') {
+				console.log("Changed background to grey...");
+				console.log("fog icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'cloudy') {
-				console.log("Changed background to grey");
+			if (currentIcon == 'cloudy') {
+				console.log("Changed background to grey...");
+				console.log("cloudy icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-m");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-v", "bckgd--db-v");
 			}
-			if (tempIcon == 'partly-cloudy-day') {
-				console.log("Changed background to dark grey");
+			if (currentIcon == 'partly-cloudy-day') {
+				console.log("Changed background to dark grey...");
+				console.log("partly-cloudy-day icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">';
 				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--db-v");
 			}
-			if (tempIcon == 'partly-cloudy-night') {
-				console.log("Changed background to dark grey");
-				$("#dynamic > div:first-of-type").addClass("bckgd--g-v");
+			if (currentIcon == 'partly-cloudy-night') {
+				console.log("Changed background to dark blue...");
+				console.log("partly-cloudy-night icon loaded...");
+				document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">';
+				$("#dynamic > div:first-of-type").addClass("bckgd--db-v");
+				$("#dynamic > div:first-of-type").removeClass("bckgd--y-m", "bckgd--b-m", "bckgd--db-m", "bckgd--g-m", "bckgd--g-v");
 			}
 
-			// console.log("Daily data:");
+			document.getElementById("data--daily--date").innerHTML = "";
+			// document.getElementById("data--daily--summary").innerHTML = "";
+			document.getElementById("data--daily--icon--text").innerHTML = "";
+			document.getElementById("data--daily--temp").innerHTML = "";
+			document.getElementById("data--daily--icon").innerHTML = "";
+
+			console.log(" ");
+			console.log("Daily data:");
 			for (var i = 0; i < skyData.daily.data.length; i++) {
 
 				// DATESTAMP
@@ -129,13 +206,57 @@ function getSkyData() {
 
 				var dailyDate = month + '-' + day + '-' + year;
 				var dailySummary = skyData.daily.data[i].summary;
+				var dailyIconText = skyData.daily.data[i].icon;
 				var dailyIcon = skyData.daily.data[i].icon;
+				var dailyTemp = Math.trunc(skyData.daily.data[i].apparentTemperatureHigh);
 
 				// console.log(dailyDate);
 				document.getElementById("data--daily--date").innerHTML += dailyDate + '<br>';
-				document.getElementById("data--daily--summary").innerHTML += dailySummary + '<br>';
-				document.getElementById("data--daily--icon").innerHTML += dailyIcon + '<br>';
+				// document.getElementById("data--daily--summary").innerHTML += dailySummary + '<br>';
+				document.getElementById("data--daily--icon--text").innerHTML += dailyIconText + '<br>';
+				document.getElementById("data--daily--temp").innerHTML += dailyTemp + '°' + '<br>';
 
+				// DYNAMIC DAILY ICONS
+				if (dailyIcon == 'clear-day') {
+					console.log("clear-day icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[0].icon + '">';
+				}
+				if (dailyIcon == 'clear-night') {
+					console.log("clear-night icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[1].icon + '">';
+				}
+				if (dailyIcon == 'rain') {
+					console.log("rain icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[2].icon + '">';
+				}
+				if (dailyIcon == 'snow') {
+					console.log("snow icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[3].icon + '">';
+				}
+				if (dailyIcon == 'sleet') {
+					console.log("sleet icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[4].icon + '">';
+				}
+				if (dailyIcon == 'wind') {
+					console.log("wind icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[5].icon + '">';
+				}
+				if (dailyIcon == 'fog') {
+					console.log("fog icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[6].icon + '">';
+				}
+				if (dailyIcon == 'cloudy') {
+					console.log("cloudy icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[7].icon + '">';
+				}
+				if (dailyIcon == 'partly-cloudy-day') {
+					console.log("partly-cloudy-day icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[8].icon + '">';
+				}
+				if (dailyIcon == 'partly-cloudy-night') {
+					console.log("partly-cloudy-night icon loaded...");
+					document.getElementById("data--daily--icon").innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[9].icon + '">';
+				}
 				// console.log(skyData.daily.data[i].summary);
 				// console.log("Humidity:");
 				// console.log(skyData.daily.data[i].humidity);
@@ -146,6 +267,8 @@ function getSkyData() {
 				// console.log(" ");
 
 			} //FOR
+
+			// document.getElementById("data--current--icon").innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">';
 
 		}, //SUCCESS
 		error: function (error) {
@@ -165,39 +288,25 @@ $(document).ready(function () {
 	});
 });
 
-// ICON WORK
-// function dataIcons() {
-// 	var i,
-// 		icons = new dataIcons({
-// 			"color": "#FFFFFF",
-// 			"resizeClear": true // nasty android hack
-// 		}),
-// 		list = [ // listing of all possible icons
-// 			"clear-day",
-// 			"clear-night",
-// 			"partly-cloudy-day",
-// 			"partly-cloudy-night",
-// 			"cloudy",
-// 			"rain",
-// 			"sleet",
-// 			"snow",
-// 			"wind",
-// 			"fog"
-// 		];
+// AUTOCOMPLETE
+var input = document.getElementById('searchTextField');
 
-// 	// loop thru icon list array
-// 	for (i = list.length; i--;) {
-// 		var weatherType = list[i], // select each icon from list array
-// 			// icons will have the name in the array above attached to the
-// 			// canvas element as a class so let's hook into them.
-// 			elements = document.getElementsByClassName(weatherType);
+function init() {
+	var options = {
+		types: ['(cities)']
+	};
+	var autocomplete = new google.maps.places.Autocomplete(input, options);
+}
+google.maps.event.addDomListener(window, 'load', init);
 
-// 		// loop thru the elements now and set them up
-// 		for (e = elements.length; e--;) {
-// 			icons.set(elements[e], weatherType);
-// 		}
-// 	}
+// SEARCH BUTTON
+document.getElementById('searchButton').addEventListener('click', sendRequest);
 
-// 	// animate the icons
-// 	icons.play();
-// }
+function sendRequest() {
+	myLat = -51.5074;
+	myLng = 0.1278;
+	getSkyData();
+	document.getElementById("data--location").innerHTML = '<h2>' + input.value + '</h2>';
+
+	console.log('Changed to London weather...');
+}

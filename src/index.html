@@ -36,10 +36,10 @@
 
 			<!-- BUTTONS -->
 			<div class="master">
-				<div class="btn btn--input">WELLINGTON NEW ZEALAND</div>
+				<div class="btn btn--input"><input id="searchTextField" type="text" autocomplete="off" placeholder="ENTER LOCATION..."></div>
 			</div>
 			<div class="master">
-				<div class="btn btn--search">SEARCH</div>
+				<div id="searchButton" class="btn btn--search">SEARCH</div>
 			</div>
 
 		</div>
@@ -47,23 +47,47 @@
 
 		<!--SECTION 2 - MIKE-->
 		<div id="mike" class="section section--mike">
+			<!-- DATA LOCATION -->
 			<div class="row">
-				<div class="col col-lg-6">
-					<div id="data--temp"></div>
+				<div class="col col-lg-12 master data--location">
+					<div id="data--location">
+
+					</div>
 				</div>
-				<div class="col col-lg-6">
-						<div id="data--temp--icon"></div>
-					</div>
-					<div class="col col-lg-2">
-						<div id="data--daily--date"></div>
-					</div>
-					<div class="col col-lg-6">
-						<div id="data--daily--summary"></div>
-					</div>
-					<div class="col col-lg-4">
-						<div id="data--daily--icon"></div>
-					</div>
 			</div>
+
+			<div class="row">
+				<!-- CURRENT DATA -->
+				<div class="col col-lg-3 master">
+					<div id="data--current--temp"></div>
+				</div>
+				<div class="col col-lg-6 master">
+					<div id="data--current--desc"></div>
+				</div>
+				<div class="col col-lg-3 master">
+					<div id="data--current--icon"></div>
+				</div>
+
+				<!-- DAILY DATA -->
+				<div class="col col-lg-3">
+					<div id="data--daily--date"></div>
+				</div>
+				<div class="col col-lg-5">
+					<div id="data--daily--icon--text"></div>
+				</div>
+
+				<div class="col col-lg-2">
+					<div id="data--daily--icon"></div>
+				</div>
+				<!-- <div class="col col-lg-6">
+						<div id="data--daily--summary"></div>
+					</div> -->
+				<div class="col col-lg-2">
+					<div id="data--daily--temp"></div>
+				</div>
+
+			</div>
+			<!-- ROW -->
 
 		</div>
 		<!--MIKE-->
@@ -109,7 +133,7 @@
 	<!-- MASTER CONTAINER -->
 
 	<!-- SCRIPT -->
-	<!-- <script type='text/javascript' src='https://darksky.net/widget/default/-41.2887,174.7772/uk12/en.js?width=100%&height=350&title=wellington&textColor=333333&bgColor=transparent&transparency=true&skyColor=undefined&fontFamily=Default&customFont=&units=uk&htColor=333333&ltColor=C7C7C7&displaySum=yes&displayHeader=yes'></script> -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKPTTAAHqSYFVf0hY2PvpunZ83z9vJMA&libraries=places"></script>
 	<script src="https://www.gstatic.com/charts/loader.js"></script>
 	<script src="framework/jquery-3.3.1.min.js"></script>
 	<script src="framework/popper-1.0.0.min.js"></script>
