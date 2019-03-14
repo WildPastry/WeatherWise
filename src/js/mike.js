@@ -298,7 +298,7 @@ $(document).ready(function () {
 		title: "<h2>WeatherWise aims to prioritize<br>preparedness so that users<br>know how to best dress and<br>prepare for the weather</h2>",
 		html: true,
 		placement: "left",
-		offset: '10%, 10'
+		offset: '15%, 15'
 	});
 });
 
