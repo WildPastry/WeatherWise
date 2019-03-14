@@ -1120,20 +1120,6 @@ html {
   width: 100%;
   height: 400px; }
 
-.master--logo {
-  margin-top: 200px;
-  margin-bottom: 200px; }
-
-.master--logo-img {
-  height: 191px;
-  width: 250px; }
-
-.tooltip > .tooltip-inner {
-  background-color: #0b1d30;
-  border: 1px solid #fff;
-  padding: 10px;
-  font-weight: lgt; }
-
 * {
   border: 0;
   box-sizing: border-box;
@@ -1165,13 +1151,7 @@ h3 {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 1.1em; }
-
-h4 {
-  color: #fff;
-  font-family: "Poppins", sans-serif;
-  font-weight: 900;
-  font-size: 1.4em; }
+  font-size: 1.2em; }
 
 h4 {
   color: #fff;

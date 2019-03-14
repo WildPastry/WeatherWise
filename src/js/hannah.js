@@ -1,3 +1,29 @@
+
+$.ajax({
+  url: 'https://api.darksky.net/forecast/89c0665fe610a17c4d0e1f0b30da6e7a/-41.2865,174.7762',
+  dataType: 'jsonp',
+  type: "GET",
+  success: function (dataFromJSON) {
+      console.log(dataFromJSON);
+
+      // for (var i = 0; i < dataFromJSON.events.length; i++) {
+      //   console.log(dataFromJSON.events[i].name, dataFromJSON.events[i].start);
+
+      console.log(dataFromJSON.daily.data[0].humidity);
+        // title[i] = dataFromJSON.events[i].name.text;
+        // hour[i] = dataFromJSON.events[i].start.local;
+        // isFree[i] = dataFromJSON.events[i].is_free;
+
+            // document.getElementById("info").innerHTML += title[i] + '&nbsp;' + hour[i] + '<br>';
+    // }
+  },
+
+  error: function (error) {
+      console.log(error);
+      console.log("Error...");
+  }
+});
+
 google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
