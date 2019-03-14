@@ -46,6 +46,14 @@ h3 {
 	font-size: $h3;
 }
 
+// Units e.g %, am, pm etc...
+h4 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h4;
+}
+
 // MASTER
 .master {
 	align-items: center;
@@ -85,7 +93,7 @@ h3 {
 	padding: 1em;
 	position: relative;
 	width: 95%;
-	background: #464646;
+	// background: #464646;
 }
 
 // BUTTON
@@ -110,61 +118,80 @@ h3 {
 .btn--input {
 	color: $wht;
 	background-color: $d-blu-v;
-	cursor: pointer;
+	cursor: text;
 }
 
 // ICON
+.icon--info {
+	cursor: help;
+	float: right;
+}
+
+.icon--info::after {
+	clear: right;
+}
+
 .icon--bg {
 	width: 100px;
 	height: 100px;
 }
+
 .icon--md {
-	width: 64px;
-	height: 64px;	
+	width: 50px;
+	height: 50px;
 }
+
 .icon--sml {
 	width: 32px;
 	height: 32px;
 }
 
 // BACKGROUNDS
-.bckgd--y-m{
+.bckgd--y-m {
 	background: $ylw;
 }
-.bckgd--y-p{
+
+.bckgd--y-p {
 	background: $ylw-p;
 }
-.bckgd--y-v{
+
+.bckgd--y-v {
 	background: $ylw-v;
 }
 
-.bckgd--g-m{
+.bckgd--g-m {
 	background: $gry;
 }
-.bckgd--g-p{
+
+.bckgd--g-p {
 	background: $gry-p;
 }
-.bckgd--g-v{
+
+.bckgd--g-v {
 	background: $gry-v;
 }
 
-.bckgd--b-m{
+.bckgd--b-m {
 	background: $l-blu;
 }
-.bckgd--b-p{
+
+.bckgd--b-p {
 	background: $l-blu-p;
 }
-.bckgd--b-v{
+
+.bckgd--b-v {
 	background: $l-blu-v;
 }
 
-.bckgd--db-m{
+.bckgd--db-m {
 	background: $d-blu;
 }
-.bckgd--db-p{
+
+.bckgd--db-p {
 	background: $d-blu-p;
 }
-.bckgd--db-v{
+
+.bckgd--db-v {
 	background: $d-blu-v;
 }
 

@@ -1113,6 +1113,27 @@ html {
   .align-self-xl-stretch {
     align-self: stretch !important; } }
 
+.inline {
+  display: inline; }
+
+#chart_div {
+  width: 100%;
+  height: 400px; }
+
+.master--logo {
+  margin-top: 200px;
+  margin-bottom: 200px; }
+
+.master--logo-img {
+  height: 191px;
+  width: 250px; }
+
+.tooltip > .tooltip-inner {
+  background-color: #0b1d30;
+  border: 1px solid #fff;
+  padding: 10px;
+  font-weight: lgt; }
+
 * {
   border: 0;
   box-sizing: border-box;
@@ -1126,7 +1147,7 @@ body {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  font-size: 1em; }
+  font-size: 0.8em; }
 
 h1 {
   color: #fff;
@@ -1144,7 +1165,19 @@ h3 {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 1.5em; }
+  font-size: 1.1em; }
+
+h4 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 1.4em; }
+
+h4 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2em; }
 
 .master {
   align-items: center;
@@ -1176,26 +1209,83 @@ h3 {
   max-width: 500px;
   padding: 1em;
   position: relative;
-  width: 95%;
-  background: #464646; }
+  width: 95%; }
 
 .btn {
   width: 90%;
   line-height: 40px;
   height: 40px;
   display: block;
-  background-color: #0b1d30;
   border: 1px solid #fff;
   text-align: center;
   margin-top: 20px;
   font-family: "Poppins", sans-serif;
-  font-size: 1.4em;
-  color: #fff; }
+  font-size: 1.4em; }
 
 .btn--search {
   color: #0b1d30;
   background-color: #fff;
   cursor: pointer; }
+
+.btn--input {
+  color: #fff;
+  background-color: #0b1d30;
+  cursor: text; }
+
+.icon--info {
+  cursor: help;
+  float: right; }
+
+.icon--info::after {
+  clear: right; }
+
+.icon--bg {
+  width: 100px;
+  height: 100px; }
+
+.icon--md {
+  width: 50px;
+  height: 50px; }
+
+.icon--sml {
+  width: 32px;
+  height: 32px; }
+
+.bckgd--y-m {
+  background: #ffb33b; }
+
+.bckgd--y-p {
+  background: #ffca76; }
+
+.bckgd--y-v {
+  background: #ff9e3e; }
+
+.bckgd--g-m {
+  background: #6d849e; }
+
+.bckgd--g-p {
+  background: #99a9bb; }
+
+.bckgd--g-v {
+  background: #5a6977; }
+
+.bckgd--b-m {
+  background: #2484c6; }
+
+.bckgd--b-p {
+  background: #66a9d7; }
+
+.bckgd--b-v {
+  background: #136999; }
+
+.bckgd--db-m {
+  background: #102949; }
+
+.bckgd--db-p {
+  background: #586980; }
+
+.bckgd--db-v {
+  background: #0b1d30; }
 
 @media screen and (min-width: 500px) {
   .master--warning {
