@@ -1113,6 +1113,13 @@ html {
   .align-self-xl-stretch {
     align-self: stretch !important; } }
 
+.inline {
+  display: inline; }
+
+#chart_div {
+  width: 100%;
+  height: 400px; }
+
 .master--logo {
   margin-top: 200px;
   margin-bottom: 200px; }
@@ -1126,9 +1133,6 @@ html {
   border: 1px solid #fff;
   padding: 10px;
   font-weight: lgt; }
-
-.inline {
-  display: inline; }
 
 * {
   border: 0;
@@ -1168,6 +1172,12 @@ h4 {
   font-family: "Poppins", sans-serif;
   font-weight: 900;
   font-size: 1.4em; }
+
+h4 {
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-size: 2em; }
 
 .master {
   align-items: center;
