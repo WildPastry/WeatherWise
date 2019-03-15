@@ -3,7 +3,7 @@
 @import "variables";
 
 // LOADER
-#master--loader{
+#master--loader {
 	background: #0b1d30e3;
 	// display: none;
 	height: 100%;
@@ -57,6 +57,24 @@
 	margin-bottom: 1.5em;
 }
 
+// DAILY DATA
+.data--daily {
+	height: 50px;
+	line-height: 50px;
+}
+
+#data--daily--icon {
+	height: 350px;
+}
+
+#data--daily-bg {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	margin: 25px auto;
+}
+
 // AUTOCOMPLETE
 input {
 	width: 100%;
@@ -73,4 +91,22 @@ input {
 
 .floatRight::after {
 	clear: right;
+}
+
+.marginTop {
+	margin-top: 10px;
+}
+
+.marginLeft {
+	margin-left: 25px;
+}
+
+.bold {
+	font-weight: $bld;
+	letter-spacing: 2px;
+}
+
+.light {
+	font-weight: $lgt;
+	letter-spacing: 2px;
 }
