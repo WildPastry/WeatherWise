@@ -28,7 +28,7 @@
 
 		<!-- INFO -->
 		<div class="icon">
-			<img class="icon--info icon--md tooltip" src="icon/ww-info.svg" alt="WeatherWise Information">
+			<img id="icon--info" class="icon--info icon--md" src="icon/ww-info.svg" alt="WeatherWise Information">
 		</div>
 
 		<!--SECTION 1 - INTRO-->
@@ -41,9 +41,9 @@
 
 			<!-- BUTTONS -->
 			<!-- ENTER LOCATION BUTTON -->
-			<div class="master">
+			<div class="master search--text--field--div">
 				<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field" type="text" autocomplete="off"
-					 placeholder="Enter location..."></div>
+					 placeholder="Enter location" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter location'" onClick="this.setSelectionRange(0, this.value.length)"></div>
 			</div>
 			<!-- SEARCH BUTTON -->
 			<div class="master">
@@ -72,12 +72,15 @@
 				<div class="col col-lg-12">
 					<div id="data--current--date"></div>
 				</div>
-				<!-- CURRENT TEMP -->
+				<!-- HIGH AND LOW TEMPS -->
 				<div class="col col-lg-4 master">
-					<div id="data--current--temp"></div>
+					<div id="data--current--temp-high"></div>
+
 				</div>
+
 				<div class="col col-lg-4 master">
 					<div id="data--current--temp-low"></div>
+
 				</div>
 				<!-- CURRENT ICON -->
 				<div class="col col-lg-4 master">

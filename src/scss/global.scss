@@ -18,7 +18,7 @@ body {
 	background: $d-blu-v;
 	color: $wht;
 	font-family: $main-font;
-	font-weight: $lgt;
+	font-weight: $reg;
 	font-size: $bdy;
 	letter-spacing: 0.1px;
 }
@@ -111,11 +111,6 @@ h5 {
 	height: 100%;
 }
 
-// ROW
-// .row {
-// 	width: 90%;
-// }
-
 // BUTTON
 .btn {
 	width: 90%;
@@ -130,14 +125,12 @@ h5 {
 }
 
 .btn--search {
-	color: $d-blu-v;
 	background-color: $wht;
 	cursor: pointer;
 }
 
 .btn--input {
 	color: $wht;
-	// background-color: $d-blu-v;
 	cursor: text;
 }
 
@@ -167,50 +160,49 @@ h5 {
 }
 
 // BACKGROUNDS
+// YELLOW
 .bckgd--y-m {
 	background: $ylw;
 }
-
 .bckgd--y-p {
 	background: $ylw-p;
 }
-
 .bckgd--y-v {
 	background: $ylw-v;
 }
 
+// GREY
 .bckgd--g-m {
 	background: $gry;
 }
-
 .bckgd--g-p {
 	background: $gry-p;
 }
-
 .bckgd--g-v {
 	background: $gry-v;
 }
+.bckgd--dg-v {
+	background: $d-gry-v;
+}
 
+// BLUE
 .bckgd--b-m {
 	background: $l-blu;
 }
-
 .bckgd--b-p {
 	background: $l-blu-p;
 }
-
 .bckgd--b-v {
 	background: $l-blu-v;
 }
 
+// DARK BLUE
 .bckgd--db-m {
 	background: $d-blu;
 }
-
 .bckgd--db-p {
 	background: $d-blu-p;
 }
-
 .bckgd--db-v {
 	background: $d-blu-v;
 }

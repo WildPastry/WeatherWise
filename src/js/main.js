@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-15 */ 
+/*! weatherwise - v1.0.0 - 2019-03-16 */ 
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
 console.log('javascript ready...');
@@ -32,13 +32,16 @@ var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
 var myLat = -41.2865;
 var myLng = 174.7762;
 
+// AUTOCOMPLETE VARIABLE
+var input = document.getElementById('search--text--field');
+
 // DATE VARIABLES
 var now = new Date();
 var days = new Array('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY');
 var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 
 // CURRENT DATA VARIABLES
-var getCurrentTemp = document.getElementById("data--current--temp");
+var getCurrentTempHigh = document.getElementById("data--current--temp-high");
 var getCurrentTempLow = document.getElementById("data--current--temp-low");
 var getCurrentDesc = document.getElementById("data--current--desc");
 var getCurrentIcon = document.getElementById("data--current--icon");
@@ -52,7 +55,6 @@ var getSearchButton = document.getElementById("search--button");
 // DAILY DATA VARIABLES
 var getDailyBG = document.getElementById("data--daily-bg");
 var getDailyDate = document.getElementById("data--daily--date");
-// var getDailyIconText = document.getElementById("data--daily--icon--text");
 var getDailyTemp = document.getElementById("data--daily--temp");
 var getDailyTempLow = document.getElementById("data--daily--temp-low");
 var getDailyIcon = document.getElementById("data--daily--icon");
@@ -113,27 +115,34 @@ function getSkyData() {
 			console.log("Current temperature:");
 			console.log(skyData.currently.temperature);
 
-			currentTemp = Math.trunc(skyData.daily.data[0].apparentTemperatureHigh);
+			currentTempHigh = Math.trunc(skyData.daily.data[0].apparentTemperatureHigh);
 			currentTempLow = Math.trunc(skyData.daily.data[0].apparentTemperatureLow);
 			currentIcon = skyData.currently.icon;
 			currentDesc = skyData.daily.summary;
-			// currentDesc = skyData.currently.summary;
 
 			// WRITE CURRENT DATA TO APP
-			getCurrentTemp.innerHTML = '<h1 class="bold">' + currentTemp + '°' + '</h1>';
-			getCurrentTempLow.innerHTML = '<h1 class="light">' + currentTempLow + '°' + '</h1>';
-			getCurrentDesc.innerHTML = '<h2>' + currentDesc + '</h2>';
+			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + ' ' + '</h1>' + '<p class="marginBot">high</p>';
+			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
+			getCurrentDesc.innerHTML = '<h3 class="borderTop">' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
 			if (currentIcon == 'clear-day') {
 				console.log("clear-day icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">' + '<p class="marginBot">clear day</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--g-v");
 				body.classList.add("bckgd--y-m");
 				getLocationDiv.style.backgroundColor = '#ff9e3e';
 				getSearchFieldDiv.style.backgroundColor = '#ff9e3e';
 				getSearchField.style.backgroundColor = '#ff9e3e';
+				getSearchButton.style.color = '#ff9e3e';
 				getDailyBG.style.backgroundColor = '#ffca76';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#ff9e3e');
+					});
+				});
 			}
 			if (currentIcon == 'clear-night') {
 				console.log("clear-night icon loaded...");
@@ -143,7 +152,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#0b1d30';
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
 				getSearchField.style.backgroundColor = '#0b1d30';
+				getSearchButton.style.color = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#0b1d30');
+					});
+				});
 			}
 			if (currentIcon == 'rain') {
 				console.log("rain icon loaded...");
@@ -153,7 +170,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#136999';
 				getSearchFieldDiv.style.backgroundColor = '#136999';
 				getSearchField.style.backgroundColor = '#136999';
+				getSearchButton.style.color = '#136999';
 				getDailyBG.style.backgroundColor = '#66a9d7';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#136999');
+					});
+				});
 			}
 			if (currentIcon == 'snow') {
 				console.log("snow icon loaded...");
@@ -163,7 +188,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#0b1d30';
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
 				getSearchField.style.backgroundColor = '#0b1d30';
+				getSearchButton.style.color = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#0b1d30');
+					});
+				});
 			}
 			if (currentIcon == 'sleet') {
 				console.log("sleet icon loaded...");
@@ -173,7 +206,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#136999';
 				getSearchFieldDiv.style.backgroundColor = '#136999';
 				getSearchField.style.backgroundColor = '#136999';
+				getSearchButton.style.color = '#136999';
 				getDailyBG.style.backgroundColor = '#66a9d7';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#136999');
+					});
+				});
 			}
 			if (currentIcon == 'wind') {
 				console.log("wind icon loaded...");
@@ -183,7 +224,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#323b44';
 				getSearchFieldDiv.style.backgroundColor = '#323b44';
 				getSearchField.style.backgroundColor = '#323b44';
+				getSearchButton.style.color = '#323b44';
 				getDailyBG.style.backgroundColor = '#566470';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#323b44');
+					});
+				});
 			}
 			if (currentIcon == 'fog') {
 				console.log("fog icon loaded...");
@@ -193,7 +242,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#5a6977';
 				getSearchFieldDiv.style.backgroundColor = '#5a6977';
 				getSearchField.style.backgroundColor = '#5a6977';
+				getSearchButton.style.color = '#5a6977';
 				getDailyBG.style.backgroundColor = '#99a9bb';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#5a6977');
+					});
+				});
 			}
 			if (currentIcon == 'cloudy') {
 				console.log("cloudy icon loaded...");
@@ -203,7 +260,15 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#323b44';
 				getSearchFieldDiv.style.backgroundColor = '#323b44';
 				getSearchField.style.backgroundColor = '#323b44';
+				getSearchButton.style.color = '#323b44';
 				getDailyBG.style.backgroundColor = '#566470';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#323b44');
+					});
+				});
 			}
 			if (currentIcon == 'partly-cloudy-day') {
 				console.log("partly-cloudy-day icon loaded...");
@@ -213,22 +278,37 @@ function getSkyData() {
 				getLocationDiv.style.backgroundColor = '#5a6977';
 				getSearchFieldDiv.style.backgroundColor = '#5a6977';
 				getSearchField.style.backgroundColor = '#5a6977';
+				getSearchButton.style.color = '#5a6977';
 				getDailyBG.style.backgroundColor = '#99a9bb';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#5a6977');
+					});
+				});
 			}
 			if (currentIcon == 'partly-cloudy-night') {
 				console.log("partly-cloudy-night icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">'+ '<p class="marginBot">cloudy night</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
 				getSearchField.style.backgroundColor = '#0b1d30';
+				getSearchButton.style.color = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
+				// TOOLTIPS
+				$(document).ready(function () {
+					$(".icon--info").tooltip();
+					$('#icon--info').hover(function () {
+						changeTooltipColorTo('#0b1d30');
+					});
+				});
 			}
 
 			// CLEAR DAILY DATA
 			getDailyDate.innerHTML = "";
-			// getDailyIconText.innerHTML = "";
 			getDailyTemp.innerHTML = "";
 			getDailyTempLow.innerHTML = "";
 			getDailyIcon.innerHTML = "";
@@ -249,16 +329,14 @@ function getSkyData() {
 
 				// DAILY DATA PREPERATION
 				dailyDay = getDayOfWeek(dailyDate);
-				// var dailyIconText = skyData.daily.data[i].icon;
 				var dailyTemp = Math.trunc(skyData.daily.data[i].apparentTemperatureHigh);
 				var dailyTempLow = Math.trunc(skyData.daily.data[i].apparentTemperatureLow);
 				var dailyIcon = skyData.daily.data[i].icon;
 
 				// WRITE DAILY DATA TO APP
 				getDailyDate.innerHTML += '<p class="data--daily">' + dailyDay + '</p>';
-				// getDailyIconText.innerHTML += '<p class="data--daily">' + dailyIconText + '</p>';
-				getDailyTemp.innerHTML += '<p class="data--daily bold">' + dailyTemp + '°' + '</p>';
-				getDailyTempLow.innerHTML += '<p class="data--daily">' + dailyTempLow + '°' + '</p>';
+				getDailyTemp.innerHTML += '<p class="data--daily bold space">' + dailyTemp + '°' + '</p>';
+				getDailyTempLow.innerHTML += '<p class="data--daily space">' + dailyTempLow + '°' + '</p>';
 
 				// DAILY DYNAMIC ICON
 				iconWrapper = document.getElementById('iconWrapper');
@@ -332,10 +410,10 @@ function getSkyData() {
 			currentMonth = months[now.getMonth()] + " " + daysPLUSmonths;
 
 			// WRITE CURRENT DATE TO APP
-			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '</span>' + currentMonth + 'th' + '</h2>';
+			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
 
-			// LOADER
-			$('#master--loader').delay(350).fadeOut('slow');
+			$('#master--loader').delay(350).fadeOut('slow'); // LOADER
+
 		}, //SUCCESS
 		error: function (error) {
 			console.log(error);
@@ -361,25 +439,42 @@ function getDayOfWeek(date) {
 	return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
 }
 
-// TOOLTIP
+// TOOLTIPS
 $(document).ready(function () {
 	$('.icon--info').tooltip({
+		template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
+		trigger: 'hover',
 		title: "<p>WeatherWise aims to prioritize<br>preparedness so that users<br>know how to best dress and<br>prepare for the weather</p>",
 		html: true,
 		placement: "left",
-		offset: '15%, 15'
+		offset: '40, 15',
 	});
 });
+$('.search--text--field--div').tooltip({
+	template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
+	trigger: 'manual',
+	title: "<p>Please enter a location to view weather</p>",
+	html: true,
+	placement: "top",
+});
+
+// DYNAMIC TOOLTIP BACKGROUNDS
+function changeTooltipColorTo(color) {
+	$('.tooltip-inner').css('background-color', color);
+	$('.tooltip.top .tooltip-arrow').css('border-top-color', color);
+	$('.tooltip.right .tooltip-arrow').css('border-right-color', color);
+	$('.tooltip.left .tooltip-arrow').css('border-left-color', color);
+	$('.tooltip.bottom .tooltip-arrow').css('border-bottom-color', color);
+}
 
 // AUTOCOMPLETE
-var input = document.getElementById('search--text--field');
-
 function init() {
 	var options = {
 		types: ['(cities)']
 	};
 	var autocomplete = new google.maps.places.Autocomplete(input, options);
-
+	autocomplete.setFields(
+		['geometry', 'name']);
 	google.maps.event.addListener(autocomplete, 'place_changed', function () {
 		var place = autocomplete.getPlace();
 		myLat = place.geometry.location.lat();
@@ -393,10 +488,12 @@ getSearchButton.addEventListener('click', sendRequest);
 
 function sendRequest() {
 	if (input.value == null || input.value == "") {
-		console.log('Please enter location...');
+		$('.search--text--field--div').tooltip('show');
 		getSearchField.innerHTML = 'Please enter location...';
 		return false;
 	} else {
+		console.log('Please enter location...');
+		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
 		console.log('Location changed to ' + input.value);

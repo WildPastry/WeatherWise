@@ -24,8 +24,8 @@
 
 // MASTER LOGO
 .master--logo {
-	margin-top: 200px;
-	margin-bottom: 180px;
+	margin-top: 120px;
+	margin-bottom: 120px;
 }
 
 .master--logo-img {
@@ -35,14 +35,17 @@
 
 // TOOLTIP
 .tooltip>.tooltip-inner {
-	// background-color: $d-blu-v;
 	border: 1px solid $wht;
 	padding: 10px;
-	font-weight: lgt;
 }
 
 // .tooltip-arrow {
-// 	border-left: 15px solid $wht;
+// 	border-right: 15px solid $wht;
+	// width: 10px;
+    // height: 10px;
+    // border-style: solid;
+    // position: absolute;
+    // margin: 5px;
 //   }
 
 // DATA LOCATION
@@ -85,6 +88,23 @@ input {
 	text-align: center;
 }
 
+.pac-container {
+	cursor: pointer;
+	font-size: $h2;
+}
+
+.pac-item {
+	cursor: pointer;
+	border: none;
+	height: 40px;
+	line-height: 40px;
+}
+
+// .pac-icon {
+// 	color: #f34949;
+// }
+
+// GENERAL MODIFIERS
 .floatRight {
 	float: right;
 }
@@ -101,12 +121,27 @@ input {
 	margin-left: 25px;
 }
 
+.marginBot {
+	margin-bottom: 15px;
+}
+
+.borderTop{
+	border-top: 1px solid $wht;
+	padding: 10px;
+}
+
 .bold {
 	font-weight: $bld;
-	letter-spacing: 2px;
 }
 
 .light {
 	font-weight: $lgt;
+}
+
+.space {
 	letter-spacing: 2px;
+}
+
+.red {
+	background: $red !important;
 }

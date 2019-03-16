@@ -1130,8 +1130,8 @@ html {
   width: 250px; }
 
 .master--logo {
-  margin-top: 200px;
-  margin-bottom: 180px; }
+  margin-top: 120px;
+  margin-bottom: 120px; }
 
 .master--logo-img {
   height: 191px;
@@ -1139,8 +1139,7 @@ html {
 
 .tooltip > .tooltip-inner {
   border: 1px solid #fff;
-  padding: 10px;
-  font-weight: lgt; }
+  padding: 10px; }
 
 .data--location {
   display: flex;
@@ -1174,6 +1173,16 @@ input {
   color: #fff;
   text-align: center; }
 
+.pac-container {
+  cursor: pointer;
+  font-size: 1.3em; }
+
+.pac-item {
+  cursor: pointer;
+  border: none;
+  height: 40px;
+  line-height: 40px; }
+
 .floatRight {
   float: right; }
 
@@ -1186,13 +1195,24 @@ input {
 .marginLeft {
   margin-left: 25px; }
 
+.marginBot {
+  margin-bottom: 15px; }
+
+.borderTop {
+  border-top: 1px solid #fff;
+  padding: 10px; }
+
 .bold {
-  font-weight: 900;
-  letter-spacing: 2px; }
+  font-weight: 900; }
 
 .light {
-  font-weight: 300;
+  font-weight: 300; }
+
+.space {
   letter-spacing: 2px; }
+
+.red {
+  background: #f34949 !important; }
 
 * {
   border: 0;
@@ -1206,7 +1226,7 @@ body {
   background: #0b1d30;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: 1.1em;
   letter-spacing: 0.1px; }
 
@@ -1291,7 +1311,6 @@ h5 {
   font-size: 1.3em; }
 
 .btn--search {
-  color: #0b1d30;
   background-color: #fff;
   cursor: pointer; }
 
@@ -1335,6 +1354,9 @@ h5 {
 
 .bckgd--g-v {
   background: #46535f; }
+
+.bckgd--dg-v {
+  background: #323b44; }
 
 .bckgd--b-m {
   background: #2484c6; }
