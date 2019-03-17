@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-17 */ 
+/*! weatherwise - v1.0.0 - 2019-03-18 */ 
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
 console.log('javascript ready...');
@@ -10,33 +10,6 @@ $(document).ready(function () {
 // LOADER
 $('#master--loader').show();
 
-// GEOLOCATION FUNCTION
-function getGeoLocation() {
-
-	//SET GEO LAT AND LNG
-	navigator.geolocation.getCurrentPosition(function (position, html5Error) {
-
-		geo_loc = processGeolocationResult(position);
-		currLatLong = geo_loc.split(",");
-		currLatLong[1] = myLat;
-		currLatLong[0] = myLng;
-
-		console.log("GeoLocation:");
-		console.log(currLatLong[0]);
-		console.log(currLatLong[1]);
-		getSkyData();
-	});
-
-	//GET GEO LOCATION RESULT
-	function processGeolocationResult(position) {
-		html5Lat = position.coords.latitude; //GET LAT
-		html5Lon = position.coords.longitude; //GET LNG
-		html5TimeStamp = position.timestamp; //GET TIMESTAMP
-		html5Accuracy = position.coords.accuracy; //ACCURACY
-		return (html5Lat).toFixed(6) + ", " + (html5Lon).toFixed(6);
-	}
-}
-
 // SKY KEY
 $.ajax({
 	url: '../config.json',
@@ -45,7 +18,7 @@ $.ajax({
 	success: function (keys) {
 		console.log('key loaded...');
 		skyKey = keys[0].SKY;
-		getGeoLocation();
+		checkGeo();
 	},
 	error: function (error) {
 		console.log(error);
@@ -56,8 +29,7 @@ $.ajax({
 // VARIABLES
 var body = document.body;
 var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
-var myLat = -41.2865;
-var myLng = 174.7762;
+var myLat, myLng;
 
 // AUTOCOMPLETE VARIABLE
 var input = document.getElementById('search--text--field');
@@ -128,12 +100,11 @@ var dataIcons = [{
 ];
 
 // WRITE DEFAULT LOCATION TO APP
-getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
-getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
+getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Your location, New Zealand" + '</h2>';
+getTopLocation.innerHTML = '<p>' + "Your location, New Zealand" + '</p>';
 
 // DATA
 function getSkyData() {
-	// LOADER
 	$('#master--loader').show();
 	$.ajax({
 		url: 'https://api.darksky.net/forecast/' + skyKey + '/' + myLat + ',' + myLng + '?units=si',
@@ -448,8 +419,7 @@ function getSkyData() {
 
 			// WRITE CURRENT DATE TO APP
 			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
-
-			$('#master--loader').delay(350).fadeOut('slow'); // LOADER
+			$('#master--loader').delay(350).fadeOut('slow');
 
 		}, //SUCCESS
 		error: function (error) {
@@ -534,8 +504,6 @@ function sendRequest() {
 	if (input.value == null || input.value == "") {
 		$('.search--text--field--div').tooltip('show');
 		getSearchField.innerHTML = 'Please enter location...';
-
-		// REMOVE WARNING TOOLTIP
 		removeWarning();
 
 		return false;
@@ -548,5 +516,82 @@ function sendRequest() {
 		// WRITE CURRENT LOCATION TO APP
 		console.log('Location changed to ' + input.value);
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
+	}
+}
+
+// CHECK IF ACCESS ALLOWED
+function checkGeo() {
+	navigator.geolocation.watchPosition(function (position) {
+			console.log("Geolocation success");
+			getGeoLocation();
+		},
+		function (error) {
+			if (error.code == error.PERMISSION_DENIED)
+				console.log("Geolocation access denied...");
+			myLat = -41.2865;
+			myLng = 174.7762;
+			getSkyData();
+		});
+}
+
+// GEOLOCATION FUNCTION
+function getGeoLocation() {
+
+	var currentLocation;
+
+	// SET GEO LOCATION
+	navigator.geolocation.getCurrentPosition(function (position, html5Error) {
+
+		geo_loc = processGeolocationResult(position);
+		currLatLong = geo_loc.split(",");
+		initializeCurrent(currLatLong[0], currLatLong[1]);
+		console.log(currLatLong[0]);
+		console.log(currLatLong[1]);
+		myLat = (currLatLong[0]);
+		myLng = (currLatLong[1]);
+		// if (myLat == "undefined" || myLng == "undefined") {
+		// 	myLat = -41.2865;
+		// 	myLng = 174.7762;
+		// 	getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
+		// 	getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
+		// }
+		getSkyData();
+
+	});
+
+	// GET GEO LOCATION
+	function processGeolocationResult(position) {
+		html5Lat = position.coords.latitude; // GET LAT
+		html5Lon = position.coords.longitude; // GET LNG
+		html5TimeStamp = position.timestamp; // GET TIMESTAMP
+		html5Accuracy = position.coords.accuracy; // ACCURACY
+		return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
+	}
+
+	// CHECK VALUE
+	function initializeCurrent(latcurr, longcurr) {
+		currentLocation = new google.maps.Geocoder();
+		console.log(latcurr + "-- ######## --" + longcurr);
+
+		if (latcurr != '' && longcurr != '') {
+			var myLatlng = new google.maps.LatLng(latcurr, longcurr);
+			return getCurrentAddress(myLatlng);
+		}
+	}
+
+	// GET ACTUAL ADDRESS
+	function getCurrentAddress(location) {
+		currentLocation.geocode({
+			'location': location
+
+		}, function (results, status) {
+
+			if (status == google.maps.GeocoderStatus.OK) {
+				console.log(results[0]);
+				$("#address").html(results[0].formatted_address);
+			} else {
+				alert('No Geolocation Support ' + status);
+			}
+		});
 	}
 }

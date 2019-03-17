@@ -1186,7 +1186,18 @@ input {
   font-size: 1.1em !important;
   font-weight: 400;
   color: #fff;
-  text-align: center; }
+  text-align: center;
+  -webkit-appearance: none !important;
+  box-shadow: none !important; }
+
+:-webkit-autofill {
+  color: #fff !important; }
+
+::placeholder {
+  color: #fff !important; }
+
+input::placeholder {
+  color: #fff !important; }
 
 .pac-container {
   cursor: pointer;

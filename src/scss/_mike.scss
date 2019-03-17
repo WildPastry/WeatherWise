@@ -96,6 +96,20 @@ input {
 	font-weight: $reg;
 	color: $wht;
 	text-align: center;
+	-webkit-appearance: none !important;
+	box-shadow: none !important;
+}
+
+:-webkit-autofill {
+	color: $wht !important;
+}
+
+::placeholder {
+	color: $wht !important;
+}
+
+input::placeholder {
+	color: $wht !important;
 }
 
 .pac-container {
