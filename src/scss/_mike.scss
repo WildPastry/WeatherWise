@@ -92,7 +92,7 @@
 input {
 	width: 100%;
 	font-family: $main-font;
-	font-size: $h3;
+	font-size: $bdy !important;
 	font-weight: $reg;
 	color: $wht;
 	text-align: center;
@@ -170,7 +170,7 @@ input {
 }
 
 .space {
-	letter-spacing: 2px;
+	letter-spacing: 1px;
 }
 
 .noSpace {

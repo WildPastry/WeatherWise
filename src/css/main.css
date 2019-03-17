@@ -1183,7 +1183,7 @@ html {
 input {
   width: 100%;
   font-family: "Poppins", sans-serif;
-  font-size: 1.1em;
+  font-size: 1.1em !important;
   font-weight: 400;
   color: #fff;
   text-align: center; }
@@ -1242,7 +1242,7 @@ input {
   font-style: italic; }
 
 .space {
-  letter-spacing: 2px; }
+  letter-spacing: 1px; }
 
 .noSpace {
   letter-spacing: 0.1px; }
@@ -1345,7 +1345,7 @@ h5 {
   text-align: center;
   margin-top: 20px;
   font-family: "Poppins", sans-serif;
-  font-size: 1.3em; }
+  font-size: 1.1em !important; }
 
 .btn--search {
   background-color: #fff;

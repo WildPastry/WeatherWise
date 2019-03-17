@@ -11,59 +11,31 @@ $(document).ready(function () {
 $('#master--loader').show();
 
 // GEOLOCATION FUNCTION
-// function getGeoLocation() {
-// 	var currgeocoder;
+function getGeoLocation() {
 
-// 	//Set geo location lat and long
-// 	navigator.geolocation.getCurrentPosition(function (position, html5Error) {
+	//SET GEO LAT AND LNG
+	navigator.geolocation.getCurrentPosition(function (position, html5Error) {
 
-// 		geo_loc = processGeolocationResult(position);
-// 		currLatLong = geo_loc.split(",");
-// 		initializeCurrent(currLatLong[0], currLatLong[1]);
+		geo_loc = processGeolocationResult(position);
+		currLatLong = geo_loc.split(",");
+		currLatLong[1] = myLat;
+		currLatLong[0] = myLng;
 
-// 	});
+		console.log("GeoLocation:");
+		console.log(currLatLong[0]);
+		console.log(currLatLong[1]);
+		getSkyData();
+	});
 
-// 	//Get geo location result
-// 	function processGeolocationResult(position) {
-// 		html5Lat = position.coords.latitude; //Get latitude
-// 		html5Lon = position.coords.longitude; //Get longitude
-// 		html5TimeStamp = position.timestamp; //Get timestamp
-// 		html5Accuracy = position.coords.accuracy; //Get accuracy in meters
-// 		return (html5Lat).toFixed(6) + ", " + (html5Lon).toFixed(6);
-// 	}
-
-// 	//Check value is present or not & call google api function
-// 	function initializeCurrent(myLat, myLng) {
-// 		currgeocoder = new google.maps.Geocoder();
-// 		console.log(myLat);
-// 		console.log(myLng);
-// 		getSkyData();
-// 		if (myLat != '' && myLng != '') {
-// 			var myLatlng = new google.maps.LatLng(myLat, myLng);
-// 			return getCurrentAddress(myLatlng);
-// 		}
-
-// 	}
-
-// 	//Get current address
-// 	function getCurrentAddress(location) {
-// 		currgeocoder.geocode({
-// 			'location': location
-
-// 		}, function (results, status) {
-
-// 			if (status == google.maps.GeocoderStatus.OK) {
-
-// 				   console.log(results[0]);
-
-// 			} else {
-// 				console.log('Geocode was not successful for the following reason: ' + status);
-// 				myLat = -41.2865;
-// 				myLng = 174.7762;
-// 			}
-// 		});
-// 	}
-// }
+	//GET GEO LOCATION RESULT
+	function processGeolocationResult(position) {
+		html5Lat = position.coords.latitude; //GET LAT
+		html5Lon = position.coords.longitude; //GET LNG
+		html5TimeStamp = position.timestamp; //GET TIMESTAMP
+		html5Accuracy = position.coords.accuracy; //ACCURACY
+		return (html5Lat).toFixed(6) + ", " + (html5Lon).toFixed(6);
+	}
+}
 
 // SKY KEY
 $.ajax({
@@ -73,7 +45,7 @@ $.ajax({
 	success: function (keys) {
 		console.log('key loaded...');
 		skyKey = keys[0].SKY;
-		getSkyData();
+		getGeoLocation();
 	},
 	error: function (error) {
 		console.log(error);
@@ -157,7 +129,7 @@ var dataIcons = [{
 
 // WRITE DEFAULT LOCATION TO APP
 getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
-getTopLocation.innerHTML = '<p>' +  "Wellington, New Zealand" + '</p>';
+getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
 
 // DATA
 function getSkyData() {
@@ -182,6 +154,9 @@ function getSkyData() {
 			currentDesc = skyData.hourly.summary;
 
 			// WRITE CURRENT DATA TO APP
+			// getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
+			// getTopLocation.innerHTML = '<p>' + input.value + '</p>';
+
 			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>';
 			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + '&nbsp;' + '</h1>' + '<p class="marginBot">high</p>';
 			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
@@ -569,8 +544,9 @@ function sendRequest() {
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
-		// WRITE CURRENT LOCATION
+
+		// WRITE CURRENT LOCATION TO APP
 		console.log('Location changed to ' + input.value);
-		getTopLocation.innerHTML = '<p>' +  input.value + '</p>';
+		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
 	}
 }
