@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-17 */ 
+/*! weatherwise - v1.0.0 - 2019-03-18 */ 
 //  PLAN B SECONDS TO HOURS
 //  var time = sunrise
 // function secondsToHms(d) {
@@ -15,38 +15,38 @@
    //console.log(hDisplay + mDisplay + sDisplay); 
 //}
 
-/* var sunrise = date;
+unix_timestamp = dataFromJSON.daily.data[0].sunriseTime;
 //PLAN A SECONDS TO HOURS
  // Create a new JavaScript Date object based on the timestamp
-// multiplied by 1000 so that the argument is in milliseconds, not seconds.
-var date = new Date(unix_timestamp*1000);
+//multiplied by 1000 so that the argument is in milliseconds, not seconds.
+var date2 = new Date(unix_timestamp*1000);
 // Hours part from the timestamp
-var hours = date.getHours();
-console.log(date.getHours());
+var hours = date2.getHours();
+console.log(date2.getHours());
 // Minutes part from the timestamp
-var minutes = "0" + date.getMinutes();
+var minutes = "0" + date2.getMinutes();
 // Seconds part from the timestamp
-var seconds = "0" + date.getSeconds();
+var seconds = "0" + date2.getSeconds();
 
 // Will display time in 10:30:23 format
-var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);  */
-
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2); 
+console.log('hours');
 
 // PAGE LOADER
 $('#master--loader').show();
 var getSunrise = document.getElementById("data__time--sunrise");
 var getSunset = document.getElementById("data__time--sunset");
 //DATA
-console.log("hi");
-//jQuery.ajax({
 //function getDSData() {
  $.ajax({
     url: 'https://api.darksky.net/forecast/9a5e19b54f8f0b91a70e71fec66307e9/42.3601,-71.0589',
     dataType: 'jsonp',
     type: "GET",
     success: function (dataFromJSON) {
-        console.log("Data loaded...");
-        console.log(dataFromJSON);
+        // console.log("Data loaded...");
+        // console.log(dataFromJSON);
+        // console.log(dataFromJSON.daily.data[0].sunriseTime);
+        // console.log(dataFromJSON.daily.data[0].sunsetTime);
 
         sunrise = Math.trunc(dataFromJSON.daily.data[0].sunriseTime);
         //getSunrise.innerHTML = '<h1 id="data__time--sunrise">' + sunrise + '</h1>';
@@ -56,17 +56,6 @@ console.log("hi");
         //getSunset.innerHTML = '<h1 id="data__time--sunset">' + sunset + ' ' + '</h1>';
         getSunset.innerHTML = '<p id="data__time--sunset">' + sunset + ' ' + '</p>';
 
-
-
-       /*  function getSunRise() {
-            var sunrise = document.getElementById("data__time--sunrise");
-             getsunrise = Math.trunc(dataFromJSON.daily.data[0].sunriseTime);
-            //alert("function works");
-            return {
-                'srTime': sunrise,
-              };
-          }
-          window.onload = getSunRise; */
         
           
         // function getSunRise(idS) {
@@ -74,14 +63,6 @@ console.log("hi");
         //     var sunrise = document.getElementById("data__time--sunrise");
         // sunrise = Math.trunc(dataFromJSON.daily.data[0].sunriseTime);
         // }
-        
-        // console.log(sunrise);
-        //var sunrise = [dataFromJSON.daily.data[0].sunriseTime];
-        //var sunset = [dataFromJSON.daily.data[0].sunsetTime];
-        // var sunTimeData = [
-        //     [dataFromJSON.daily.data[0].sunriseTime],
-        //     [dataFromJSON.daily.data[0].sunsetTime]
-        //   ];
         //document.getElementById("#data__time--sunrise").innerHTML =  sunrise + " am";
         //   if(document.getElementById("#data__time--sunrise") != null){
         //     sunTimeData = document.getElementById("#data__time--sunrise").innerHTML;
@@ -97,8 +78,6 @@ console.log("hi");
         //console.log(dataFromJSON.daily.data[0].sunriseTime, dataFromJSON.daily.data[0].sunsetTime);
 
         //     title[i] = dataFromJSON.events[i].name.text;
-        console.log(dataFromJSON.daily.data[0].sunriseTime);
-        console.log(dataFromJSON.daily.data[0].sunsetTime);
         //     hour[i] = dataFromJSON.daily.data[0].sunriseTime.timezone;
 
         //document.getElementById("#data__time--sunrise").innerHTML += daily.data[0].sunriseTime;
