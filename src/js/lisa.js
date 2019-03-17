@@ -1,4 +1,4 @@
-
+/*! weatherwise - v1.0.0 - 2019-03-17 */ 
 /* var sunriseTime = date;
 //PLAN A SECONDS TO HOURS
  // Create a new JavaScript Date object based on the timestamp
@@ -34,23 +34,25 @@ var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 // })
 
 //DATA
-
+// console.log("hi");
 //jQuery.ajax({
- ajax({
+function getDSData() {
+ $.ajax({
     url: 'https://api.darksky.net/forecast/9a5e19b54f8f0b91a70e71fec66307e9/42.3601,-71.0589',
     dataType: 'jsonp',
     type: "GET",
     success: function (dataFromJSON) {
-        console.log("Data loaded...");
-        console.log(dataFromJSON);
-
-        var sunrise = [dataFromJSON.daily.data[0].sunriseTime];
-        var sunset = [dataFromJSON.daily.data[0].sunsetTime];
+        //console.log("Data loaded...");
+        //console.log(dataFromJSON);
+        sunrise = Math.trunc(dataFromJSON.daily.data[0].sunriseTime);
+        console.log(sunrise);
+        //var sunrise = [dataFromJSON.daily.data[0].sunriseTime];
+        //var sunset = [dataFromJSON.daily.data[0].sunsetTime];
         // var sunTimeData = [
         //     [dataFromJSON.daily.data[0].sunriseTime],
         //     [dataFromJSON.daily.data[0].sunsetTime]
         //   ];
-        document.getElementById("#data__time--sunrise").innerHTML =  sunrise + " am";
+        //document.getElementById("#data__time--sunrise").innerHTML =  sunrise + " am";
         //   if(document.getElementById("#data__time--sunrise") != null){
         //     sunTimeData = document.getElementById("#data__time--sunrise").innerHTML;
         // }
@@ -68,7 +70,6 @@ var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
         console.log(dataFromJSON.daily.data[0].sunriseTime);
         console.log(dataFromJSON.daily.data[0].sunsetTime);
         //     hour[i] = dataFromJSON.daily.data[0].sunriseTime.timezone;
-        //     isFree[i] = dataFromJSON.daily.data[0].is_free;
 
         //document.getElementById("#data__time--sunrise").innerHTML += daily.data[0].sunriseTime;
           //document.getElementById("#data__time--sunrise").innerHTML += title[i] + '&nbsp;' + hour[i] + '<br>';
@@ -83,27 +84,51 @@ var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
         console.log(error);
         console.log("Error...");
     }
-}); 
+ }); 
+ //ajax closed
+}
+//getDSData closed
 
-// var data = google.visualization.arrayToDataTable([
-//           ['Age', 'Weight'],
-//           [demoData[0].age,demoData[0].weight],
-//           [demoData[1].age,demoData[1].weight],
-//           [demoData[2].age,demoData[2].weight],
-//           [demoData[3].age,demoData[3].weight],
-//           [demoData[4].age,demoData[4].weight],
-//           [demoData[5].age,demoData[5].weight]
-          
-//         ]);
 
-//         var options = {
-//           title: 'Age vs. Weight comparison',
-//           hAxis: {title: 'Age', minValue: 0, maxValue: 15},
-//           vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
-//           legend: 'none'
-//         };
-
-//         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-//         chart.draw(data, options);
-//       }
+//COUNTDOWN
+function getTimeRemaining(endtime) {
+    var t = Date.parse(endtime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    //var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      'total': t,
+      //'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+  
+  function initializeClock(id, endtime) {
+    var clock = document.getElementById(id);
+    //var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
+  
+    function updateClock() {
+      var t = getTimeRemaining(endtime);
+  
+      //daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+  
+      if (t.total <= 0) {
+        clearInterval(timeinterval);
+      }
+    }
+  
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+  
+  var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+  initializeClock('clockdiv', deadline);
