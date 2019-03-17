@@ -20,6 +20,7 @@
 
 	<!-- LOADER -->
 	<div id="master--loader">
+		<img class="master--loader--animated-img" src="icon/ww-animated-loader.svg" alt="WeatherWise Page Loader">
 		<img class="master--loader-img" src="icon/ww-logo.svg" alt="WeatherWise Page Loader">
 	</div>
 
@@ -29,6 +30,12 @@
 		<!-- INFO -->
 		<div class="icon">
 			<img id="icon--info" class="icon--info icon--md" src="icon/ww-info.svg" alt="WeatherWise Information">
+		</div>
+
+		<!-- TOP TEMP -->
+		<div class="top--temp">
+			<div id="top--temp"></div>
+			<div id="top--location"></div>
 		</div>
 
 		<!--SECTION 1 - INTRO-->
@@ -45,6 +52,7 @@
 				<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field" type="text" autocomplete="off"
 					 placeholder="Enter location" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter location'" onClick="this.setSelectionRange(0, this.value.length)"></div>
 			</div>
+
 			<!-- SEARCH BUTTON -->
 			<div class="master">
 				<div id="search--button" class="btn btn--search">SEARCH</div>
@@ -72,35 +80,35 @@
 				<div class="col col-lg-12">
 					<div id="data--current--date"></div>
 				</div>
+
 				<!-- HIGH AND LOW TEMPS -->
 				<div class="col col-lg-4 master">
 					<div id="data--current--temp-high"></div>
-
 				</div>
-
 				<div class="col col-lg-4 master">
 					<div id="data--current--temp-low"></div>
-
 				</div>
+
 				<!-- CURRENT ICON -->
 				<div class="col col-lg-4 master">
 					<div id="data--current--icon"></div>
 				</div>
+
 				<!-- CURRENT DESC -->
 				<div class="col col-lg-12">
+					<span class="fade--line marginBot"></span>
 					<div id="data--current--desc"></div>
 				</div>
 
 				<!-- DAILY DATA -->
 				<!-- DAILY BG -->
 				<div id="data--daily-bg">
+
 					<!-- DAILY DATE -->
 					<div class="col col-lg-8">
 						<div id="data--daily--date"></div>
 					</div>
-					<!-- <div class="col col-lg-4">
-						<div id="data--daily--icon--text"></div>
-					</div> -->
+
 					<!-- DAILY TEMP -->
 					<div class="col col-lg-1">
 						<div id="data--daily--temp"></div>
@@ -108,6 +116,7 @@
 					<div class="col col-lg-1">
 						<div id="data--daily--temp-low"></div>
 					</div>
+
 					<!-- DAILY ICON -->
 					<div class="col col-lg-2">
 						<div id="iconWrapper">

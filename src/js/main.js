@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-16 */ 
+/*! weatherwise - v1.0.0 - 2019-03-17 */ 
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
 console.log('javascript ready...');
@@ -9,6 +9,61 @@ $(document).ready(function () {
 
 // LOADER
 $('#master--loader').show();
+
+// GEOLOCATION FUNCTION
+// function getGeoLocation() {
+// 	var currgeocoder;
+
+// 	//Set geo location lat and long
+// 	navigator.geolocation.getCurrentPosition(function (position, html5Error) {
+
+// 		geo_loc = processGeolocationResult(position);
+// 		currLatLong = geo_loc.split(",");
+// 		initializeCurrent(currLatLong[0], currLatLong[1]);
+
+// 	});
+
+// 	//Get geo location result
+// 	function processGeolocationResult(position) {
+// 		html5Lat = position.coords.latitude; //Get latitude
+// 		html5Lon = position.coords.longitude; //Get longitude
+// 		html5TimeStamp = position.timestamp; //Get timestamp
+// 		html5Accuracy = position.coords.accuracy; //Get accuracy in meters
+// 		return (html5Lat).toFixed(6) + ", " + (html5Lon).toFixed(6);
+// 	}
+
+// 	//Check value is present or not & call google api function
+// 	function initializeCurrent(myLat, myLng) {
+// 		currgeocoder = new google.maps.Geocoder();
+// 		console.log(myLat);
+// 		console.log(myLng);
+// 		getSkyData();
+// 		if (myLat != '' && myLng != '') {
+// 			var myLatlng = new google.maps.LatLng(myLat, myLng);
+// 			return getCurrentAddress(myLatlng);
+// 		}
+
+// 	}
+
+// 	//Get current address
+// 	function getCurrentAddress(location) {
+// 		currgeocoder.geocode({
+// 			'location': location
+
+// 		}, function (results, status) {
+
+// 			if (status == google.maps.GeocoderStatus.OK) {
+
+// 				   console.log(results[0]);
+
+// 			} else {
+// 				console.log('Geocode was not successful for the following reason: ' + status);
+// 				myLat = -41.2865;
+// 				myLng = 174.7762;
+// 			}
+// 		});
+// 	}
+// }
 
 // SKY KEY
 $.ajax({
@@ -39,6 +94,10 @@ var input = document.getElementById('search--text--field');
 var now = new Date();
 var days = new Array('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY');
 var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
+
+// TOP TEMP AND LOCATION VARIABLES
+var getTopTemp = document.getElementById("top--temp");
+var getTopLocation = document.getElementById("top--location");
 
 // CURRENT DATA VARIABLES
 var getCurrentTempHigh = document.getElementById("data--current--temp-high");
@@ -98,6 +157,7 @@ var dataIcons = [{
 
 // WRITE DEFAULT LOCATION TO APP
 getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
+getTopLocation.innerHTML = '<p>' +  "Wellington, New Zealand" + '</p>';
 
 // DATA
 function getSkyData() {
@@ -115,20 +175,22 @@ function getSkyData() {
 			console.log("Current temperature:");
 			console.log(skyData.currently.temperature);
 
+			currentTemp = Math.trunc(skyData.currently.temperature);
 			currentTempHigh = Math.trunc(skyData.daily.data[0].apparentTemperatureHigh);
 			currentTempLow = Math.trunc(skyData.daily.data[0].apparentTemperatureLow);
 			currentIcon = skyData.currently.icon;
-			currentDesc = skyData.daily.summary;
+			currentDesc = skyData.hourly.summary;
 
 			// WRITE CURRENT DATA TO APP
-			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + ' ' + '</h1>' + '<p class="marginBot">high</p>';
+			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>';
+			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + '&nbsp;' + '</h1>' + '<p class="marginBot">high</p>';
 			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
-			getCurrentDesc.innerHTML = '<h3 class="borderTop">' + currentDesc + '</h3>';
+			getCurrentDesc.innerHTML = '<h3>' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
 			if (currentIcon == 'clear-day') {
 				console.log("clear-day icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">' + '<p class="marginBot">clear day</p>';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--g-v");
 				body.classList.add("bckgd--y-m");
 				getLocationDiv.style.backgroundColor = '#ff9e3e';
@@ -146,7 +208,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'clear-night') {
 				console.log("clear-night icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
@@ -164,7 +226,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'rain') {
 				console.log("rain icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--b-m");
 				getLocationDiv.style.backgroundColor = '#136999';
@@ -182,7 +244,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'snow') {
 				console.log("snow icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
@@ -200,7 +262,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'sleet') {
 				console.log("sleet icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--b-m");
 				getLocationDiv.style.backgroundColor = '#136999';
@@ -218,7 +280,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'wind') {
 				console.log("wind icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
 				body.classList.add("bckgd--g-v");
 				getLocationDiv.style.backgroundColor = '#323b44';
@@ -236,7 +298,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'fog') {
 				console.log("fog icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--g-m");
 				getLocationDiv.style.backgroundColor = '#5a6977';
@@ -254,7 +316,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'cloudy') {
 				console.log("cloudy icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
 				body.classList.add("bckgd--g-v");
 				getLocationDiv.style.backgroundColor = '#323b44';
@@ -272,7 +334,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'partly-cloudy-day') {
 				console.log("partly-cloudy-day icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--g-m");
 				getLocationDiv.style.backgroundColor = '#5a6977';
@@ -290,7 +352,7 @@ function getSkyData() {
 			}
 			if (currentIcon == 'partly-cloudy-night') {
 				console.log("partly-cloudy-night icon loaded...");
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">'+ '<p class="marginBot">cloudy night</p>';
+				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
@@ -451,12 +513,19 @@ $(document).ready(function () {
 	});
 });
 $('.search--text--field--div').tooltip({
-	template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
+	template: '<div class="tooltip locationWarning"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
 	trigger: 'manual',
 	title: "<p>Please enter a location to view weather</p>",
 	html: true,
 	placement: "top",
 });
+
+// REMOVE WARNING TOOLTIP
+function removeWarning() {
+	$('.locationWarning').click(function () {
+		$('.search--text--field--div').tooltip('hide');
+	});
+}
 
 // DYNAMIC TOOLTIP BACKGROUNDS
 function changeTooltipColorTo(color) {
@@ -490,12 +559,18 @@ function sendRequest() {
 	if (input.value == null || input.value == "") {
 		$('.search--text--field--div').tooltip('show');
 		getSearchField.innerHTML = 'Please enter location...';
+
+		// REMOVE WARNING TOOLTIP
+		removeWarning();
+
 		return false;
 	} else {
 		console.log('Please enter location...');
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
+		// WRITE CURRENT LOCATION
 		console.log('Location changed to ' + input.value);
+		getTopLocation.innerHTML = '<p>' +  input.value + '</p>';
 	}
 }
