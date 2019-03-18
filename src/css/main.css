@@ -1130,13 +1130,13 @@ html {
   width: 180px; }
 
 .master--loader--animated-img {
-  height: 400px;
+  height: 350px;
   left: 50%;
-  margin-left: -200px;
-  margin-top: -200px;
+  margin-left: -175px;
+  margin-top: -175px;
   position: absolute;
   top: 50%;
-  width: 400px; }
+  width: 350px; }
 
 .master--logo {
   margin-top: 140px;
@@ -1185,7 +1185,7 @@ html {
 input {
   width: 100%;
   font-family: "Poppins", sans-serif;
-  font-size: 15px !important;
+  font-size: 17px !important;
   font-weight: 400;
   color: #fff;
   text-align: center;
@@ -1268,7 +1268,7 @@ body {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 15px;
+  font-size: 17px;
   letter-spacing: 0.1px; }
 
 h1 {
@@ -1348,7 +1348,7 @@ h5 {
   text-align: center;
   margin-top: 20px;
   font-family: "Poppins", sans-serif;
-  font-size: 15px !important; }
+  font-size: 17px !important; }
 
 .btn--search {
   background-color: #fff;
