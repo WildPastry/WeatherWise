@@ -40,10 +40,15 @@
 
 		<!--SECTION 1 - INTRO-->
 		<div id="intro" class="section section--intro">
+<<<<<<< HEAD
 
 			<!-- MASTER LOGO -->
 			<div class="master master--logo">
 				<img class="master--logo-img" src="icon/ww-logo.svg" alt="WeatherWise FOR WEATHER ADDICTS" title="WeatherWise">
+=======
+			<!-- <div class="master">
+				<div class="btn">WELLINGTON NEW ZEALAND</div>
+>>>>>>> lisa
 			</div>
 
 			<!-- BUTTONS -->
@@ -55,10 +60,14 @@
 
 			<!-- SEARCH BUTTON -->
 			<div class="master">
+<<<<<<< HEAD
 				<div id="search--button" class="btn btn--search">SEARCH</div>
+=======
+				<div class="btn btn--search">SEARCH</div> -->
+>>>>>>> lisa
 			</div>
 
-		</div>
+		</div> 
 		<!--INTRO-->
 
 		<!--SECTION 2 - MIKE-->
@@ -166,20 +175,54 @@
 		<!--HANNAH-->
 
 		<!--SECTION 4 - LISA-->
-		<div id="lisa" class="section section--lisa bckgd--b-v centered">
-			<div class="row">
+		<div id="lisa" class="section section--lisa bckgd--db-v centered">
+			<div class="row"> 
 				<!-- COUNTDOWN -->
-				<div class="col col-lg-12">
-					<h1>2 57 60</h1>
-					<h2>HOURS MINUTES SECONDS</h2>
+			<div class="col col-lg-12">
+				<div id="countdown__div"></div>
+			</div>
+				<div class="col col-lg-4">
+					<!-- <h2>HOURS MINUTES SECONDS</h2> -->
+						<div>
+						 	<h1><span class="days"></span></h1>
+							</div>
+						<div>
+							<h1><span class="hours"></span></h1>
+						  	<div>
+								<div>
+							  		<h4>Hours</h4>
+								</div>
+							</div>
+						</div>
+				
+					<!-- </div> -->
 				</div>
+
+				<div class="col col-lg-4">
+					<div>
+						<h1><span class="minutes"></span></h1>
+							<div>
+								<h4>Minutes</h4>
+							</div>
+					 </div>
+				</div>
+				
+				<div class="col col-lg-4">
+					<div>
+						<h1><span class="seconds"></span></h1>
+							<div>
+								<h4>Seconds</h4>
+							</div>
+					</div>
+				</div>
+				
 			</div>
 			<!-- END ROW -->
 			<div class="row">
 				<!-- SUNRISE -->
 				<div class="col col-lg-6">
 					<h2>SUNRISE</h2>
-					<h1>7.06</h1><h4 class="">am</h4>
+					<div id="data__time--sunrise"></div><h4 class="">am</h4>
 				</div>
 				<div class="col col-lg-6">
 					<img class="icon--md" src="icon/weather/sunny.svg" alt="Sunrise">
@@ -190,10 +233,12 @@
 				<!-- SUNSET -->
 				<div class="col col-lg-6">
 					<h2>SUNSET</h2>
-					<h1>7.53</h1><h4 class="">pm</h4>
+					<div id="data__time--sunset"></div><h4 class="">pm</h4>
+					<!-- <h1 id="data__time--sunset"></h1><h4 class="">pm</h4> -->
 				</div>
 				<div class="col col-lg-6">
-					<img class="icon--md" src="icon/weather/nt_sunny.svg" alt="Sunrise">
+					<img class="icon--md" src="icon/weather/partlysunny.svg" alt="Sunset">
+					<!-- <img class="icon--md" src="icon/weather/nt_sunny.svg" alt="Sunset"> -->
 				</div>
 			</div>
 			<!-- END ROW -->

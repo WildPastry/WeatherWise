@@ -1,3 +1,4 @@
+
 /*! weatherwise - v1.0.0 - 2019-03-14 */ /*! weatherwise - v1.0.0 - 2019-03-14 */ 
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
@@ -102,7 +103,6 @@ var makeDiv = document.createElement('div');
 
 // DATA ICONS
 var dataIcons = [{
-<<<<<<< HEAD
   icon: 'clear-day.svg',
 },
 {
@@ -256,7 +256,7 @@ $.ajax({
 	  console.log(" ");
 	  console.log("Daily data:");
 	  for (var i = 0; i < skyData.daily.data.length; i++) {
-=======
+
 		icon: 'clear-day.svg',
 	},
 	{
@@ -516,12 +516,12 @@ function getSkyData() {
 			// DAILY DATA LOOP
 			skyData.daily.data.shift();
 			for (var i = 0; i < skyData.daily.data.length; i++) {
->>>>>>> mike
+
 
 		  // DATESTAMP
 		  dateStamp = skyData.daily.data[i].time;
 
-<<<<<<< HEAD
+
 		  // DATESTAMP CONVERSION
 		  var date = new Date(dateStamp * 1000);
 		  var year = date.getFullYear();
@@ -625,7 +625,7 @@ function getSkyData() {
 	  console.log('error getting data...');
   }
 }); //AJAX
-=======
+
 				// DATESTAMP CONVERSION
 				var date = new Date(dateStamp * 1000);
 				var year = date.getFullYear();
@@ -727,7 +727,7 @@ function getSkyData() {
 
 	}); //AJAX
 
->>>>>>> mike
+
 } //FUNCTION
 
 // FORMAT DATE FUCNTIONS
@@ -747,14 +747,14 @@ function getDayOfWeek(date) {
 
 // TOOLTIPS
 $(document).ready(function () {
-<<<<<<< HEAD
+
 $('.icon--info').tooltip({
   title: "<h2>WeatherWise aims to prioritize<br>preparedness so that users<br>know how to best dress and<br>prepare for the weather</h2>",
   html: true,
   placement: "left",
   offset: '10%, 10'
 });
-=======
+
 	$('.icon--info').tooltip({
 		template: '<div class="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>',
 		trigger: 'hover',
@@ -763,7 +763,7 @@ $('.icon--info').tooltip({
 		placement: "left",
 		offset: '40, 15',
 	});
->>>>>>> mike
+
 });
 $('.search--text--field--div').tooltip({
 	template: '<div class="tooltip locationWarning"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
@@ -791,24 +791,11 @@ function changeTooltipColorTo(color) {
 
 // AUTOCOMPLETE
 function init() {
-<<<<<<< HEAD
+
 var options = {
   types: ['(cities)']
 };
 var autocomplete = new google.maps.places.Autocomplete(input, options);
-=======
-	var options = {
-		types: ['(cities)']
-	};
-	var autocomplete = new google.maps.places.Autocomplete(input, options);
-	autocomplete.setFields(
-		['geometry', 'name']);
-	google.maps.event.addListener(autocomplete, 'place_changed', function () {
-		var place = autocomplete.getPlace();
-		myLat = place.geometry.location.lat();
-		myLng = place.geometry.location.lng();
-	});
->>>>>>> mike
 }
 google.maps.event.addDomListener(window, 'load', init);
 
@@ -816,106 +803,187 @@ google.maps.event.addDomListener(window, 'load', init);
 getSearchButton.addEventListener('click', sendRequest);
 
 function sendRequest() {
-<<<<<<< HEAD
 myLat = -51.5074;
 myLng = 0.1278;
 getSkyData();
 document.getElementById("data--location").innerHTML = '<h2>' + input.value + '</h2>';
 
 console.log('Changed to London weather...');
-=======
-	if (input.value == null || input.value == "") {
-		$('.search--text--field--div').tooltip('show');
-		getSearchField.innerHTML = 'Please enter location...';
-		removeWarning();
-
-		return false;
-	} else {
-		console.log('Please enter location...');
-		$('.search--text--field--div').tooltip('hide');
-		getSkyData();
-		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
-
-		// WRITE CURRENT LOCATION TO APP
-		console.log('Location changed to ' + input.value);
-		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
-	}
 }
+/*! weatherwise - v1.0.0 - 2019-03-18 */ 
+//  PLAN B SECONDS TO HOURS
+//  var time = sunrise
+// function secondsToHms(d) {
+//     d = dataFromJSON.daily.data[0].sunriseTime; //Number(d);
+//    console.log(hDisplay + mDisplay + sDisplay);
+//    var h = Math.floor(d / 3600);
+//    var m = Math.floor(d % 3600 / 60);
+//    var s = Math.floor(d % 3600 % 60);
 
-// CHECK IF ACCESS ALLOWED
-function checkGeo() {
-	navigator.geolocation.watchPosition(function (position) {
-			console.log("Geolocation success");
-			getGeoLocation();
-		},
-		function (error) {
-			if (error.code == error.PERMISSION_DENIED)
-				console.log("Geolocation access denied...");
-			myLat = -41.2865;
-			myLng = 174.7762;
-			getSkyData();
-		});
-}
+//    var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+//    var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+//    var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+//    return hDisplay + mDisplay + sDisplay; 
+   //console.log(hDisplay + mDisplay + sDisplay); 
+//}
 
-// GEOLOCATION FUNCTION
-function getGeoLocation() {
 
-	var currentLocation;
+ 
+// PAGE LOADER
+//$('#master--loader').show();
+// var getSunrise = document.getElementById("data__time--sunrise");
+// var getSunset = document.getElementById("data__time--sunset");
+var getformattedRiseTime = document.getElementById("data__time--sunrise");
+var getformattedSetTime = document.getElementById("data__time--sunset");
+var x = document.getElementById("data__time--sunset");
+//console.log(getformattedRiseTime);
+var lat = -41.2865;
+var lng = 174.7762;
+//DATA
+//function getDSData() {
+ $.ajax({
+    url: 'https://api.darksky.net/forecast/9a5e19b54f8f0b91a70e71fec66307e9/' + lat + ',' + lng + '?unit=si',
+    dataType: 'jsonp',
+    type: "GET",
+    success: function (dataFromJSON) {
+        console.log("Data loaded...");
+        console.log(dataFromJSON);
+        // console.log(dataFromJSON.daily.data[0].sunriseTime);
+        // console.log(dataFromJSON.daily.data[0].sunsetTime);
 
-	// SET GEO LOCATION
-	navigator.geolocation.getCurrentPosition(function (position, html5Error) {
+        //DATA TO HOURS AND MINUTES
+        unix_timestamp = dataFromJSON.daily.data[0].sunriseTime;
+         // Create a new JavaScript Date object based on the timestamp
+        //multiplied by 1000 so that the argument is in milliseconds, not seconds.
+        var date2 = new Date(unix_timestamp*1000);
+        // Hours part from the timestamp
+        var hours = date2.getHours();
+        console.log(date2.getHours());
+        // Minutes part from the timestamp
+        var minutes = "0" + date2.getMinutes();
+        // Seconds part from the timestamp
+        //var seconds = "0" + date2.getSeconds();
+        
+        // Will display time in 10:30:23 format
+        var formattedRiseTime = hours + ':' + minutes.substr(-2); // + ':' + seconds.substr(-2)
+        console.log(formattedRiseTime);
+        
+        sunset_timestamp = dataFromJSON.daily.data[0].sunsetTime;
 
-		geo_loc = processGeolocationResult(position);
-		currLatLong = geo_loc.split(",");
-		initializeCurrent(currLatLong[0], currLatLong[1]);
-		console.log(currLatLong[0]);
-		console.log(currLatLong[1]);
-		myLat = (currLatLong[0]);
-		myLng = (currLatLong[1]);
-		// if (myLat == "undefined" || myLng == "undefined") {
-		// 	myLat = -41.2865;
-		// 	myLng = 174.7762;
-		// 	getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
-		// 	getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
-		// }
-		getSkyData();
+        var date3 = new Date(sunset_timestamp*1000);
+        // Hours part from the timestamp
+        var hoursSet = date3.getHours();
+        console.log(date3.getHours());
+        // Minutes part from the timestamp
+        var minutesSet = "0" + date3.getMinutes();
+        // Seconds part from the timestamp
+        var secondsSet = "0" + date3.getSeconds();
+        
+        // Will display time in 10:30:23 format
+        var formattedSunsetTime = hoursSet + ':' + minutesSet.substr(-2); 
+        console.log(formattedSunsetTime);
 
-	});
+        //DISPLAYING SUNRISE + SUNSET HTML
+         sunrise = Math.trunc(dataFromJSON.daily.data[0].sunriseTime);
+        // getSunrise.innerHTML = '<div id="data__time--sunrise">' + sunrise + '</div>';
 
-	// GET GEO LOCATION
-	function processGeolocationResult(position) {
-		html5Lat = position.coords.latitude; // GET LAT
-		html5Lon = position.coords.longitude; // GET LNG
-		html5TimeStamp = position.timestamp; // GET TIMESTAMP
-		html5Accuracy = position.coords.accuracy; // ACCURACY
-		return (html5Lat).toFixed(8) + ", " + (html5Lon).toFixed(8);
-	}
+         sunset = Math.trunc(dataFromJSON.daily.data[0].sunsetTime);
+        // getSunset.innerHTML = '<div id="data__time--sunset">' + sunset + ' ' + '</div>';
 
-	// CHECK VALUE
-	function initializeCurrent(latcurr, longcurr) {
-		currentLocation = new google.maps.Geocoder();
-		console.log(latcurr + "-- ######## --" + longcurr);
+        
+        getformattedRiseTime.innerHTML = '<p>' + formattedRiseTime + '</p>';
 
-		if (latcurr != '' && longcurr != '') {
-			var myLatlng = new google.maps.LatLng(latcurr, longcurr);
-			return getCurrentAddress(myLatlng);
-		}
-	}
+        getformattedSetTime.innerHTML = '<p>' +  formattedSunsetTime + '</p>';
+          
+        // var timeString = formattedSunsetTime;
+        // var H = +timeString.substr(0, 2);
+        // var h = (H % 12) || 12;
+        // var ampm = H < 12 ? "AM" : "PM";
+        // timeString = h + timeString.substr(2, 3) + ampm;
+        // document.write(timeString);
 
-	// GET ACTUAL ADDRESS
-	function getCurrentAddress(location) {
-		currentLocation.geocode({
-			'location': location
 
-		}, function (results, status) {
 
-			if (status == google.maps.GeocoderStatus.OK) {
-				console.log(results[0]);
-				$("#address").html(results[0].formatted_address);
-			} else {
-				alert('No Geolocation Support ' + status);
-			}
-		});
-	}
->>>>>>> mike
-}
+    },
+
+    error: function (error) {
+        console.log(error);
+        console.log("Error...");
+    }
+ }); 
+ //ajax closed
+//}
+//getDSData closed
+
+
+//COUNTDOWN
+/* function getTimeRemaining(sunsetTime) {
+    var t = Date.parse(sunsetTime) - Date.parse(new Date());
+    var seconds = Math.floor((t / 1000) % 60);
+    var minutes = Math.floor((t / 1000 / 60) % 60);
+    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+    //var days = Math.floor(t / (1000 * 60 * 60 * 24));
+    return {
+      'total': t,
+      //'days': days,
+      'hours': hours,
+      'minutes': minutes,
+      'seconds': seconds
+    };
+  }
+  
+  function initializeClock(id, sunsetTime) {
+    var clock = document.getElementById(id);
+    //var daysSpan = clock.querySelector('.days');
+    var hoursSpan = clock.querySelector('.hours');
+    var minutesSpan = clock.querySelector('.minutes');
+    var secondsSpan = clock.querySelector('.seconds');
+  
+    function updateClock() {
+      var t = getTimeRemaining(sunsetTime);
+  
+      //daysSpan.innerHTML = t.days;
+      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+  
+      if (t.total <= 0) {
+        clearInterval(timeinterval); //start counting down to the next 
+      }
+    }
+  
+    updateClock();
+    var timeinterval = setInterval(updateClock, 1000);
+  }
+  //var deadline = new Date();
+  var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+  initializeClock('countdown__div', deadline); */
+
+  // Set the date we're counting down to
+var countDownDate = new Date(dataFromJSON.daily.data[0]).getTime(formattedSunsetTime);
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("countdown__div").innerHTML = '<p>' + days + '</p>' + '<p>' + hours + '</p>' + '<p>' + minutes + '</p>';
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown__div").innerHTML = "EXPIRED";
+  }
+}, 1000);
+
