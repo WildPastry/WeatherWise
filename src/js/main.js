@@ -18,18 +18,21 @@ $.ajax({
 	success: function (keys) {
 		console.log('key loaded...');
 		skyKey = keys[0].SKY;
-		checkGeo();
+		// checkGeo();
+		getSkyData();
 	},
 	error: function (error) {
 		console.log(error);
 		console.log('error getting key...');
+
 	}
 });
 
 // VARIABLES
 var body = document.body;
 var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
-var myLat, myLng;
+var myLat = -41.2865;
+var myLng = 174.7762;
 
 // AUTOCOMPLETE VARIABLE
 var input = document.getElementById('search--text--field');
@@ -100,8 +103,8 @@ var dataIcons = [{
 ];
 
 // WRITE DEFAULT LOCATION TO APP
-getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Your location, New Zealand" + '</h2>';
-getTopLocation.innerHTML = '<p>' + "Your location, New Zealand" + '</p>';
+getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
+getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
 
 // DATA
 function getSkyData() {
@@ -460,7 +463,7 @@ $(document).ready(function () {
 $('.search--text--field--div').tooltip({
 	template: '<div class="tooltip locationWarning"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
 	trigger: 'manual',
-	title: "<p>Please enter a location to view weather</p>",
+	title: "<p>Please enter a location...</p>",
 	html: true,
 	placement: "top",
 });

@@ -1140,11 +1140,10 @@ html {
 
 .master--logo {
   margin-top: 140px;
-  margin-bottom: 120px; }
+  margin-bottom: 100px; }
 
 .master--logo-img {
-  height: 191px;
-  width: 250px; }
+  width: 200px; }
 
 .top--temp {
   float: left; }
@@ -1180,24 +1179,18 @@ html {
   padding-bottom: 9px;
   margin: 25px auto; }
 
+.data--current--date {
+  flex-basis: 0; }
+
 input {
   width: 100%;
   font-family: "Poppins", sans-serif;
-  font-size: 1.1em !important;
+  font-size: 15px !important;
   font-weight: 400;
   color: #fff;
   text-align: center;
   -webkit-appearance: none !important;
   box-shadow: none !important; }
-
-:-webkit-autofill {
-  color: #fff !important; }
-
-::placeholder {
-  color: #fff !important; }
-
-input::placeholder {
-  color: #fff !important; }
 
 .pac-container {
   cursor: pointer;
@@ -1275,14 +1268,14 @@ body {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
-  font-size: 1.1em;
+  font-size: 15px;
   letter-spacing: 0.1px; }
 
 h1 {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  font-size: 4.2em;
+  font-size: 4em;
   letter-spacing: 0.1px; }
 
 h2 {
@@ -1341,10 +1334,9 @@ h5 {
 
 .container-fluid {
   max-width: 500px;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  padding: 10px;
   position: relative;
-  width: 90%;
+  width: 100%;
   height: 100%; }
 
 .btn {
@@ -1356,7 +1348,7 @@ h5 {
   text-align: center;
   margin-top: 20px;
   font-family: "Poppins", sans-serif;
-  font-size: 1.1em !important; }
+  font-size: 15px !important; }
 
 .btn--search {
   background-color: #fff;
@@ -1378,8 +1370,8 @@ h5 {
   height: 120px; }
 
 .icon--md {
-  width: 50px;
-  height: 50px; }
+  width: 40px;
+  height: 40px; }
 
 .icon--sml {
   width: 32px;
