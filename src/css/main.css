@@ -1329,6 +1329,7 @@ h3 {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
+<<<<<<< HEAD
   font-size: 1.1em;
   letter-spacing: 0.1px; }
 
@@ -1345,6 +1346,9 @@ h5 {
   font-weight: 900;
   font-size: 1.7em;
   letter-spacing: 0.1px; }
+=======
+  font-size: 1.2em; }
+>>>>>>> hannah
 
 h4 {
   color: #fff;

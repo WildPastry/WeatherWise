@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-/*! weatherwise - v1.0.0 - 2019-03-18 */ 
-
-
-=======
 
 /*! weatherwise - v1.0.0 - 2019-03-14 */ /*! weatherwise - v1.0.0 - 2019-03-14 */ 
 google.charts.load('current', {'packages':['corechart']});
@@ -40,7 +35,6 @@ function drawChart() {
 
 /*! weatherwise - v1.0.0 - 2019-03-18 */ 
 // CHECK JAVASCRIPT + JQUERY
->>>>>>> 4b960ae3fdcde28c4c7e8d115de51633f2b258a1
 /*jslint browser:true */
 console.log('javascript ready...');
 
