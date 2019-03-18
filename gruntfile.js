@@ -70,11 +70,6 @@ module.exports = function (grunt) {
 		},
 		htmlmin: {
 			dev: {
-				options: {
-					removeComments: true,
-					removeEmptyElements: true,
-					collapseWhitespace: true
-				},
 				files: [{
 					expand: true,
 					cwd: 'src',
@@ -84,15 +79,6 @@ module.exports = function (grunt) {
 			}
 		},
 		copy: {
-			// config: {
-			// 	files: [{
-			// 		expand: true,
-			// 		flatten: true,
-			// 		src: ['*.json'],
-			// 		dest: 'dist/',
-			// 		filter: 'isFile'
-			// 	}, ],
-			// },
 			icon: {
 				files: [{
 					expand: true,
