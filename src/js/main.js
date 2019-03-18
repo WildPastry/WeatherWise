@@ -421,7 +421,7 @@ function getSkyData() {
 			currentMonth = months[now.getMonth()] + " " + daysPLUSmonths;
 
 			// WRITE CURRENT DATE TO APP
-			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
+			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
 			$('#master--loader').delay(350).fadeOut('slow');
 
 		}, //SUCCESS
