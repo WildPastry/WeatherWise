@@ -84,12 +84,30 @@ module.exports = function (grunt) {
 			}
 		},
 		copy: {
+			// config: {
+			// 	files: [{
+			// 		expand: true,
+			// 		flatten: true,
+			// 		src: ['*.json'],
+			// 		dest: 'dist/',
+			// 		filter: 'isFile'
+			// 	}, ],
+			// },
 			icon: {
 				files: [{
 					expand: true,
 					flatten: true,
 					src: ['src/icon/*'],
 					dest: 'dist/icon/',
+					filter: 'isFile'
+				}, ],
+			},
+			iconFolder: {
+				files: [{
+					expand: true,
+					flatten: true,
+					src: ['src/icon/weather/*'],
+					dest: 'dist/icon/weather/',
 					filter: 'isFile'
 				}, ],
 			},

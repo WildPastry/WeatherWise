@@ -11,19 +11,31 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 
-<body id="dynamic">
+<body>
 
 	<!-- MASTER WARNING -->
 	<!-- <div class="master--warning">
 		<img class="master--warning-img" src="icon/ww-warning.svg" alt="WeatherWise Screen Resize Warning">
 	</div> -->
 
+	<!-- LOADER -->
+	<div id="master--loader">
+		<img class="master--loader--animated-img" src="icon/ww-animated-loader.svg" alt="WeatherWise Page Loader">
+		<img class="master--loader-img" src="icon/ww-logo.svg" alt="WeatherWise Page Loader">
+	</div>
+
 	<!-- MASTER CONTAINER -->
 	<div class="container-fluid">
 
 		<!-- INFO -->
 		<div class="icon">
-			<img class="icon--info icon--md tooltip" src="icon/ww-info.svg" alt="WeatherWise Information">
+			<img id="icon--info" class="icon--info icon--md" src="icon/ww-info.svg" alt="WeatherWise Information">
+		</div>
+
+		<!-- TOP TEMP -->
+		<div class="top--temp">
+			<div id="top--temp"></div>
+			<div id="top--location"></div>
 		</div>
 
 		<!--SECTION 1 - INTRO-->
@@ -35,11 +47,15 @@
 			</div>
 
 			<!-- BUTTONS -->
-			<div class="master">
-				<div class="btn btn--input"><input id="searchTextField" type="text" autocomplete="off" placeholder="ENTER LOCATION..."></div>
+			<!-- ENTER LOCATION BUTTON -->
+			<div class="master search--text--field--div">
+				<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field" type="text" autocomplete="off"
+					 placeholder="Enter location" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter location'" onClick="this.setSelectionRange(0, this.value.length)"></div>
 			</div>
+
+			<!-- SEARCH BUTTON -->
 			<div class="master">
-				<div id="searchButton" class="btn btn--search">SEARCH</div>
+				<div id="search--button" class="btn btn--search">SEARCH</div>
 			</div>
 
 		</div>
@@ -47,47 +63,71 @@
 
 		<!--SECTION 2 - MIKE-->
 		<div id="mike" class="section section--mike">
-			<!-- DATA LOCATION -->
-			<div class="row">
-				<div class="col col-lg-12 master data--location">
-					<div id="data--location">
 
+			<!-- DATA LOCATION TITLE AND MARKER-->
+			<div class="row">
+				<div id="data--location--div" class="col col-sm-12 data--location">
+					<div class="master" id="data--location">
 					</div>
 				</div>
 			</div>
 
+			<!-- CURRENT DATE -->
+			<div class="col col-sm-12">
+				<div id="data--current--date"></div>
+			</div>
+
+			<!-- ALL DATA WRAPPER-->
 			<div class="row">
+
 				<!-- CURRENT DATA -->
-				<div class="col col-lg-3 master">
-					<div id="data--current--temp"></div>
+
+				<!-- HIGH AND LOW TEMPS -->
+				<div class="col col-sm-4 master">
+					<div id="data--current--temp-high"></div>
 				</div>
-				<div class="col col-lg-6 master">
-					<div id="data--current--desc"></div>
+				<div class="col col-sm-4 master">
+					<div id="data--current--temp-low"></div>
 				</div>
-				<div class="col col-lg-3 master">
+
+				<!-- CURRENT ICON -->
+				<div class="col col-sm-4 master">
 					<div id="data--current--icon"></div>
 				</div>
 
-				<!-- DAILY DATA -->
-				<div class="col col-lg-3">
-					<div id="data--daily--date"></div>
-				</div>
-				<div class="col col-lg-5">
-					<div id="data--daily--icon--text"></div>
+				<!-- CURRENT DESC -->
+				<div class="col col-sm-12">
+					<span class="fade--line marginBot"></span>
+					<div id="data--current--desc"></div>
 				</div>
 
-				<div class="col col-lg-2">
-					<div id="data--daily--icon"></div>
-				</div>
-				<!-- <div class="col col-lg-6">
-						<div id="data--daily--summary"></div>
-					</div> -->
-				<div class="col col-lg-2">
-					<div id="data--daily--temp"></div>
+				<!-- DAILY DATA -->
+				<!-- DAILY BG -->
+				<div id="data--daily-bg">
+
+					<!-- DAILY DATE -->
+					<div class="col col-sm-8">
+						<div id="data--daily--date"></div>
+					</div>
+
+					<!-- DAILY TEMP -->
+					<div class="col col-sm-1">
+						<div id="data--daily--temp"></div>
+					</div>
+					<div class="col col-sm-1">
+						<div id="data--daily--temp-low"></div>
+					</div>
+
+					<!-- DAILY ICON -->
+					<div class="col col-sm-2">
+						<div id="iconWrapper">
+							<div id="data--daily--icon"></div>
+						</div>
+					</div>
 				</div>
 
 			</div>
-			<!-- ROW -->
+			<!-- ALL DATA WRAPPER-->
 
 		</div>
 		<!--MIKE-->
