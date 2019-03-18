@@ -2,25 +2,202 @@
 // IMPORT VARIABLES
 @import "variables";
 
+// LOADER
+#master--loader {
+	background: #0b1d30e3;
+	// display: none;
+	height: 100%;
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+
+.master--loader-img {
+	height: 138px;
+	left: 50%;
+	margin-left: -90px;
+	margin-top: -69px;
+	position: absolute;
+	top: 50%;
+	width: 180px;
+}
+
+.master--loader--animated-img {
+	height: 400px;
+	left: 50%;
+	margin-left: -200px;
+	margin-top: -200px;
+	position: absolute;
+	top: 50%;
+	width: 400px;
+}
+
 // MASTER LOGO
 .master--logo {
-	margin-top: 200px;
-	margin-bottom: 200px;
+	margin-top: 140px;
+	margin-bottom: 100px;
 }
 
 .master--logo-img {
-	height: 191px;
-	width: 250px;
+	// height: 191px;
+	width: 200px;
+}
+
+// TOP TEMP AND LOCATION
+.top--temp {
+	float: left;
+}
+
+.top--temp::after {
+	clear: left;
 }
 
 // TOOLTIP
 .tooltip>.tooltip-inner {
-	background-color: $d-blu-v;
 	border: 1px solid $wht;
 	padding: 10px;
-	font-weight: lgt;
 }
 
-// .tooltip-arrow {
-// 	border-left: 15px solid $wht;
-//   }
+// DATA
+// DATA LOCATION
+.data--location {
+	display: flex;
+	align-content: center;
+	width: 100%;
+	height: 150px;
+	border-top: 1px solid $wht;
+	border-bottom: 1px solid $wht;
+	padding: 0;
+	margin-bottom: 1.5em;
+}
+
+// DAILY DATA
+.data--daily {
+	height: 50px;
+	line-height: 50px;
+}
+
+#data--daily--icon {
+	height: 350px;
+}
+
+#data--daily-bg {
+	display: flex;
+	flex-wrap: wrap;
+	padding-top: 9px;
+	padding-bottom: 9px;
+	margin: 25px auto;
+}
+
+//  CURRENT DATE
+.data--current--date{
+	flex-basis: 0;
+}
+
+// AUTOCOMPLETE
+input {
+	width: 100%;
+	font-family: $main-font;
+	font-size: $bdy !important;
+	font-weight: $reg;
+	color: $wht;
+	text-align: center;
+	-webkit-appearance: none !important;
+	box-shadow: none !important;
+}
+
+// :-webkit-autofill {
+// 	color: $wht !important;
+// }
+
+// ::placeholder {
+// 	color: $wht !important;
+// }
+
+// input::placeholder {
+// 	color: $wht !important;
+// }
+
+.pac-container {
+	cursor: pointer;
+	font-size: $h2;
+}
+
+.pac-item {
+	cursor: pointer;
+	border: none;
+	height: 40px;
+	line-height: 40px;
+}
+
+// FADE LINE
+.fade--line {
+	display: block;
+	border: none;
+	color: $wht;
+	height: 1px;
+	background: $wht;
+	// background: linear-gradient(to right, transparent, #ffffff65, transparent);
+}
+
+// GENERAL MODIFIERS
+.center {
+	text-align: center;
+}
+
+.floatRight {
+	float: right;
+}
+
+.floatRight::after {
+	clear: right;
+}
+
+.marginTop {
+	margin-top: 10px;
+}
+
+.marginLeft {
+	margin-left: 25px;
+}
+
+.marginRight {
+	margin-right: 25px;
+}
+
+.marginBot {
+	margin-bottom: 15px;
+}
+
+.borderBot {
+	border-bottom: 1px solid $wht;
+}
+
+.borderTop {
+	border-top: 1px solid $wht;
+}
+
+.bold {
+	font-weight: $bld;
+}
+
+.light {
+	font-weight: $lgt;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.space {
+	letter-spacing: 1px;
+}
+
+.noSpace {
+	letter-spacing: 0.1px;
+}
+
+.red {
+	background: $red !important;
+	cursor: pointer;
+}
