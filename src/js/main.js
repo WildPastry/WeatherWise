@@ -148,7 +148,7 @@ var lng = 174.7762;
   initializeClock('countdown__div', deadline); */
 
   // Set the date we're counting down to
-var countDownDate = new Date(sunset_timestamp).getTime();
+var countDownDate = new Date(dataFromJSON.daily.data[0]).getTime(formattedSunsetTime);
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -166,7 +166,7 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
     
   // Output the result in an element with id="demo"
-  document.getElementById("countdown__div").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+  document.getElementById("countdown__div").innerHTML = '<p>' + days + '</p>' + '<p>' + hours + '</p>' + '<p>' + minutes + '</p>';
     
   // If the count down is over, write some text 
   if (distance < 0) {
@@ -174,4 +174,3 @@ var x = setInterval(function() {
     document.getElementById("countdown__div").innerHTML = "EXPIRED";
   }
 }, 1000);
-  
