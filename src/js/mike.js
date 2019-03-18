@@ -23,7 +23,6 @@ $.ajax({
 	error: function (error) {
 		console.log(error);
 		console.log('error getting key...');
-
 	}
 });
 
@@ -352,61 +351,51 @@ function getSkyData() {
 				iconWrapper = document.getElementById('data--daily--icon-wrapper');
 
 				if (dailyIcon == 'clear-day') {
-					// makeDiv.className = 'marginTop';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[0].icon + '">';
 				}
 				if (dailyIcon == 'clear-night') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[1].icon + '">';
 				}
 				if (dailyIcon == 'rain') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[2].icon + '">';
 				}
 				if (dailyIcon == 'snow') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[3].icon + '">';
 				}
 				if (dailyIcon == 'sleet') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[4].icon + '">';
 				}
 				if (dailyIcon == 'wind') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[5].icon + '">';
 				}
 				if (dailyIcon == 'fog') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[6].icon + '">';
 				}
 				if (dailyIcon == 'cloudy') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[7].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-day') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[8].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-night') {
-
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[9].icon + '">';
@@ -459,6 +448,7 @@ $(document).ready(function () {
 		offset: '40, 15',
 	});
 });
+
 $('.search--text--field--div').tooltip({
 	template: '<div class="tooltip locationWarning"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
 	trigger: 'manual',
@@ -523,6 +513,15 @@ function sendRequest() {
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
 	}
 }
+
+// SEARCH VALIDATION
+// getSearchButton.addEventListener('click', function (e) {
+// 	var selectedValue = getSearchField.options[getSearchField.selectedIndex] ? getSearchField.options[getSearchField.selectedIndex].value : null;
+
+// 	if (!selectedValue) {
+// 		console.log("Please enter location...");
+// 	}
+// });
 
 // CHECK IF ACCESS ALLOWED
 function checkGeo() {
