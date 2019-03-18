@@ -73,12 +73,17 @@
 
 // DAILY DATA
 .data--daily {
-	height: 50px;
-	line-height: 50px;
+	height: 40px;
+	line-height: 40px;
 }
 
-#data--daily--icon {
-	height: 350px;
+// #data--daily--icon {
+// 	height: 350px;
+// }
+
+#data--daily--icon-wrapper {
+	width: 100%;
+	margin: 4px auto;
 }
 
 #data--daily-bg {
@@ -90,7 +95,7 @@
 }
 
 //  CURRENT DATE
-.data--current--date{
+.data--current--date {
 	flex-basis: 0;
 }
 
@@ -200,4 +205,18 @@ input {
 .red {
 	background: $red !important;
 	cursor: pointer;
+}
+
+@media screen and (max-width : 580px) {
+	#data--current--date {
+		width: 580px;
+		height: 40px;
+		display: block !important;
+	}
+}
+
+@media screen and (max-width : 413px) {
+	#data--daily-bg {
+		margin: 0;
+	}
 }

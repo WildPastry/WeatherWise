@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-18 */ 
+/*! weatherwise - v1.0.0 - 2019-03-19 */ 
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
 console.log('javascript ready...');
@@ -134,7 +134,7 @@ function getSkyData() {
 			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>';
 			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + '&nbsp;' + '</h1>' + '<p class="marginBot">high</p>';
 			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
-			getCurrentDesc.innerHTML = '<h3>' + currentDesc + '</h3>';
+			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>' + '<h3>' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
 			if (currentIcon == 'clear-day') {
@@ -350,64 +350,64 @@ function getSkyData() {
 				getDailyTempLow.innerHTML += '<p class="data--daily space">' + dailyTempLow + '°' + '</p>';
 
 				// DAILY DYNAMIC ICON
-				iconWrapper = document.getElementById('iconWrapper');
+				iconWrapper = document.getElementById('data--daily--icon-wrapper');
 
 				if (dailyIcon == 'clear-day') {
-					makeDiv.className = 'data--daily marginTop';
+					// makeDiv.className = 'marginTop';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[0].icon + '">';
 				}
 				if (dailyIcon == 'clear-night') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[1].icon + '">';
 				}
 				if (dailyIcon == 'rain') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[2].icon + '">';
 				}
 				if (dailyIcon == 'snow') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[3].icon + '">';
 				}
 				if (dailyIcon == 'sleet') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[4].icon + '">';
 				}
 				if (dailyIcon == 'wind') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[5].icon + '">';
 				}
 				if (dailyIcon == 'fog') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[6].icon + '">';
 				}
 				if (dailyIcon == 'cloudy') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[7].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-day') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[8].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-night') {
-					makeDiv.className = 'data--daily';
+
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[9].icon + '">';
@@ -508,10 +508,13 @@ function sendRequest() {
 		$('.search--text--field--div').tooltip('show');
 		getSearchField.innerHTML = 'Please enter location...';
 		removeWarning();
-
 		return false;
 	} else {
-		console.log('Please enter location...');
+		// $("#search--button").click(function () {
+		// 	$('html, body').animate({
+		// 		scrollTop: $("#mike").offset().top - 0
+		// 	}, 700);
+		// });
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';

@@ -1166,11 +1166,12 @@ html {
   margin-bottom: 1.5em; }
 
 .data--daily {
-  height: 50px;
-  line-height: 50px; }
+  height: 40px;
+  line-height: 40px; }
 
-#data--daily--icon {
-  height: 350px; }
+#data--daily--icon-wrapper {
+  width: 100%;
+  margin: 4px auto; }
 
 #data--daily-bg {
   display: flex;
@@ -1254,6 +1255,16 @@ input {
 .red {
   background: #f34949 !important;
   cursor: pointer; }
+
+@media screen and (max-width: 580px) {
+  #data--current--date {
+    width: 580px;
+    height: 40px;
+    display: block !important; } }
+
+@media screen and (max-width: 413px) {
+  #data--daily-bg {
+    margin: 0; } }
 
 * {
   border: 0;
@@ -1374,7 +1385,7 @@ h5 {
   height: 40px; }
 
 .icon--sml {
-  width: 32px;
+  width: 100%;
   height: 32px; }
 
 .bckgd--y-m {
