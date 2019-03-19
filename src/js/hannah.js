@@ -21,7 +21,7 @@ Date.prototype.getDayFormatted = function () {
 // FORMAT DAY FUNCTION
 function getDayOfWeek(date) {
   var dayOfWeek = new Date(date).getDay();
-  return isNaN(dayOfWeek) ? null : ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][dayOfWeek];
+  return isNaN(dayOfWeek) ? null : ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'][dayOfWeek];
   
 }
 
@@ -97,9 +97,9 @@ google.charts.load('current', {'packages':['corechart']});
                 {color: '#ffffff', fontSize: 18, fontName: 'Poppins', fontWeight: 300, bold: false},
               legend: 'none',
               hAxis:
-                {direction:-1, slantedText:true, slantedTextAngle:90, data: 'continuous', baselineColor: '#ffffff', title: 'WIND SPEED (KM/H)', 
+                { slantedText: true, slantedTextAngle: 90, title: 'WIND SPEED (KM/H)', 
                 titleTextStyle:{color: '#ffffff', fontSize: 12, italic: false, fontName: 'Poppins'}, 
-                textStyle:{color: '#ffffff',  fontSize: 10, fontName: 'Poppins'}},
+                textStyle:{color: '#ffffff',  fontSize: 9, fontName: 'Poppins'}},
                 vAxis: 
                 {textStyle:{color: '#ffffff', fontName: 'Poppins'}},
 
