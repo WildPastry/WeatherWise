@@ -1,3 +1,4 @@
+/*! weatherwise - v1.0.0 - 2019-03-19 */ 
 //  PLAN B SECONDS TO HOURS
 //  var time = sunrise
 // function secondsToHms(d) {
@@ -38,7 +39,7 @@ var lng = 174.7762;
         // console.log(dataFromJSON.daily.data[0].sunriseTime);
         // console.log(dataFromJSON.daily.data[0].sunsetTime);
 
-        //DATA TO HOURS AND MINUTES
+//DATA TO HOURS AND MINUTES
         unix_timestamp = dataFromJSON.daily.data[0].sunriseTime;
          // Create a new JavaScript Date object based on the timestamp
         //multiplied by 1000 so that the argument is in milliseconds, not seconds.
@@ -49,10 +50,10 @@ var lng = 174.7762;
         // Minutes part from the timestamp
         var minutes = "0" + date2.getMinutes();
         // Seconds part from the timestamp
-        //var seconds = "0" + date2.getSeconds();
+        var seconds = "0" + date2.getSeconds();
         
         // Will display time in 10:30:23 format
-        var formattedRiseTime = hours + ':' + minutes.substr(-2); // + ':' + seconds.substr(-2)
+        var formattedRiseTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
         console.log(formattedRiseTime);
         
         sunset_timestamp = dataFromJSON.daily.data[0].sunsetTime;
@@ -67,30 +68,96 @@ var lng = 174.7762;
         var secondsSet = "0" + date3.getSeconds();
         
         // Will display time in 10:30:23 format
-        var formattedSunsetTime = hoursSet + ':' + minutesSet.substr(-2); 
-        console.log(formattedSunsetTime);
+        var formattedSunsetTime = hoursSet + ':' + minutesSet.substr(-2);
+        var formattedSunsetTimeSeconds = hoursSet + ':' + minutesSet.substr(-2) + ':' + secondsSet + secondsSet.substr(-2); 
+        //console.log(formattedSunsetTime);
+        console.log(formattedSunsetTimeSeconds);
 
-        //DISPLAYING SUNRISE + SUNSET HTML
+//DISPLAYING SUNRISE + SUNSET HTML
          sunrise = Math.trunc(dataFromJSON.daily.data[0].sunriseTime);
         // getSunrise.innerHTML = '<div id="data__time--sunrise">' + sunrise + '</div>';
 
          sunset = Math.trunc(dataFromJSON.daily.data[0].sunsetTime);
         // getSunset.innerHTML = '<div id="data__time--sunset">' + sunset + ' ' + '</div>';
-
-        
+console.log(sunset);
         getformattedRiseTime.innerHTML = '<p>' + formattedRiseTime + '</p>';
-
         getformattedSetTime.innerHTML = '<p>' +  formattedSunsetTime + '</p>';
-          
-        // var timeString = formattedSunsetTime;
-        // var H = +timeString.substr(0, 2);
-        // var h = (H % 12) || 12;
-        // var ampm = H < 12 ? "AM" : "PM";
-        // timeString = h + timeString.substr(2, 3) + ampm;
-        // document.write(timeString);
 
+            //24HR TO 12 HR
+            function tConvert (time) {
+              // Check correct time format and split into components
+              time = time.toString ().match (/^([01]\d|2[0-3])(:)([0-5]\d)(:[0-5]\d)?$/) || [time];
+            
+              if (time.length > 1) { // If time format correct
+                time = time.slice (1);  // Remove full string match value
+                time[5] = +time[0] < 12 ? 'AM' : 'PM'; // Set AM/PM
+                time[0] = +time[0] % 12 || 12; // Adjust hours
+              }
+              return time.join (''); // return adjusted time or original string
+            }
+            
+            tConvert ('18:00:00');
 
+ //COUNTDOWN 3
+//  today = dataFromJSON.currently.time;
+//  console.log(dataFromJSON.currently.time);
+ var objToday = new Date();
+	//weekday = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'),
+	//dayOfWeek = weekday[objToday.getDay()],
+	//domEnder = function() { var a = objToday; if (/1/.test(parseInt((a + "").charAt(0)))) //return "th"; a = parseInt((a + "").charAt(1)); return 1 == a ? "st" : 2 == a ? "nd" : 3 == a }(),
+	dayOfMonth = todaysTime + ( objToday.getDate() < 10) ? '0' + objToday.getDate() : objToday.getDate();//,
+	months = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');//,
+	curMonth = months[objToday.getMonth()];//,
+	curYear = objToday.getFullYear();//,
+	curHour = objToday.getHours() > 12 ? objToday.getHours() - 12 : (objToday.getHours() < 10 ? "0" + objToday.getHours() : objToday.getHours());//,
+	curMinute = objToday.getMinutes() < 10 ? "0" + objToday.getMinutes() : objToday.getMinutes();//,
+	curSeconds = objToday.getSeconds() < 10 ? "0" + objToday.getSeconds() : objToday.getSeconds();//,
+  //curMeridiem = objToday.getHours() > 12 ? "PM" : "AM";
+  //console.log(curMeridiem);
+var todaysTime = curMonth + " " + dayOfMonth + ", " + curYear + " " + curHour +  ":" + curMinute + "." + curSeconds + " " + " ";
+//var todaysTime = curMonth + " " + dayOfMonth + ", " + curYear + " " + formattedSunsetTimeSeconds;
+//var todaysTime = curHour + ":" + curMinute + "." + curSeconds;
+//var todaysTime = dayOfWeek + " " + dayOfMonth + " of " + curMonth + ", " + curYear;
+//document.getElementsByTagName('h1')[0].textContent = todaysTime;
+ 
+  //today = new Date();
+  console.log(todaysTime);
 
+  // Set the date we're counting down to
+  var countDownDate = formattedSunsetTimeSeconds;
+  //var countDownDate = sunset_timestamp;//formattedSunsetTimeSeconds;
+  //var countDownDate = new Date(sunset).getTime();
+	console.log(countDownDate);
+	// Update the count down every 1 secondg
+	//var x = setInterval(function() {
+	
+    // Get todays date and time
+    var now = curHour + " " + curMinute + " " + curSeconds;//new Date().getTime();
+		//var now = todaysTime;
+      console.log(now);
+      //finding sunset hours - real time hours to get the distance
+    var distancehrs = hoursSet - curHour;
+    console.log(distancehrs);
+		// Find the distance between now and the count down date
+		var distance = countDownDate - now;
+			console.log(distance);
+		// Time calculations for days, hours, minutes and seconds
+		// var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+		// var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+		// var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+		//var hours = hoursSet;
+		//var minutes = minutesSet;
+		//var seconds = secondsSet;
+		// Output the result in an element with id="demo"
+		document.getElementById("countdown__div").innerHTML = hours + "h " + minutes + "m " + seconds + "s ";
+			
+		// If the count down is over, write some text 
+		if (distance < 0) {
+			clearInterval(x);
+			document.getElementById("countdown__div").innerHTML = "EXPIRED";
+		}
+	//}, 1000);
+ 
     },
 
     error: function (error) {
@@ -104,72 +171,84 @@ var lng = 174.7762;
 
 
 //COUNTDOWN
+
 /* function getTimeRemaining(sunsetTime) {
-    var t = Date.parse(sunsetTime) - Date.parse(new Date());
-    var seconds = Math.floor((t / 1000) % 60);
-    var minutes = Math.floor((t / 1000 / 60) % 60);
-    var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-    //var days = Math.floor(t / (1000 * 60 * 60 * 24));
-    return {
-      'total': t,
-      //'days': days,
-      'hours': hours,
-      'minutes': minutes,
-      'seconds': seconds
-    };
-  }
-  
-  function initializeClock(id, sunsetTime) {
-    var clock = document.getElementById(id);
-    //var daysSpan = clock.querySelector('.days');
-    var hoursSpan = clock.querySelector('.hours');
-    var minutesSpan = clock.querySelector('.minutes');
-    var secondsSpan = clock.querySelector('.seconds');
-  
-    function updateClock() {
-      var t = getTimeRemaining(sunsetTime);
-  
-      //daysSpan.innerHTML = t.days;
-      hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-      minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-      secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-  
-      if (t.total <= 0) {
-        clearInterval(timeinterval); //start counting down to the next 
-      }
+  var t = Date.parse(sunsetTime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  //var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    //'days': days,
+    'hours': hours,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, sunsetTime) {
+  var clock = document.getElementById(id);
+  //var daysSpan = clock.querySelector('.days');
+  var hoursSpan = clock.querySelector('.hours');
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(sunsetTime);
+
+    //daysSpan.innerHTML = t.days;
+    hoursSpan.innerHTML = '<p>' + ('0' + t.hours).slice(-2) + '</p>';
+    minutesSpan.innerHTML = '<p>' + ('0' + t.minutes).slice(-2) + '</p>';
+    secondsSpan.innerHTML = '<p>' + ('0' + t.seconds).slice(-2) + '</p>';
+
+    if (t.total <= 0) {
+      clearInterval(timeinterval); //start counting down to the next 
     }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+//var deadline = new Date();
+var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
+initializeClock('countdown__div', deadline);  */
+
+
+  // // Set the date we're counting down to
+  // var countDownDate = new Date(dataFromJSON.daily.data[0]).getTime(formattedSunsetTime);
+
+  // // Update the count down every 1 second
+  // var x = setInterval(function() {
   
-    updateClock();
-    var timeinterval = setInterval(updateClock, 1000);
-  }
-  //var deadline = new Date();
-  var deadline = new Date(Date.parse(new Date()) + 15 * 24 * 60 * 60 * 1000);
-  initializeClock('countdown__div', deadline); */
+  //   // Get todays date and time
+  //   var now = new Date().getTime();
+      
+  //   // Find the distance between now and the count down date
+  //   var distance = countDownDate - now;
+      
+  //   // Time calculations for days, hours, minutes and seconds
+  //   var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  //   var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  //   var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  //   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+  //   // Output the result in an element with id="demo"
+  //   document.getElementById("countdown__div").innerHTML = '<p>' + days + '</p>' + '<p>' + hours + '</p>' + '<p>' + minutes + '</p>';
+      
+  //   // If the count down is over, write some text 
+  //   if (distance < 0) {
+  //     clearInterval(x);
+  //     document.getElementById("countdown__div").innerHTML = "EXPIRED";
+  //   }
+  // }, 1000);
+  
+ 
 
-  // Set the date we're counting down to
-var countDownDate = new Date(dataFromJSON.daily.data[0]).getTime(formattedSunsetTime);
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get todays date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("countdown__div").innerHTML = '<p>' + days + '</p>' + '<p>' + hours + '</p>' + '<p>' + minutes + '</p>';
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("countdown__div").innerHTML = "EXPIRED";
-  }
-}, 1000);
+//AM PM
+      //  var timeString = formattedSunsetTime;
+      //   var H = +timeString.substr(0, 2);
+      //   var h = (H % 12) || 12;
+      //   var ampm = H < 12 ? "AM" : "PM";
+      //   timeString = h + timeString.substr(2, 3) + ampm;
+      //   document.write(timeString);
