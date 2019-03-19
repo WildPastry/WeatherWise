@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-19 */ 
+/*! weatherwise - v1.0.0 - 2019-03-20 */ 
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
 /*jshint esversion: 6 */
