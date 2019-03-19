@@ -4,8 +4,7 @@
 
 // LOADER
 #master--loader {
-	background: #0b1d30e3;
-	// display: none;
+	background: $ldr;
 	height: 100%;
 	position: fixed;
 	width: 100%;
@@ -23,13 +22,13 @@
 }
 
 .master--loader--animated-img {
-	height: 400px;
+	height: 350px;
 	left: 50%;
-	margin-left: -200px;
-	margin-top: -200px;
+	margin-left: -175px;
+	margin-top: -175px;
 	position: absolute;
 	top: 50%;
-	width: 400px;
+	width: 350px;
 }
 
 // MASTER LOGO
@@ -39,7 +38,6 @@
 }
 
 .master--logo-img {
-	// height: 191px;
 	width: 200px;
 }
 
@@ -64,7 +62,7 @@
 	display: flex;
 	align-content: center;
 	width: 100%;
-	height: 150px;
+	height: 130px;
 	border-top: 1px solid $wht;
 	border-bottom: 1px solid $wht;
 	padding: 0;
@@ -73,12 +71,17 @@
 
 // DAILY DATA
 .data--daily {
-	height: 50px;
-	line-height: 50px;
+	height: 40px;
+	line-height: 40px;
 }
 
-#data--daily--icon {
-	height: 350px;
+// #data--daily--icon {
+// 	height: 350px;
+// }
+
+#data--daily--icon-wrapper {
+	width: 100%;
+	margin: 4px auto;
 }
 
 #data--daily-bg {
@@ -90,7 +93,7 @@
 }
 
 //  CURRENT DATE
-.data--current--date{
+.data--current--date {
 	flex-basis: 0;
 }
 
@@ -190,7 +193,7 @@ input {
 }
 
 .space {
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 }
 
 .noSpace {
@@ -200,4 +203,18 @@ input {
 .red {
 	background: $red !important;
 	cursor: pointer;
+}
+
+@media screen and (max-width : 580px) {
+	#data--current--date {
+		width: 100%;
+		height: 40px;
+		display: block !important;
+	}
+}
+
+@media screen and (max-width : 413px) {
+	#data--daily-bg {
+		margin: 0;
+	}
 }

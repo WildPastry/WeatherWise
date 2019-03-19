@@ -1,5 +1,6 @@
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
+/*jshint esversion: 6 */
 console.log('javascript ready...');
 
 $(document).ready(function () {
@@ -17,24 +18,22 @@ $.ajax({
 	success: function (keys) {
 		console.log('key loaded...');
 		skyKey = keys[0].SKY;
-		// checkGeo();
 		getSkyData();
 	},
 	error: function (error) {
 		console.log(error);
 		console.log('error getting key...');
-
 	}
 });
 
 // VARIABLES
-var body = document.body;
+const body = document.body;
 var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
 var myLat = -41.2865;
 var myLng = 174.7762;
 
 // AUTOCOMPLETE VARIABLE
-var input = document.getElementById('search--text--field');
+const input = document.getElementById('search--text--field');
 
 // DATE VARIABLES
 var now = new Date();
@@ -42,28 +41,28 @@ var days = new Array('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FR
 var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 
 // TOP TEMP AND LOCATION VARIABLES
-var getTopTemp = document.getElementById("top--temp");
-var getTopLocation = document.getElementById("top--location");
+const getTopTemp = document.getElementById("top--temp");
+const getTopLocation = document.getElementById("top--location");
 
 // CURRENT DATA VARIABLES
-var getCurrentTempHigh = document.getElementById("data--current--temp-high");
-var getCurrentTempLow = document.getElementById("data--current--temp-low");
-var getCurrentDesc = document.getElementById("data--current--desc");
-var getCurrentIcon = document.getElementById("data--current--icon");
-var getCurrentDate = document.getElementById("data--current--date");
-var getLocationDiv = document.getElementById("data--location--div");
-var getLocation = document.getElementById("data--location");
-var getSearchFieldDiv = document.getElementById("search--text--field--div");
-var getSearchField = document.getElementById("search--text--field");
-var getSearchButton = document.getElementById("search--button");
+const getCurrentTempHigh = document.getElementById("data--current--temp-high");
+const getCurrentTempLow = document.getElementById("data--current--temp-low");
+const getCurrentDesc = document.getElementById("data--current--desc");
+const getCurrentIcon = document.getElementById("data--current--icon");
+const getCurrentDate = document.getElementById("data--current--date");
+const getLocationDiv = document.getElementById("data--location--div");
+const getLocation = document.getElementById("data--location");
+const getSearchFieldDiv = document.getElementById("search--text--field--div");
+const getSearchField = document.getElementById("search--text--field");
+const getSearchButton = document.getElementById("search--button");
 
 // DAILY DATA VARIABLES
-var getDailyBG = document.getElementById("data--daily-bg");
-var getDailyDate = document.getElementById("data--daily--date");
-var getDailyTemp = document.getElementById("data--daily--temp");
-var getDailyTempLow = document.getElementById("data--daily--temp-low");
-var getDailyIcon = document.getElementById("data--daily--icon");
-var makeDiv = document.createElement('div');
+const getDailyBG = document.getElementById("data--daily-bg");
+const getDailyDate = document.getElementById("data--daily--date");
+const getDailyTemp = document.getElementById("data--daily--temp");
+const getDailyTempLow = document.getElementById("data--daily--temp-low");
+const getDailyIcon = document.getElementById("data--daily--icon");
+const makeDiv = document.createElement('div');
 
 // DATA ICONS
 var dataIcons = [{
@@ -127,13 +126,10 @@ function getSkyData() {
 			currentDesc = skyData.hourly.summary;
 
 			// WRITE CURRENT DATA TO APP
-			// getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
-			// getTopLocation.innerHTML = '<p>' + input.value + '</p>';
-
 			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>';
 			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + '&nbsp;' + '</h1>' + '<p class="marginBot">high</p>';
 			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
-			getCurrentDesc.innerHTML = '<h3>' + currentDesc + '</h3>';
+			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>' + '<h3>' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
 			if (currentIcon == 'clear-day') {
@@ -349,64 +345,54 @@ function getSkyData() {
 				getDailyTempLow.innerHTML += '<p class="data--daily space">' + dailyTempLow + '°' + '</p>';
 
 				// DAILY DYNAMIC ICON
-				iconWrapper = document.getElementById('iconWrapper');
+				iconWrapper = document.getElementById('data--daily--icon-wrapper');
 
 				if (dailyIcon == 'clear-day') {
-					makeDiv.className = 'data--daily marginTop';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[0].icon + '">';
 				}
 				if (dailyIcon == 'clear-night') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[1].icon + '">';
 				}
 				if (dailyIcon == 'rain') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[2].icon + '">';
 				}
 				if (dailyIcon == 'snow') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[3].icon + '">';
 				}
 				if (dailyIcon == 'sleet') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[4].icon + '">';
 				}
 				if (dailyIcon == 'wind') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[5].icon + '">';
 				}
 				if (dailyIcon == 'fog') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[6].icon + '">';
 				}
 				if (dailyIcon == 'cloudy') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[7].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-day') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[8].icon + '">';
 				}
 				if (dailyIcon == 'partly-cloudy-night') {
-					makeDiv.className = 'data--daily';
 					iconWrapper.appendChild(makeDiv);
 					makeDiv.appendChild(getDailyIcon);
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[9].icon + '">';
@@ -420,7 +406,7 @@ function getSkyData() {
 			currentMonth = months[now.getMonth()] + " " + daysPLUSmonths;
 
 			// WRITE CURRENT DATE TO APP
-			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
+			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
 			$('#master--loader').delay(350).fadeOut('slow');
 
 		}, //SUCCESS
@@ -438,6 +424,7 @@ Date.prototype.getMonthFormatted = function () {
 	var formatMonth = this.getMonth() + 1;
 	return formatMonth < 10 ? '0' + formatMonth : formatMonth;
 };
+
 Date.prototype.getDayFormatted = function () {
 	var formatDay = this.getDate();
 	return formatDay < 10 ? '0' + formatDay : formatDay;
@@ -459,6 +446,7 @@ $(document).ready(function () {
 		offset: '40, 15',
 	});
 });
+
 $('.search--text--field--div').tooltip({
 	template: '<div class="tooltip locationWarning"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
 	trigger: 'manual',
@@ -500,17 +488,12 @@ function init() {
 google.maps.event.addDomListener(window, 'load', init);
 
 // SEARCH BUTTON
-getSearchButton.addEventListener('click', sendRequest);
+getSearchButton.addEventListener('click', validateSearchField);
 
-function sendRequest() {
-	if (input.value == null || input.value == "") {
-		$('.search--text--field--div').tooltip('show');
-		getSearchField.innerHTML = 'Please enter location...';
-		removeWarning();
-
-		return false;
-	} else {
-		console.log('Please enter location...');
+// SEARCH VALIDATION
+function validateSearchField() {
+	var myCities = /([A-Z])\w+/;
+	if (getSearchField.value.match(myCities)) {
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
@@ -518,6 +501,12 @@ function sendRequest() {
 		// WRITE CURRENT LOCATION TO APP
 		console.log('Location changed to ' + input.value);
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
+		return true;
+	} else {
+		$('.search--text--field--div').tooltip('show');
+		removeWarning();
+		console.log("Please enter a valid city...");
+		return false;
 	}
 }
 
@@ -551,12 +540,6 @@ function getGeoLocation() {
 		console.log(currLatLong[1]);
 		myLat = (currLatLong[0]);
 		myLng = (currLatLong[1]);
-		// if (myLat == "undefined" || myLng == "undefined") {
-		// 	myLat = -41.2865;
-		// 	myLng = 174.7762;
-		// 	getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
-		// 	getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
-		// }
 		getSkyData();
 
 	});
