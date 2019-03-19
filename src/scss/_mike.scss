@@ -4,8 +4,7 @@
 
 // LOADER
 #master--loader {
-	background: #0b1d30e3;
-	// display: none;
+	background: $ldr;
 	height: 100%;
 	position: fixed;
 	width: 100%;
@@ -39,7 +38,6 @@
 }
 
 .master--logo-img {
-	// height: 191px;
 	width: 200px;
 }
 

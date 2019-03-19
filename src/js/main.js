@@ -16,14 +16,8 @@ $.ajax({
 	dataType: 'json',
 	type: 'get',
 	success: function (keys) {
-
-		var ts = new Date();
-		console.log(ts);
-		// console.log(ts.getHours());
-
 		console.log('key loaded...');
 		skyKey = keys[0].SKY;
-		// checkGeo();
 		getSkyData();
 	},
 	error: function (error) {
@@ -132,9 +126,6 @@ function getSkyData() {
 			currentDesc = skyData.hourly.summary;
 
 			// WRITE CURRENT DATA TO APP
-			// getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
-			// getTopLocation.innerHTML = '<p>' + input.value + '</p>';
-
 			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>';
 			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + '&nbsp;' + '</h1>' + '<p class="marginBot">high</p>';
 			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
@@ -499,25 +490,6 @@ google.maps.event.addDomListener(window, 'load', init);
 // SEARCH BUTTON
 getSearchButton.addEventListener('click', validateSearchField);
 
-// function sendRequest() {
-// 	// if (input.value == null || input.value == "") {
-// 	// 	$('.search--text--field--div').tooltip('show');
-// 	// 	getSearchField.innerHTML = 'Please enter location...';
-// 	// 	return false;
-	
-// 		// $("#search--button").click(function () {
-// 		// 	$('html, body').animate({
-// 		// 		scrollTop: $("#mike").offset().top - 0
-// 		// 	}, 700);
-// 		// });
-		
-// 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
-
-// 		// WRITE CURRENT LOCATION TO APP
-// 		console.log('Location changed to ' + input.value);
-// 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
-// 	}
-
 // SEARCH VALIDATION
 function validateSearchField() {
 	var myCities = /([A-Z])\w+/;
@@ -529,7 +501,6 @@ function validateSearchField() {
 		// WRITE CURRENT LOCATION TO APP
 		console.log('Location changed to ' + input.value);
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
-		// document.registration.zip.focus();
 		return true;
 	} else {
 		$('.search--text--field--div').tooltip('show');
@@ -537,21 +508,7 @@ function validateSearchField() {
 		console.log("Please enter a valid city...");
 		return false;
 	}
-		// function validateSearchField() {
-		// 	if (getSearchField.value == "") {
-		// 		console.log("Please select value");
-		// 		return false;
-		// 	}
-		// }
-	}
-
-// getSearchButton.addEventListener('click', function (e) {
-// 	var selectedValue = getSearchField.options[getSearchField.selectedIndex] ? getSearchField.options[getSearchField.selectedIndex].value : null;
-
-// 	if (!selectedValue) {
-// 		console.log("Please enter location...");
-// 	}
-// });
+}
 
 // CHECK IF ACCESS ALLOWED
 function checkGeo() {
@@ -583,12 +540,6 @@ function getGeoLocation() {
 		console.log(currLatLong[1]);
 		myLat = (currLatLong[0]);
 		myLng = (currLatLong[1]);
-		// if (myLat == "undefined" || myLng == "undefined") {
-		// 	myLat = -41.2865;
-		// 	myLng = 174.7762;
-		// 	getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
-		// 	getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
-		// }
 		getSkyData();
 
 	});
