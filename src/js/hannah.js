@@ -1,5 +1,7 @@
 // LOADING THE PAGE
 $('#master--loader').show();
+
+// VARIABLES
 var getHumidity = document.getElementById("data__humidity");
 var getUv = document.getElementById("data__uvIndex");
 var getWind = document.getElementById("data__windGust");
@@ -22,7 +24,6 @@ Date.prototype.getDayFormatted = function () {
 function getDayOfWeek(date) {
   var dayOfWeek = new Date(date).getDay();
   return isNaN(dayOfWeek) ? null : ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'][dayOfWeek];
-  
 }
 
 // GETTING THE DATA
@@ -69,11 +70,9 @@ google.charts.load('current', {'packages':['corechart']});
             var data =new google.visualization.DataTable();
             data.addColumn ("string", "Day");
             data.addColumn ("number", "Wind");
-            
-   
+        
             for (var i=0; i <dataFromJSON.daily.data.length; i++){
               console.log(dataFromJSON.daily.data[i].windGust);
-
 
             // DATESTAMP
             dateStamp = dataFromJSON.daily.data[i].time;
@@ -103,7 +102,7 @@ google.charts.load('current', {'packages':['corechart']});
                 vAxis: 
                 {textStyle:{color: '#ffffff', fontName: 'Poppins'}},
 
-              backgroundColor: '#102949',
+              backgroundColor: {color: '#ffffff', fill: 'transparent'},
               colors: ['#ffffff'],
               tooltip: 
                 {textStyle: {color: '#5a6977', fontName: 'Poppins', fontSize: 10}},
