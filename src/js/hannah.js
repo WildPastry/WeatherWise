@@ -70,9 +70,11 @@ google.charts.load('current', {'packages':['corechart']});
             var data =new google.visualization.DataTable();
             data.addColumn ("string", "Day");
             data.addColumn ("number", "Wind");
-        
+              
+            dataFromJSON.daily.data.shift();
             for (var i=0; i <dataFromJSON.daily.data.length; i++){
-              console.log(dataFromJSON.daily.data[i].windGust);
+            
+            console.log(dataFromJSON.daily.data[i].windGust);
 
             // DATESTAMP
             dateStamp = dataFromJSON.daily.data[i].time;
@@ -106,11 +108,11 @@ google.charts.load('current', {'packages':['corechart']});
               backgroundColor: {color: '#ffffff', fill: 'transparent'},
               colors: ['#ffffff'],
               tooltip: 
-                {textStyle: {color: '#5a6977', fontName: 'Poppins', fontSize: 10}},
+                {textStyle: {color: '#000000', fontName: 'Poppins', fontSize: 10}},
             }; //OPTIONS ENDING
 
              var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
-        chart.draw(data, options);
+             chart.draw(data, options);
             }, //SUCCESS ENDING
 
         error:function(errorFromJSON){
