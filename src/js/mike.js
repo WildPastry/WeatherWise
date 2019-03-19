@@ -1,5 +1,6 @@
 // CHECK JAVASCRIPT + JQUERY
 /*jslint browser:true */
+/*jshint esversion: 6 */
 console.log('javascript ready...');
 
 $(document).ready(function () {
@@ -26,13 +27,13 @@ $.ajax({
 });
 
 // VARIABLES
-var body = document.body;
+const body = document.body;
 var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
 var myLat = -41.2865;
 var myLng = 174.7762;
 
 // AUTOCOMPLETE VARIABLE
-var input = document.getElementById('search--text--field');
+const input = document.getElementById('search--text--field');
 
 // DATE VARIABLES
 var now = new Date();
@@ -40,28 +41,28 @@ var days = new Array('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FR
 var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 
 // TOP TEMP AND LOCATION VARIABLES
-var getTopTemp = document.getElementById("top--temp");
-var getTopLocation = document.getElementById("top--location");
+const getTopTemp = document.getElementById("top--temp");
+const getTopLocation = document.getElementById("top--location");
 
 // CURRENT DATA VARIABLES
-var getCurrentTempHigh = document.getElementById("data--current--temp-high");
-var getCurrentTempLow = document.getElementById("data--current--temp-low");
-var getCurrentDesc = document.getElementById("data--current--desc");
-var getCurrentIcon = document.getElementById("data--current--icon");
-var getCurrentDate = document.getElementById("data--current--date");
-var getLocationDiv = document.getElementById("data--location--div");
-var getLocation = document.getElementById("data--location");
-var getSearchFieldDiv = document.getElementById("search--text--field--div");
-var getSearchField = document.getElementById("search--text--field");
-var getSearchButton = document.getElementById("search--button");
+const getCurrentTempHigh = document.getElementById("data--current--temp-high");
+const getCurrentTempLow = document.getElementById("data--current--temp-low");
+const getCurrentDesc = document.getElementById("data--current--desc");
+const getCurrentIcon = document.getElementById("data--current--icon");
+const getCurrentDate = document.getElementById("data--current--date");
+const getLocationDiv = document.getElementById("data--location--div");
+const getLocation = document.getElementById("data--location");
+const getSearchFieldDiv = document.getElementById("search--text--field--div");
+const getSearchField = document.getElementById("search--text--field");
+const getSearchButton = document.getElementById("search--button");
 
 // DAILY DATA VARIABLES
-var getDailyBG = document.getElementById("data--daily-bg");
-var getDailyDate = document.getElementById("data--daily--date");
-var getDailyTemp = document.getElementById("data--daily--temp");
-var getDailyTempLow = document.getElementById("data--daily--temp-low");
-var getDailyIcon = document.getElementById("data--daily--icon");
-var makeDiv = document.createElement('div');
+const getDailyBG = document.getElementById("data--daily-bg");
+const getDailyDate = document.getElementById("data--daily--date");
+const getDailyTemp = document.getElementById("data--daily--temp");
+const getDailyTempLow = document.getElementById("data--daily--temp-low");
+const getDailyIcon = document.getElementById("data--daily--icon");
+const makeDiv = document.createElement('div');
 
 // DATA ICONS
 var dataIcons = [{
