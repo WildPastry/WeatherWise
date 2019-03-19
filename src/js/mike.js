@@ -15,6 +15,11 @@ $.ajax({
 	dataType: 'json',
 	type: 'get',
 	success: function (keys) {
+
+		var ts = new Date();
+		console.log(ts);
+		// console.log(ts.getHours());
+
 		console.log('key loaded...');
 		skyKey = keys[0].SKY;
 		// checkGeo();
@@ -427,6 +432,7 @@ Date.prototype.getMonthFormatted = function () {
 	var formatMonth = this.getMonth() + 1;
 	return formatMonth < 10 ? '0' + formatMonth : formatMonth;
 };
+
 Date.prototype.getDayFormatted = function () {
 	var formatDay = this.getDate();
 	return formatDay < 10 ? '0' + formatDay : formatDay;
@@ -490,20 +496,31 @@ function init() {
 google.maps.event.addDomListener(window, 'load', init);
 
 // SEARCH BUTTON
-getSearchButton.addEventListener('click', sendRequest);
+getSearchButton.addEventListener('click', validateSearchField);
 
-function sendRequest() {
-	if (input.value == null || input.value == "") {
-		$('.search--text--field--div').tooltip('show');
-		getSearchField.innerHTML = 'Please enter location...';
-		removeWarning();
-		return false;
-	} else {
-		// $("#search--button").click(function () {
-		// 	$('html, body').animate({
-		// 		scrollTop: $("#mike").offset().top - 0
-		// 	}, 700);
-		// });
+// function sendRequest() {
+// 	// if (input.value == null || input.value == "") {
+// 	// 	$('.search--text--field--div').tooltip('show');
+// 	// 	getSearchField.innerHTML = 'Please enter location...';
+// 	// 	return false;
+	
+// 		// $("#search--button").click(function () {
+// 		// 	$('html, body').animate({
+// 		// 		scrollTop: $("#mike").offset().top - 0
+// 		// 	}, 700);
+// 		// });
+		
+// 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
+
+// 		// WRITE CURRENT LOCATION TO APP
+// 		console.log('Location changed to ' + input.value);
+// 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
+// 	}
+
+// SEARCH VALIDATION
+function validateSearchField() {
+	var myCities = /([A-Z])\w+/;
+	if (getSearchField.value.match(myCities)) {
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
 		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
@@ -511,10 +528,22 @@ function sendRequest() {
 		// WRITE CURRENT LOCATION TO APP
 		console.log('Location changed to ' + input.value);
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
+		// document.registration.zip.focus();
+		return true;
+	} else {
+		$('.search--text--field--div').tooltip('show');
+		removeWarning();
+		console.log("Please enter a valid city...");
+		return false;
 	}
-}
+		// function validateSearchField() {
+		// 	if (getSearchField.value == "") {
+		// 		console.log("Please select value");
+		// 		return false;
+		// 	}
+		// }
+	}
 
-// SEARCH VALIDATION
 // getSearchButton.addEventListener('click', function (e) {
 // 	var selectedValue = getSearchField.options[getSearchField.selectedIndex] ? getSearchField.options[getSearchField.selectedIndex].value : null;
 
