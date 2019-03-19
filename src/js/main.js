@@ -97,11 +97,12 @@ google.charts.load('current', {'packages':['corechart']});
                 {color: '#ffffff', fontSize: 18, fontName: 'Poppins', fontWeight: 300, bold: false},
               legend: 'none',
               hAxis:
-                { slantedText: true, slantedTextAngle: 90, title: 'WIND SPEED (KM/H)', 
+                {slantedText: true, slantedTextAngle: 90, title: 'DAY',
                 titleTextStyle:{color: '#ffffff', fontSize: 12, italic: false, fontName: 'Poppins'}, 
                 textStyle:{color: '#ffffff',  fontSize: 9, fontName: 'Poppins'}},
-                vAxis: 
-                {textStyle:{color: '#ffffff', fontName: 'Poppins'}},
+                vAxis:
+                
+                {title: 'WIND SPEED (KM/H)', titleTextStyle:{color: '#ffffff', fontSize: 12, italic: false, fontName: 'Poppins'}, textStyle:{color: '#ffffff', fontSize: 12, italic: false, fontName: 'Poppins'}},
 
               backgroundColor: {color: '#ffffff', fill: 'transparent'},
               colors: ['#ffffff'],
