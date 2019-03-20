@@ -1,13 +1,28 @@
 // CONTAINER
-.copyright{
-    margin: auto;
+.copyright {
+	margin: auto;
 }
-.btn--credit{
-    margin: auto;
+
+.btn--credit {
+	background-color: $wht;
+	cursor: pointer;
+}
+
+.footer {
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.ampm {
+	font-size: 35px;
+}
+
+.power--button {
+	margin-top: 40px;
 }
 
 //COUNTDOWN
-#clockdiv{
+#clockdiv {
 	font-family: sans-serif;
 	color: #fff;
 	display: inline-block;
@@ -16,25 +31,25 @@
 	font-size: 30px;
 }
 
-#clockdiv > div{
+#clockdiv>div {
 	padding: 10px;
 	border-radius: 3px;
 	background: #00BF96;
 	display: inline-block;
 }
 
-#clockdiv div > span{
+#clockdiv div>span {
 	padding: 15px;
 	border-radius: 3px;
 	background: #00816A;
 	display: inline-block;
 }
 
-.smalltext{
+.smalltext {
 	padding-top: 5px;
 	font-size: 16px;
 }
 
-#data__time--sunrise #data__time--sunset{
-    font-size: 4em;
+#data__time--sunrise #data__time--sunset {
+	font-size: 4em;
 }

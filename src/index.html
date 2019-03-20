@@ -59,7 +59,7 @@
 				<div id="search--button" class="btn btn--search">SEARCH</div>
 			</div>
 
-		</div> 
+		</div>
 		<!--INTRO-->
 
 		<!--SECTION 2 - MIKE-->
@@ -124,7 +124,9 @@
 							<div id="data--daily--icon"></div>
 						</div>
 					</div>
+
 				</div>
+				<!-- DATA BG -->
 
 			</div>
 			<!-- ALL DATA WRAPPER-->
@@ -133,121 +135,98 @@
 		<!--MIKE-->
 
 		<!--SECTION 3 - HANNAH-->
-		<div id="hannah" id="master--loader" class="section section--hannah">
-				<div class="row">
-					<div class="data data--humid col col-lg-6">
+		<div id="hannah" class="section section--hannah">
+
+			<!-- ALL DATA WRAPPER -->
+			<div class="row">
+
+				<!-- DATA BG -->
+				<div id="data--extra-bg">
+
+					<!-- HUMIDITY -->
+					<div class="data data--humid col col-lg-8">
 						<h2>HUMIDITY</h2>
 						<div id="data__humidity"></div>
 					</div>
-					<div class="data data--icon col col-lg-6 d-flex justify-content-around">
-						<img class="icon--bg" src="icon/weather/clear.svg" alt="Clear">
+					<div class="data data--icon col col-lg-4">
+						<img class="icon--bg" src="icon/weather/humidity.svg" alt="Clear">
 					</div>
-				</div>
-				<div class="row">			
-					<div class="data data--uv col col-lg-6">
+
+					<!-- UV INDEX -->
+					<div class="data data--uv col col-lg-8">
 						<h2>UV INDEX</h2>
 						<div id="data__uvIndex"></div>
 					</div>
-				<div class="data data--icon col col-lg-6 d-flex justify-content-around">
-					<img class="icon--bg" src="icon/weather/chanceflurries.svg" alt="Chance Flurries">
-				</div>
-			</div>
-				<div class="row">			
-					<div class="data data--wind col col-lg-6">
+					<div class="data data--icon col col-lg-4">
+						<img class="icon--bg" src="icon/weather/uv.svg" alt="Chance Flurries">
+					</div>
+
+					<!-- WIND SPEED -->
+					<div class="data data--wind col col-lg-8">
 						<h2>WIND SPEED</h2>
 						<div id="data__windGust"></div>
 					</div>
-				<div class="data data--icon col col-lg-6 d-flex justify-content-around"">
-					<img class="icon--bg" src="icon/weather/hazy.svg" alt="Hazy">
+					<div class="data data--icon col col-lg-4">
+					<img class=" icon--bg" src="icon/weather/fog.svg"
+					 alt="Hazy">
+					</div>
+
+					<!-- CHART -->
+					<div id="chart_div"></div>
+
 				</div>
+				<!-- DATA BG -->
+
 			</div>
-			<!-- <h2>WIND SPEED</h2> -->
-			<div id="chart_div"></div>
+			<!-- ALL DATA WRAPPER -->
+
 		</div>
 		<!--HANNAH-->
 
 		<!--SECTION 4 - LISA-->
-		<div id="lisa" class="section section--lisa bckgd--db-v centered">
-			<div class="row"> 
-				<!-- COUNTDOWN -->
-			<!-- <div class="col col-lg-12">
-				<div id="countdown__div"></div>
-				<h2>HOURS MINUTES SECONDS</h2>
-			</div> -->
-			<div class="col col-lg-12">
-				<div id="countdown__div"></div>
-				<h2>HOURS MINUTES SECONDS</h2>
-				
-			</div>
-				<!-- <div class="col col-lg-4">
-					
-						<div>
-						 	<h1><span class="days"></span></h1>
-							</div>
-						<div>
-							<h1><span class="hours"></span></h1>
-						  	<div>
-								<div>
-							  		<h4>Hours</h4>
-								</div>
-							</div>
-						</div>
-				
-				</div> -->
+		<div id="lisa" class="section section--lisa">
 
-				<!-- <div class="col col-lg-4">
-					<div>
-						<h1><span class="minutes"></span></h1>
-							<div>
-								<h4>Minutes</h4>
-							</div>
-					 </div>
-				</div>
-				
-				<div class="col col-lg-4">
-					<div>
-						<h1><span class="seconds"></span></h1>
-							<div>
-								<h4>Seconds</h4>
-							</div>
-					</div>
-				</div> -->
-				
-			</div>
-			<!-- END ROW -->
+			<!-- ALL DATA WRAPPER -->
 			<div class="row">
+
+				<!-- COUNTDOWN -->
+				<div class="col col-lg-12">
+					<h2>SUN SETTING IN...</h2>
+					<div id="countdown__div"></div>
+				</div>
+
 				<!-- SUNRISE -->
-				<div class="col col-lg-6">
+				<div class="col col-lg-8">
 					<h2>SUNRISE</h2>
-					<div id="data__time--sunrise"></div><h4 class="">am</h4>
+					<div id="data__time--sunrise"></div>
 				</div>
-				<div class="col col-lg-6">
-					<img class="icon--md" src="icon/weather/sunny.svg" alt="Sunrise">
+				<div class="col col-lg-4">
+					<img class="icon--bg" src="icon/weather/clear-day.svg" alt="Sunrise">
 				</div>
-			</div>
-			<!-- END ROW -->
-			<div class="row">
+
 				<!-- SUNSET -->
-				<div class="col col-lg-6">
+				<div class="col col-lg-8">
 					<h2>SUNSET</h2>
-					<div id="data__time--sunset"></div><h4 class="">pm</h4>
-					<!-- <h1 id="data__time--sunset"></h1><h4 class="">pm</h4> -->
+					<div id="data__time--sunset"></div>
 				</div>
-				<div class="col col-lg-6">
-					<img class="icon--md" src="icon/weather/partlysunny.svg" alt="Sunset">
-					<!-- <img class="icon--md" src="icon/weather/nt_sunny.svg" alt="Sunset"> -->
+				<div class="col col-lg-4">
+					<img class="icon--bg" src="icon/weather/clear-night.svg" alt="Sunset">
 				</div>
+
 			</div>
-			<!-- END ROW -->
-			<div class="row">
-				<a target="new" href="https://darksky.net" class="btn btn--search btn--credit">POWERED BY DARKSKY</a>
+			<!-- ALL DATA WRAPPER -->
+
+			<!-- POWER BUTTON -->
+			<div class="master power--button">
+				<div class="btn btn--credit"> <a id="power--button" target="new" href="https://darksky.net">POWERED BY
+						DARKSKY</a></div>
 			</div>
-			<!-- END ROW -->
-			<div class="row">
+
+			<!-- COPYRIGHT -->
+			<div class="row footer">
 				<p class="copyright">Icons created by Weather Underground</p>
 				<p class="copyright">&copy;2019 Mike, Lisa & Hannah</p>
 			</div>
-				<!-- END ROW -->
 
 		</div>
 		<!--LISA-->
@@ -258,7 +237,6 @@
 	<!-- SCRIPT -->
 	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKPTTAAHqSYFVf0hY2PvpunZ83z9vJMA&libraries=places"></script>
 	<script src="https://www.gstatic.com/charts/loader.js"></script>
-	<!-- <script type='text/javascript' src='https://darksky.net/widget/graph/-41.2887,174.7772/ca12/en.js?width=100%&height=400&title=Wellington&textColor=ffffff&bgColor=transparent&transparency=true&fontFamily=Default&customFont=&units=ca&graph=wind_graph&timeColor=ffffff&tempColor=ffffff&lineColor=ffffff&markerColor=ffffff'></script> -->
 	<script src="framework/jquery-3.3.1.min.js"></script>
 	<script src="framework/popper-1.0.0.min.js"></script>
 	<script src="framework/bootstrap-4.1.3.min.js"></script>

@@ -13,7 +13,6 @@
 }
 
 // FONT
-// All body copy, chart text, copyrights
 body {
 	background: $d-blu-v;
 	color: $wht;
@@ -23,7 +22,6 @@ body {
 	letter-spacing: 0.1px;
 }
 
-// Big numbers, numeric values
 h1 {
 	color: $wht;
 	font-family: $main-font;
@@ -32,16 +30,15 @@ h1 {
 	letter-spacing: 0.1px;
 }
 
-// Button text, titles for the data, eg UV Index and Humidity etc
 h2 {
 	color: $wht;
 	font-family: $main-font;
 	font-weight: $reg;
 	font-size: $h2;
 	letter-spacing: 0.1px;
+	margin-top: 10px;
 }
 
-// Future days and temperature
 h3 {
 	color: $wht;
 	font-family: $main-font;
@@ -50,7 +47,6 @@ h3 {
 	letter-spacing: 0.1px;
 }
 
-// Units e.g %, am, pm etc...
 h4 {
 	color: $wht;
 	font-family: $main-font;
@@ -59,7 +55,6 @@ h4 {
 	letter-spacing: 0.1px;
 }
 
-// Units e.g %, am, pm etc...
 h5 {
 	color: $wht;
 	font-family: $main-font;
@@ -68,7 +63,6 @@ h5 {
 	letter-spacing: 0.1px;
 }
 
-// Units e.g %, am, pm etc...
 h4 {
 	color: $wht;
 	font-family: $main-font;
@@ -102,11 +96,6 @@ h4 {
 	position: absolute;
 	top: 50%;
 	width: 280px;
-}
-
-// SECTION
-.section {
-	margin-top: 60px;
 }
 
 // CONTAINER
