@@ -28,7 +28,7 @@ var getHumidity = document.getElementById("data__humidity");
 var getUv = document.getElementById("data__uvIndex");
 var getWind = document.getElementById("data__windGust");
 var getTime = document.getElementById("data__time");
-const getHannah = document.getElementById("data--extra-bg");
+var getHannah = document.getElementById("data--extra-bg");
 
 // LISA VARIABLES
 var getformattedRiseTime = document.getElementById("data__time--sunrise");
@@ -36,38 +36,38 @@ var getformattedSetTime = document.getElementById("data__time--sunset");
 var getCountdown = document.getElementById("countdown__div");
 
 // MIKE VARIABLES
-const body = document.body;
+var body = document.body;
 var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
 var myLat = -41.2865;
 var myLng = 174.7762;
 
-const input = document.getElementById('search--text--field');
+var input = document.getElementById('search--text--field');
 
 var now = new Date();
 var days = new Array('SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY');
 var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
 
-const getTopTemp = document.getElementById("top--temp");
-const getTopLocation = document.getElementById("top--location");
+var getTopTemp = document.getElementById("top--temp");
+var getTopLocation = document.getElementById("top--location");
 
-const getCurrentTempHigh = document.getElementById("data--current--temp-high");
-const getCurrentTempLow = document.getElementById("data--current--temp-low");
-const getCurrentDesc = document.getElementById("data--current--desc");
-const getCurrentIcon = document.getElementById("data--current--icon");
-const getCurrentDate = document.getElementById("data--current--date");
-const getLocationDiv = document.getElementById("data--location--div");
-const getLocation = document.getElementById("data--location");
-const getSearchFieldDiv = document.getElementById("search--text--field--div");
-const getSearchField = document.getElementById("search--text--field");
-const getSearchButton = document.getElementById("search--button");
-const getPowerButton = document.getElementById("power--button");
+var getCurrentTempHigh = document.getElementById("data--current--temp-high");
+var getCurrentTempLow = document.getElementById("data--current--temp-low");
+var getCurrentDesc = document.getElementById("data--current--desc");
+var getCurrentIcon = document.getElementById("data--current--icon");
+var getCurrentDate = document.getElementById("data--current--date");
+var getLocationDiv = document.getElementById("data--location--div");
+var getLocation = document.getElementById("data--location");
+var getSearchFieldDiv = document.getElementById("search--text--field--div");
+var getSearchField = document.getElementById("search--text--field");
+var getSearchButton = document.getElementById("search--button");
+var getPowerButton = document.getElementById("power--button");
 
-const getDailyBG = document.getElementById("data--daily-bg");
-const getDailyDate = document.getElementById("data--daily--date");
-const getDailyTemp = document.getElementById("data--daily--temp");
-const getDailyTempLow = document.getElementById("data--daily--temp-low");
-const getDailyIcon = document.getElementById("data--daily--icon");
-const makeDiv = document.createElement('div');
+var getDailyBG = document.getElementById("data--daily-bg");
+var getDailyDate = document.getElementById("data--daily--date");
+var getDailyTemp = document.getElementById("data--daily--temp");
+var getDailyTempLow = document.getElementById("data--daily--temp-low");
+var getDailyIcon = document.getElementById("data--daily--icon");
+var makeDiv = document.createElement('div');
 
 var dataIcons = [{
 		icon: 'clear-day.svg',
@@ -434,8 +434,8 @@ function getSkyData() {
 			//DISPLAYING SUNRISE + SUNSET HTML
 			sunrise = Math.trunc(skyData.daily.data[0].sunriseTime);
 			sunset = Math.trunc(skyData.daily.data[0].sunsetTime);
-			getformattedRiseTime.innerHTML = '<h1>' + formattedRiseTime + '<span class="ampm space">' + ' am' + '</span>' + '</h1>';
-			getformattedSetTime.innerHTML = '<h1>' + formattedSetTime + '<span class="ampm space">' + ' pm' + '</span>' + '</h1>';
+			getformattedRiseTime.innerHTML = '<h1>' + formattedRiseTime + '<span class="ampm">' + ' am' + '</span>' + '</h1>';
+			getformattedSetTime.innerHTML = '<h1>' + formattedSetTime + '<span class="ampm">' + ' pm' + '</span>' + '</h1>';
 
 			//COUNTDOWN
 			var sunSetTime = skyData.daily.data[0].sunsetTime;

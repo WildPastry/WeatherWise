@@ -114,7 +114,7 @@ a {
 
 // ROW
 .row {
-	width: 90%;
+	width: 95%;
 	margin: 0 auto;
 }
 
@@ -126,7 +126,7 @@ a {
 	display: block;
 	border: 1px solid $wht;
 	text-align: center;
-	margin-top: 20px;
+	margin: 10px auto;
 	font-family: $main-font;
 	font-size: $bdy !important;
 }
@@ -144,12 +144,12 @@ a {
 // ICON
 .icon--info {
 	cursor: help;
-	float: right;
+	// float: right;
 }
 
-.icon--info::after {
-	clear: right;
-}
+// .icon--info::after {
+// 	clear: right;
+// }
 
 .icon--bg {
 	width: 120px;

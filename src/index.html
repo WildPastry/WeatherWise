@@ -28,15 +28,25 @@
 	<!-- MASTER CONTAINER -->
 	<div class="container-fluid">
 
-		<!-- INFO -->
-		<div class="icon">
-			<img id="icon--info" class="icon--info icon--md" src="icon/ww-info.svg" alt="WeatherWise Information">
-		</div>
+		<!-- HEADER -->
+		<div class="row">
 
-		<!-- TOP TEMP -->
-		<div class="top--temp">
-			<div id="top--temp"></div>
-			<div id="top--location"></div>
+			<!-- TOP TEMP -->
+			<div class="col col-sm-10">
+				<div class="top--temp">
+					<div id="top--temp"></div>
+					<div id="top--location"></div>
+				</div>
+			</div>
+
+			<!-- INFO -->
+			<div class="col col-sm-2">
+				<div class="icon--info">
+					<img id="icon--info" class="icon--md" src="icon/ww-info.svg" alt="WeatherWise Information">
+				</div>
+			</div>
+
+			<!-- HEADER -->
 		</div>
 
 		<!--SECTION 1 - INTRO-->
@@ -44,14 +54,19 @@
 
 			<!-- MASTER LOGO -->
 			<div class="master master--logo">
-				<img class="master--logo-img" src="icon/ww-logo.svg" alt="WeatherWise FOR WEATHER ADDICTS" title="WeatherWise">
+				<img class="master--logo-img" src="icon/ww-logo.svg" alt="WeatherWise FOR WEATHER ADDICTS"
+					title="WeatherWise">
 			</div>
 
 			<!-- BUTTONS -->
 			<!-- ENTER LOCATION BUTTON -->
-			<div class="master search--text--field--div">
-				<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field" type="text" autocomplete="off"
-					 placeholder="Enter location" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter location'" onClick="this.setSelectionRange(0, this.value.length)"></div>
+			<div class="master">
+				<div class="search--text--field--div">
+					<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field"
+							type="text" autocomplete="off" placeholder="Enter location" onfocus="this.placeholder = ''"
+							onblur="this.placeholder = 'Enter location'"
+							onClick="this.setSelectionRange(0, this.value.length)"></div>
+				</div>
 			</div>
 
 			<!-- SEARCH BUTTON -->
@@ -59,89 +74,88 @@
 				<div id="search--button" class="btn btn--search">SEARCH</div>
 			</div>
 
-		</div>
-		<!--INTRO-->
+			<!--INTRO-->
 
-		<!--SECTION 2 - MIKE-->
-		<div id="mike" class="section section--mike">
+			<!--SECTION 2 - MIKE-->
+			<div id="mike" class="section section--mike">
 
-			<!-- DATA LOCATION TITLE AND MARKER-->
-			<div id="data--location--div" class="col col-sm-12 data--location">
-			<div class="row">
-					<div class="master" id="data--location">
-					</div>
-				</div>
-			</div>
-
-			<!-- CURRENT DATE -->
-			<div class="row">
-				<div class="col col-sm-12">
-					<div id="data--current--date"></div>
-				</div>
-			</div>
-
-			<!-- CURRENT DATA -->
-			<!-- HIGH AND LOW TEMPS -->
-			<div class="row">
-				<div class="col col-sm-4">
-					<div id="data--current--temp-high"></div>
-				</div>
-				<div class="col col-sm-4">
-					<div id="data--current--temp-low"></div>
-				</div>
-
-				<!-- CURRENT ICON -->
-				<div class="col col-sm-4">
-					<div id="data--current--icon"></div>
-				</div>
-			</div>
-
-			<!-- CURRENT DESC -->
-			<div class="row">
-				<div class="col col-sm-12">
-					<span class="fade--line marginBot"></span>
-					<div id="data--current--desc"></div>
-				</div>
-			</div>
-
-			<!-- DAILY DATA -->
-			<!-- DAILY BG -->
-			<div id="data--daily-bg">
-
-			<div class="row">
-
-					<!-- DAILY DATE -->
-					<div class="col col-sm-8">
-						<div id="data--daily--date"></div>
-					</div>
-
-					<!-- DAILY TEMP -->
-					<div class="col col-sm-1">
-						<div id="data--daily--temp"></div>
-					</div>
-					<div class="col col-sm-1">
-						<div id="data--daily--temp-low"></div>
-					</div>
-
-					<!-- DAILY ICON -->
-					<div class="col col-sm-2">
-						<div id="data--daily--icon-wrapper">
-							<div id="data--daily--icon"></div>
+				<!-- DATA LOCATION TITLE AND MARKER-->
+				<div id="data--location--div" class="col col-sm-12 data--location">
+					<div class="row">
+						<div class="master" id="data--location">
 						</div>
 					</div>
-
 				</div>
+
+				<!-- CURRENT DATE -->
+				<div class="row">
+					<div class="col col-sm-12">
+						<div id="data--current--date"></div>
+					</div>
+				</div>
+
+				<!-- CURRENT DATA -->
+				<!-- HIGH AND LOW TEMPS -->
+				<div class="row">
+					<div class="col col-sm-4">
+						<div id="data--current--temp-high"></div>
+					</div>
+					<div class="col col-sm-4">
+						<div id="data--current--temp-low"></div>
+					</div>
+
+					<!-- CURRENT ICON -->
+					<div class="col col-sm-4">
+						<div id="data--current--icon"></div>
+					</div>
+				</div>
+
+				<!-- CURRENT DESC -->
+				<div class="row">
+					<div class="col col-sm-12">
+						<span class="fade--line marginBot"></span>
+						<div id="data--current--desc" class="marginBot"></div>
+					</div>
+				</div>
+
+				<!-- DAILY DATA -->
+				<!-- DAILY BG -->
+				<div id="data--daily-bg">
+
+					<div class="row">
+
+						<!-- DAILY DATE -->
+						<div class="col col-sm-8">
+							<div id="data--daily--date"></div>
+						</div>
+
+						<!-- DAILY TEMP -->
+						<div class="col col-sm-1">
+							<div id="data--daily--temp"></div>
+						</div>
+						<div class="col col-sm-1">
+							<div id="data--daily--temp-low"></div>
+						</div>
+
+						<!-- DAILY ICON -->
+						<div class="col col-sm-2">
+							<div id="data--daily--icon-wrapper">
+								<div id="data--daily--icon"></div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- DATA BG -->
+
 			</div>
-			<!-- DATA BG -->
+			<!--MIKE-->
 
-		</div>
-		<!--MIKE-->
+			<!--SECTION 3 - HANNAH-->
+			<div id="hannah" class="section section--hannah">
 
-		<!--SECTION 3 - HANNAH-->
-		<div id="hannah" class="section section--hannah">
-
-			<!-- DATA BG -->
-			<div id="data--extra-bg">
+				<!-- DATA BG -->
+				<div id="data--extra-bg">
 
 					<!-- HUMIDITY -->
 					<div class="row">
@@ -181,70 +195,76 @@
 					<div id="chart_div"></div>
 					<!-- </div> -->
 
+				</div>
+				<!-- DATA BG -->
+
 			</div>
-			<!-- DATA BG -->
+			<!--HANNAH-->
+
+			<!--SECTION 4 - LISA-->
+			<div id="lisa" class="section section--lisa">
+
+				<!-- COUNTDOWN -->
+				<div class="row">
+					<div class="col col-sm-12">
+						<h2>SUN SETTING IN...</h2>
+						<div id="countdown__div"></div>
+					</div>
+				</div>
+
+				<!-- SUNRISE -->
+				<div class="row">
+					<div class="col col-sm-8">
+						<h2>SUNRISE</h2>
+						<div id="data__time--sunrise"></div>
+					</div>
+					<div class="col col-sm-4">
+						<img class="icon--bg" src="icon/weather/clear-day.svg" alt="Sunrise">
+					</div>
+				</div>
+
+				<!-- SUNSET -->
+				<div class="row">
+					<div class="col col-sm-8">
+						<h2>SUNSET</h2>
+						<div id="data__time--sunset"></div>
+					</div>
+					<div class="col col-sm-4">
+						<img class="icon--bg" src="icon/weather/clear-night.svg" alt="Sunset">
+					</div>
+				</div>
+
+				<!-- POWER BUTTON -->
+				<div class="master">
+					<div class="power--button">
+						<div id="power--button" class="btn btn--credit"> <a target="new"
+								href="https://darksky.net">POWERED
+								BY
+								DARKSKY</a></div>
+					</div>
+				</div>
+
+				<!-- COPYRIGHT -->
+				<div class="row footer">
+					<p class="copyright">Icons created by Weather Underground</p>
+					<p class="copyright">&copy;2019 Mike, Lisa & Hannah</p>
+				</div>
+
+			</div>
+			<!--LISA-->
 
 		</div>
-		<!--HANNAH-->
+		<!-- MASTER CONTAINER -->
 
-		<!--SECTION 4 - LISA-->
-		<div id="lisa" class="section section--lisa">
-
-			<!-- COUNTDOWN -->
-			<div class="row">
-				<div class="col col-sm-12">
-					<h2>SUN SETTING IN...</h2>
-					<div id="countdown__div"></div>
-				</div>
-			</div>
-
-			<!-- SUNRISE -->
-			<div class="row">
-				<div class="col col-sm-8">
-					<h2>SUNRISE</h2>
-					<div id="data__time--sunrise"></div>
-				</div>
-				<div class="col col-sm-4">
-					<img class="icon--bg" src="icon/weather/clear-day.svg" alt="Sunrise">
-				</div>
-			</div>
-
-			<!-- SUNSET -->
-			<div class="row">
-				<div class="col col-sm-8">
-					<h2>SUNSET</h2>
-					<div id="data__time--sunset"></div>
-				</div>
-				<div class="col col-sm-4">
-					<img class="icon--bg" src="icon/weather/clear-night.svg" alt="Sunset">
-				</div>
-			</div>
-
-			<!-- POWER BUTTON -->
-			<div class="master power--button">
-				<div id="power--button" class="btn btn--credit"> <a target="new" href="https://darksky.net">POWERED BY
-						DARKSKY</a></div>
-			</div>
-
-			<!-- COPYRIGHT -->
-			<div class="row footer">
-				<p class="copyright">Icons created by Weather Underground</p>
-				<p class="copyright">&copy;2019 Mike, Lisa & Hannah</p>
-			</div>
-
-		</div>
-		<!--LISA-->
-
-	</div>
-	<!-- MASTER CONTAINER -->
-
-	<!-- SCRIPT -->
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKPTTAAHqSYFVf0hY2PvpunZ83z9vJMA&libraries=places"></script>
-	<script src="https://www.gstatic.com/charts/loader.js"></script>
-	<script src="framework/jquery-3.3.1.min.js"></script>
-	<script src="framework/popper-1.0.0.min.js"></script>
-	<script src="framework/bootstrap-4.1.3.min.js"></script>
-	<script src="js/main.js"></script>
+		<!-- SCRIPT -->
+		<script type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYKPTTAAHqSYFVf0hY2PvpunZ83z9vJMA&libraries=places">
+		</script>
+		<script src="https://www.gstatic.com/charts/loader.js"></script>
+		<script src="framework/jquery-3.3.1.min.js"></script>
+		<script src="framework/popper-1.0.0.min.js"></script>
+		<script src="framework/bootstrap-4.1.3.min.js"></script>
+		<script src="js/main.js"></script>
 </body>
 
 </html>

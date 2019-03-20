@@ -1145,12 +1145,6 @@ html {
 .master--logo-img {
   width: 200px; }
 
-.top--temp {
-  float: left; }
-
-.top--temp::after {
-  clear: left; }
-
 .tooltip > .tooltip-inner {
   border: 1px solid #fff;
   padding: 10px; }
@@ -1199,6 +1193,10 @@ input {
   text-align: center;
   -webkit-appearance: none !important;
   box-shadow: none !important; }
+
+.search--text--field--div, .power--button {
+  width: 100%;
+  margin: 0 auto; }
 
 .pac-container {
   cursor: pointer;
@@ -1287,7 +1285,7 @@ input {
   margin-top: 30px; }
 
 .ampm {
-  font-size: 35px; }
+  font-size: 20px; }
 
 .power--button {
   margin-top: 40px;
@@ -1340,7 +1338,7 @@ h1 {
   color: #fff;
   font-family: "Poppins", sans-serif;
   font-weight: 900;
-  font-size: 4em;
+  font-size: 3.2em;
   letter-spacing: 0.1px; }
 
 h2 {
@@ -1413,7 +1411,7 @@ a {
   margin-bottom: 20px; }
 
 .row {
-  width: 90%;
+  width: 95%;
   margin: 0 auto; }
 
 .btn {
@@ -1423,7 +1421,7 @@ a {
   display: block;
   border: 1px solid #fff;
   text-align: center;
-  margin-top: 20px;
+  margin: 10px auto;
   font-family: "Poppins", sans-serif;
   font-size: 17px !important; }
 
@@ -1436,11 +1434,7 @@ a {
   cursor: text; }
 
 .icon--info {
-  cursor: help;
-  float: right; }
-
-.icon--info::after {
-  clear: right; }
+  cursor: help; }
 
 .icon--bg {
   width: 120px;

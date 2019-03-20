@@ -1,5 +1,6 @@
 /node_modules
 /production
+/dist
 config.json
 *.DS_Store
 *Thumbs.db
