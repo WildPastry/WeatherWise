@@ -15,11 +15,12 @@
 // FONT
 // All body copy, chart text, copyrights
 body {
-	background: $d-blu;
+	background: $d-blu-v;
 	color: $wht;
 	font-family: $main-font;
-	font-weight: $lgt;
+	font-weight: $reg;
 	font-size: $bdy;
+	letter-spacing: 0.1px;
 }
 
 // Big numbers, numeric values
@@ -28,6 +29,7 @@ h1 {
 	font-family: $main-font;
 	font-weight: $bld;
 	font-size: $h1;
+	letter-spacing: 0.1px;
 }
 
 // Button text, titles for the data, eg UV Index and Humidity etc
@@ -36,6 +38,7 @@ h2 {
 	font-family: $main-font;
 	font-weight: $reg;
 	font-size: $h2;
+	letter-spacing: 0.1px;
 }
 
 // Future days and temperature
@@ -44,6 +47,25 @@ h3 {
 	font-family: $main-font;
 	font-weight: $reg;
 	font-size: $h3;
+	letter-spacing: 0.1px;
+}
+
+// Units e.g %, am, pm etc...
+h4 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h4;
+	letter-spacing: 0.1px;
+}
+
+// Units e.g %, am, pm etc...
+h5 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h5;
+	letter-spacing: 0.1px;
 }
 
 // Units e.g %, am, pm etc...
@@ -84,15 +106,16 @@ h4 {
 
 // SECTION
 .section {
-	margin-top: 100px;
+	margin-top: 60px;
 }
 
 // CONTAINER
 .container-fluid {
 	max-width: 500px;
-	padding: 1em;
+	padding: 10px;
 	position: relative;
-	width: 95%;
+	width: 100%;
+	height: 100%;
 }
 
 // BUTTON
@@ -105,18 +128,16 @@ h4 {
 	text-align: center;
 	margin-top: 20px;
 	font-family: $main-font;
-	font-size: $h2;
+	font-size: $bdy !important;
 }
 
 .btn--search {
-	color: $d-blu-v;
 	background-color: $wht;
 	cursor: pointer;
 }
 
 .btn--input {
 	color: $wht;
-	background-color: $d-blu-v;
 	cursor: text;
 }
 
@@ -131,21 +152,22 @@ h4 {
 }
 
 .icon--bg {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 }
 
 .icon--md {
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
 }
 
 .icon--sml {
-	width: 32px;
+	width: 100%;
 	height: 32px;
 }
 
 // BACKGROUNDS
+// YELLOW
 .bckgd--y-m {
 	background: $ylw;
 }
@@ -158,6 +180,7 @@ h4 {
 	background: $ylw-v;
 }
 
+// GREY
 .bckgd--g-m {
 	background: $gry;
 }
@@ -170,6 +193,11 @@ h4 {
 	background: $gry-v;
 }
 
+.bckgd--dg-v {
+	background: $d-gry-v;
+}
+
+// BLUE
 .bckgd--b-m {
 	background: $l-blu;
 }
@@ -182,6 +210,7 @@ h4 {
 	background: $l-blu-v;
 }
 
+// DARK BLUE
 .bckgd--db-m {
 	background: $d-blu;
 }

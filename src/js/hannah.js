@@ -108,7 +108,7 @@ google.charts.load('current', {'packages':['corechart']});
               backgroundColor: {color: '#ffffff', fill: 'transparent'},
               colors: ['#ffffff'],
               tooltip: 
-                {textStyle: {color: '#000000', fontName: 'Poppins', fontSize: 10}},
+                {textStyle: {color: '#0B1D30', fontName: 'Poppins', fontSize: 10}},
             }; //OPTIONS ENDING
 
              var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
