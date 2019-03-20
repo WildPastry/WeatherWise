@@ -18,8 +18,9 @@ body {
 	background: $d-blu-v;
 	color: $wht;
 	font-family: $main-font;
-	font-weight: $lgt;
+	font-weight: $reg;
 	font-size: $bdy;
+	letter-spacing: 0.1px;
 }
 
 // Big numbers, numeric values
@@ -28,6 +29,7 @@ h1 {
 	font-family: $main-font;
 	font-weight: $bld;
 	font-size: $h1;
+	letter-spacing: 0.1px;
 }
 
 // Button text, titles for the data, eg UV Index and Humidity etc
@@ -36,6 +38,7 @@ h2 {
 	font-family: $main-font;
 	font-weight: $reg;
 	font-size: $h2;
+	letter-spacing: 0.1px;
 }
 
 // Future days and temperature
@@ -44,6 +47,33 @@ h3 {
 	font-family: $main-font;
 	font-weight: $reg;
 	font-size: $h3;
+	letter-spacing: 0.1px;
+}
+
+// Units e.g %, am, pm etc...
+h4 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h4;
+	letter-spacing: 0.1px;
+}
+
+// Units e.g %, am, pm etc...
+h5 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h5;
+	letter-spacing: 0.1px;
+}
+
+// Units e.g %, am, pm etc...
+h4 {
+	color: $wht;
+	font-family: $main-font;
+	font-weight: $bld;
+	font-size: $h4;
 }
 
 // MASTER
@@ -76,16 +106,16 @@ h3 {
 
 // SECTION
 .section {
-	margin-top: 100px;
+	margin-top: 60px;
 }
 
 // CONTAINER
 .container-fluid {
 	max-width: 500px;
-	padding: 1em;
+	padding: 10px;
 	position: relative;
-	width: 95%;
-	background: #464646;
+	width: 100%;
+	height: 100%;
 }
 
 // BUTTON
@@ -98,73 +128,98 @@ h3 {
 	text-align: center;
 	margin-top: 20px;
 	font-family: $main-font;
-	font-size: $h2;
+	font-size: $bdy !important;
 }
 
 .btn--search {
-	color: $d-blu-v;
 	background-color: $wht;
 	cursor: pointer;
 }
 
 .btn--input {
 	color: $wht;
-	background-color: $d-blu-v;
-	cursor: pointer;
+	cursor: text;
 }
 
 // ICON
+.icon--info {
+	cursor: help;
+	float: right;
+}
+
+.icon--info::after {
+	clear: right;
+}
+
 .icon--bg {
-	width: 100px;
-	height: 100px;
+	width: 120px;
+	height: 120px;
 }
+
 .icon--md {
-	width: 64px;
-	height: 64px;	
+	width: 40px;
+	height: 40px;
 }
+
 .icon--sml {
-	width: 32px;
+	width: 100%;
 	height: 32px;
 }
 
 // BACKGROUNDS
-.bckgd--y-m{
+// YELLOW
+.bckgd--y-m {
 	background: $ylw;
 }
-.bckgd--y-p{
+
+.bckgd--y-p {
 	background: $ylw-p;
 }
-.bckgd--y-v{
+
+.bckgd--y-v {
 	background: $ylw-v;
 }
 
-.bckgd--g-m{
+// GREY
+.bckgd--g-m {
 	background: $gry;
 }
-.bckgd--g-p{
+
+.bckgd--g-p {
 	background: $gry-p;
 }
-.bckgd--g-v{
+
+.bckgd--g-v {
 	background: $gry-v;
 }
 
-.bckgd--b-m{
+.bckgd--dg-v {
+	background: $d-gry-v;
+}
+
+// BLUE
+.bckgd--b-m {
 	background: $l-blu;
 }
-.bckgd--b-p{
+
+.bckgd--b-p {
 	background: $l-blu-p;
 }
-.bckgd--b-v{
+
+.bckgd--b-v {
 	background: $l-blu-v;
 }
 
-.bckgd--db-m{
+// DARK BLUE
+.bckgd--db-m {
 	background: $d-blu;
 }
-.bckgd--db-p{
+
+.bckgd--db-p {
 	background: $d-blu-p;
 }
-.bckgd--db-v{
+
+.bckgd--db-v {
 	background: $d-blu-v;
 }
 
