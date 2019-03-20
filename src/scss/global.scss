@@ -144,15 +144,15 @@ a {
 // ICON
 .icon--info {
 	cursor: help;
-	// float: right;
+	float: right;
 }
 
-// .icon--info::after {
-// 	clear: right;
-// }
+.icon--info::after {
+	clear: right;
+}
 
 .icon--bg {
-	width: 120px;
+	width: 100px;
 	height: 120px;
 }
 

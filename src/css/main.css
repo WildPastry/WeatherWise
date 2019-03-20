@@ -1145,6 +1145,12 @@ html {
 .master--logo-img {
   width: 200px; }
 
+.top--temp {
+  float: left; }
+
+.top--temp::after {
+  clear: left; }
+
 .tooltip > .tooltip-inner {
   border: 1px solid #fff;
   padding: 10px; }
@@ -1434,10 +1440,14 @@ a {
   cursor: text; }
 
 .icon--info {
-  cursor: help; }
+  cursor: help;
+  float: right; }
+
+.icon--info::after {
+  clear: right; }
 
 .icon--bg {
-  width: 120px;
+  width: 100px;
   height: 120px; }
 
 .icon--md {

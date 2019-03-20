@@ -42,13 +42,13 @@
 }
 
 // TOP TEMP AND LOCATION
-// .top--temp {
-// 	float: left;
-// }
+.top--temp {
+	float: left;
+}
 
-// .top--temp::after {
-// 	clear: left;
-// }
+.top--temp::after {
+	clear: left;
+}
 
 // TOOLTIP
 .tooltip>.tooltip-inner {
