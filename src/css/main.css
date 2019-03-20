@@ -1182,11 +1182,10 @@ html {
   margin: 25px auto; }
 
 #data--extra-bg {
-  display: flex;
-  flex-wrap: wrap;
   padding-top: 9px;
   padding-bottom: 9px;
-  margin: 25px auto; }
+  margin: 25px auto;
+  width: 100%; }
 
 .data--current--date {
   flex-basis: 0; }
@@ -1284,19 +1283,15 @@ input {
 .copyright {
   margin: auto; }
 
-.btn--credit {
-  background-color: #fff;
-  cursor: pointer; }
-
 .footer {
-  margin-top: 30px;
-  margin-bottom: 30px; }
+  margin-top: 30px; }
 
 .ampm {
   font-size: 35px; }
 
 .power--button {
-  margin-top: 40px; }
+  margin-top: 40px;
+  margin-bottom: 20px; }
 
 #clockdiv {
   font-family: sans-serif;
@@ -1383,6 +1378,9 @@ h4 {
   font-weight: 900;
   font-size: 2em; }
 
+a {
+  color: #fff; }
+
 .master {
   align-items: center;
   display: flex;
@@ -1411,7 +1409,12 @@ h4 {
   padding: 10px;
   position: relative;
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  margin-bottom: 20px; }
+
+.row {
+  width: 90%;
+  margin: 0 auto; }
 
 .btn {
   width: 90%;

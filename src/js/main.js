@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-20 */ 
+/*! weatherwise - v1.0.0 - 2019-03-21 */ 
 /*! weatherwise - v1.0.0 - 2019-03-20 */
 /*jslint browser:true */
 /*jshint esversion: 6 */
@@ -139,7 +139,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#ff9e3e';
 				getSearchField.style.backgroundColor = '#ff9e3e';
 				getSearchButton.style.color = '#ff9e3e';
-				getPowerButton.style.color = '#ff9e3e';
+				getPowerButton.style.backgroundColor = '#ff9e3e';
 				getHannah.style.backgroundColor = '#ff9e3e';
 				getDailyBG.style.backgroundColor = '#ffca76';
 				$(document).ready(function () {
@@ -157,7 +157,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
 				getSearchField.style.backgroundColor = '#0b1d30';
 				getSearchButton.style.color = '#0b1d30';
-				getPowerButton.style.color = '#0b1d30';
+				getPowerButton.style.backgroundColor = '#0b1d30';
 				getHannah.style.backgroundColor = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
 				// TOOLTIPS
@@ -176,7 +176,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#136999';
 				getSearchField.style.backgroundColor = '#136999';
 				getSearchButton.style.color = '#136999';
-				getPowerButton.style.color = '#136999';
+				getPowerButton.style.backgroundColor = '#136999';
 				getHannah.style.backgroundColor = '#136999';
 				getDailyBG.style.backgroundColor = '#66a9d7';
 				// TOOLTIPS
@@ -195,7 +195,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
 				getSearchField.style.backgroundColor = '#0b1d30';
 				getSearchButton.style.color = '#0b1d30';
-				getPowerButton.style.color = '#0b1d30';
+				getPowerButton.style.backgroundColor = '#0b1d30';
 				getHannah.style.backgroundColor = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
 				// TOOLTIPS
@@ -214,7 +214,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#136999';
 				getSearchField.style.backgroundColor = '#136999';
 				getSearchButton.style.color = '#136999';
-				getPowerButton.style.color = '#136999';
+				getPowerButton.style.backgroundColor = '#136999';
 				getHannah.style.backgroundColor = '#136999';
 				getDailyBG.style.backgroundColor = '#66a9d7';
 				// TOOLTIPS
@@ -233,7 +233,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#323b44';
 				getSearchField.style.backgroundColor = '#323b44';
 				getSearchButton.style.color = '#323b44';
-				getPowerButton.style.color = '#323b44';
+				getPowerButton.style.backgroundColor = '#323b44';
 				getHannah.style.backgroundColor = '#323b44';
 				getDailyBG.style.backgroundColor = '#566470';
 				// TOOLTIPS
@@ -252,7 +252,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#5a6977';
 				getSearchField.style.backgroundColor = '#5a6977';
 				getSearchButton.style.color = '#5a6977';
-				getPowerButton.style.color = '#5a6977';
+				getPowerButton.style.backgroundColor = '#5a6977';
 				getHannah.style.backgroundColor = '#5a6977';
 				getDailyBG.style.backgroundColor = '#99a9bb';
 				// TOOLTIPS
@@ -271,7 +271,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#323b44';
 				getSearchField.style.backgroundColor = '#323b44';
 				getSearchButton.style.color = '#323b44';
-				getPowerButton.style.color = '#323b44';
+				getPowerButton.style.backgroundColor = '#323b44';
 				getHannah.style.backgroundColor = '#323b44';
 				getDailyBG.style.backgroundColor = '#566470';
 				// TOOLTIPS
@@ -290,7 +290,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#5a6977';
 				getSearchField.style.backgroundColor = '#5a6977';
 				getSearchButton.style.color = '#5a6977';
-				getPowerButton.style.color = '#5a6977';
+				getPowerButton.style.backgroundColor = '#5a6977';
 				getHannah.style.backgroundColor = '#5a6977';
 				getDailyBG.style.backgroundColor = '#99a9bb';
 				// TOOLTIPS
@@ -309,7 +309,7 @@ function getSkyData() {
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
 				getSearchField.style.backgroundColor = '#0b1d30';
 				getSearchButton.style.color = '#0b1d30';
-				getPowerButton.style.color = '#0b1d30';
+				getPowerButton.style.backgroundColor = '#0b1d30';
 				getHannah.style.backgroundColor = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
 				// TOOLTIPS

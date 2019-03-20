@@ -66,23 +66,23 @@
 		<div id="mike" class="section section--mike">
 
 			<!-- DATA LOCATION TITLE AND MARKER-->
+			<div id="data--location--div" class="col col-sm-12 data--location">
 			<div class="row">
-				<div id="data--location--div" class="col col-sm-12 data--location">
 					<div class="master" id="data--location">
 					</div>
 				</div>
 			</div>
 
-			<!-- ALL DATA WRAPPER-->
+			<!-- CURRENT DATE -->
 			<div class="row">
-
-				<!-- CURRENT DATE -->
 				<div class="col col-sm-12">
 					<div id="data--current--date"></div>
 				</div>
+			</div>
 
-				<!-- CURRENT DATA -->
-				<!-- HIGH AND LOW TEMPS -->
+			<!-- CURRENT DATA -->
+			<!-- HIGH AND LOW TEMPS -->
+			<div class="row">
 				<div class="col col-sm-4">
 					<div id="data--current--temp-high"></div>
 				</div>
@@ -94,16 +94,21 @@
 				<div class="col col-sm-4">
 					<div id="data--current--icon"></div>
 				</div>
+			</div>
 
-				<!-- CURRENT DESC -->
+			<!-- CURRENT DESC -->
+			<div class="row">
 				<div class="col col-sm-12">
 					<span class="fade--line marginBot"></span>
 					<div id="data--current--desc"></div>
 				</div>
+			</div>
 
-				<!-- DAILY DATA -->
-				<!-- DAILY BG -->
-				<div id="data--daily-bg">
+			<!-- DAILY DATA -->
+			<!-- DAILY BG -->
+			<div id="data--daily-bg">
+
+			<div class="row">
 
 					<!-- DAILY DATE -->
 					<div class="col col-sm-8">
@@ -126,10 +131,8 @@
 					</div>
 
 				</div>
-				<!-- DATA BG -->
-
 			</div>
-			<!-- ALL DATA WRAPPER-->
+			<!-- DATA BG -->
 
 		</div>
 		<!--MIKE-->
@@ -137,48 +140,49 @@
 		<!--SECTION 3 - HANNAH-->
 		<div id="hannah" class="section section--hannah">
 
-			<!-- ALL DATA WRAPPER -->
-			<div class="row">
-
-				<!-- DATA BG -->
-				<div id="data--extra-bg">
+			<!-- DATA BG -->
+			<div id="data--extra-bg">
 
 					<!-- HUMIDITY -->
-					<div class="data data--humid col col-lg-8">
-						<h2>HUMIDITY</h2>
-						<div id="data__humidity"></div>
-					</div>
-					<div class="data data--icon col col-lg-4">
-						<img class="icon--bg" src="icon/weather/humidity.svg" alt="Clear">
+					<div class="row">
+						<div class="data data--humid col col-sm-8">
+							<h2>HUMIDITY</h2>
+							<div id="data__humidity"></div>
+						</div>
+						<div class="data data--icon col col-sm-4">
+							<img class="icon--bg" src="icon/weather/humidity.svg" alt="Clear">
+						</div>
 					</div>
 
 					<!-- UV INDEX -->
-					<div class="data data--uv col col-lg-8">
-						<h2>UV INDEX</h2>
-						<div id="data__uvIndex"></div>
-					</div>
-					<div class="data data--icon col col-lg-4">
-						<img class="icon--bg" src="icon/weather/uv.svg" alt="Chance Flurries">
+					<div class="row">
+						<div class="data data--uv col col-sm-8">
+							<h2>UV INDEX</h2>
+							<div id="data__uvIndex"></div>
+						</div>
+						<div class="data data--icon col col-sm-4">
+							<img class="icon--bg" src="icon/weather/uv.svg" alt="Chance Flurries">
+						</div>
 					</div>
 
 					<!-- WIND SPEED -->
-					<div class="data data--wind col col-lg-8">
-						<h2>WIND SPEED</h2>
-						<div id="data__windGust"></div>
-					</div>
-					<div class="data data--icon col col-lg-4">
-					<img class=" icon--bg" src="icon/weather/fog.svg"
-					 alt="Hazy">
+					<div class="row">
+						<div class="data data--wind col col-sm-8">
+							<h2>WIND SPEED</h2>
+							<div id="data__windGust"></div>
+						</div>
+						<div class="data data--icon col col-sm-4">
+							<img class=" icon--bg" src="icon/weather/fog.svg" alt="Hazy">
+						</div>
 					</div>
 
 					<!-- CHART -->
+					<!-- <div class="row"> -->
 					<div id="chart_div"></div>
-
-				</div>
-				<!-- DATA BG -->
+					<!-- </div> -->
 
 			</div>
-			<!-- ALL DATA WRAPPER -->
+			<!-- DATA BG -->
 
 		</div>
 		<!--HANNAH-->
@@ -186,39 +190,39 @@
 		<!--SECTION 4 - LISA-->
 		<div id="lisa" class="section section--lisa">
 
-			<!-- ALL DATA WRAPPER -->
+			<!-- COUNTDOWN -->
 			<div class="row">
-
-				<!-- COUNTDOWN -->
-				<div class="col col-lg-12">
+				<div class="col col-sm-12">
 					<h2>SUN SETTING IN...</h2>
 					<div id="countdown__div"></div>
 				</div>
+			</div>
 
-				<!-- SUNRISE -->
-				<div class="col col-lg-8">
+			<!-- SUNRISE -->
+			<div class="row">
+				<div class="col col-sm-8">
 					<h2>SUNRISE</h2>
 					<div id="data__time--sunrise"></div>
 				</div>
-				<div class="col col-lg-4">
+				<div class="col col-sm-4">
 					<img class="icon--bg" src="icon/weather/clear-day.svg" alt="Sunrise">
 				</div>
+			</div>
 
-				<!-- SUNSET -->
-				<div class="col col-lg-8">
+			<!-- SUNSET -->
+			<div class="row">
+				<div class="col col-sm-8">
 					<h2>SUNSET</h2>
 					<div id="data__time--sunset"></div>
 				</div>
-				<div class="col col-lg-4">
+				<div class="col col-sm-4">
 					<img class="icon--bg" src="icon/weather/clear-night.svg" alt="Sunset">
 				</div>
-
 			</div>
-			<!-- ALL DATA WRAPPER -->
 
 			<!-- POWER BUTTON -->
 			<div class="master power--button">
-				<div class="btn btn--credit"> <a id="power--button" target="new" href="https://darksky.net">POWERED BY
+				<div id="power--button" class="btn btn--credit"> <a target="new" href="https://darksky.net">POWERED BY
 						DARKSKY</a></div>
 			</div>
 

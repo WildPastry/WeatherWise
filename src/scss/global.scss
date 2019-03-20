@@ -70,6 +70,10 @@ h4 {
 	font-size: $h4;
 }
 
+a {
+	color: $wht;
+}
+
 // MASTER
 .master {
 	align-items: center;
@@ -105,6 +109,13 @@ h4 {
 	position: relative;
 	width: 100%;
 	height: 100%;
+	margin-bottom: 20px;
+}
+
+// ROW
+.row {
+	width: 90%;
+	margin: 0 auto;
 }
 
 // BUTTON
