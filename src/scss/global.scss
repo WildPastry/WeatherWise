@@ -152,6 +152,11 @@ a {
 	clear: right;
 }
 
+.icon--massive {
+	width: 200px;
+	height: 200px;
+}
+
 .icon--bg {
 	width: 100px;
 	height: 120px;
@@ -169,9 +174,9 @@ a {
 
 // BACKGROUNDS
 // YELLOW
-.bckgd--y-m {
-	background: $ylw;
-}
+// .bckgd--y-m {
+// 	background: $ylw;
+// }
 
 .bckgd--y-p {
 	background: $ylw-p;

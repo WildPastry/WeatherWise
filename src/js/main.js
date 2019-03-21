@@ -9,7 +9,6 @@ $.ajax({
 	dataType: 'json',
 	type: 'get',
 	success: function (keys) {
-		console.log('key loaded...');
 		skyKey = keys[0].SKY;
 		getSkyData();
 	},
@@ -35,7 +34,7 @@ var getCountdown = document.getElementById("countdown__div");
 
 // MIKE VARIABLES
 var body = document.body;
-var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon;
+var skyKey, dateStamp, finalDateStamp, currentTemp, currentIcon, countDown;
 var myLat = -41.2865;
 var myLng = 174.7762;
 
@@ -48,6 +47,7 @@ var months = new Array('January', 'Febuary', 'March', 'April', 'May', 'June', 'J
 var getTopTemp = document.getElementById("top--temp");
 var getTopLocation = document.getElementById("top--location");
 
+var getCurrentTemp = document.getElementById("data--current--temp");
 var getCurrentTempHigh = document.getElementById("data--current--temp-high");
 var getCurrentTempLow = document.getElementById("data--current--temp-low");
 var getCurrentDesc = document.getElementById("data--current--desc");
@@ -66,42 +66,6 @@ var getDailyTemp = document.getElementById("data--daily--temp");
 var getDailyTempLow = document.getElementById("data--daily--temp-low");
 var getDailyIcon = document.getElementById("data--daily--icon");
 var makeDiv = document.createElement('div');
-var x;
-
-var dataIcons = [{
-		icon: 'clear-day.svg',
-	},
-	{
-		icon: 'clear-night.svg',
-	},
-	{
-		icon: 'rain.svg'
-	},
-	{
-		icon: 'snow.svg'
-	},
-	{
-		icon: 'sleet.svg'
-	},
-	{
-		icon: 'wind.svg'
-	},
-	{
-		icon: 'fog.svg'
-	},
-	{
-		icon: 'cloudy.svg'
-	},
-	{
-		icon: 'partly-cloudy-day.svg'
-	},
-	{
-		icon: 'partly-cloudy-night.svg'
-	},
-	{
-		icon: 'ww-location.svg'
-	}
-];
 
 // DATA
 function getSkyData() {
@@ -111,10 +75,8 @@ function getSkyData() {
 		dataType: 'jsonp',
 		type: 'get',
 		success: function (skyData) {
-			clearFirst(x);
 
 			// BASIC LOG
-			console.log("SKY data loaded...");
 			console.log(skyData);
 
 			currentTemp = Math.trunc(skyData.currently.temperature);
@@ -124,33 +86,30 @@ function getSkyData() {
 			currentDesc = skyData.hourly.summary;
 
 			// WRITE CURRENT DATA TO APP
-			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>';
-			getCurrentTempHigh.innerHTML = '<h1 class="bold space">' + currentTempHigh + '°' + '&nbsp;' + '</h1>' + '<p class="marginBot">high</p>';
-			getCurrentTempLow.innerHTML = '<h1 class="light space">' + currentTempLow + '°' + '</h1>' + '<p class="marginBot">low</p>';
-			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '</span>' + '</p>' + '<h3>' + currentDesc + '</h3>';
+			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '&nbsp;' + '</h1>';
+			getCurrentTemp.innerHTML = '<h1 class="bold space massive">' + currentTemp + '°' + '</h1>';
+			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '&nbsp;&nbsp;' + '</span>' + 'High ' + '<span class="bold space">' + currentTempHigh + '°' + '&nbsp;&nbsp;' + '</span>' + 'Low ' + '<span class="bold space">' + currentTempLow + '°' + '</span>' +'</p>' + '<h3>' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
+			body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--g-v", "bckgd--y-m");
+			$(".icon--info").tooltip();
+
 			if (currentIcon == 'clear-day') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[0].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--g-v");
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-day.svg">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.add("bckgd--y-m");
-				getLocationDiv.style.backgroundColor = '#ff9e3e';
-				getSearchFieldDiv.style.backgroundColor = '#ff9e3e';
-				getSearchField.style.backgroundColor = '#ff9e3e';
-				getSearchButton.style.color = '#ff9e3e';
-				getPowerButton.style.backgroundColor = '#ff9e3e';
-				getHannah.style.backgroundColor = '#ff9e3e';
-				getDailyBG.style.backgroundColor = '#ffca76';
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
+				// getLocationDiv.style.backgroundColor = '#ff9e3e';
+				// getSearchFieldDiv.style.backgroundColor = '#ff9e3e';
+				// getSearchField.style.backgroundColor = '#ff9e3e';
+				// getSearchButton.style.color = '#ff9e3e';
+				// getPowerButton.style.backgroundColor = '#ff9e3e';
+				// getHannah.style.backgroundColor = '#ff9e3e';
+				// getDailyBG.style.backgroundColor = '#ffca76';
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#ff9e3e');
 					});
-				});
 			}
-			if (currentIcon == 'clear-night') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[1].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'clear-night') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-night.svg">';
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
@@ -159,17 +118,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#0b1d30';
 				getHannah.style.backgroundColor = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#0b1d30');
 					});
-				});
 			}
-			if (currentIcon == 'rain') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[2].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'rain') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/rain.svg">';
 				body.classList.add("bckgd--b-m");
 				getLocationDiv.style.backgroundColor = '#136999';
 				getSearchFieldDiv.style.backgroundColor = '#136999';
@@ -178,17 +132,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#136999';
 				getHannah.style.backgroundColor = '#136999';
 				getDailyBG.style.backgroundColor = '#66a9d7';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#136999');
 					});
-				});
 			}
-			if (currentIcon == 'snow') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[3].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'snow') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/snow.svg">';
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
@@ -197,17 +146,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#0b1d30';
 				getHannah.style.backgroundColor = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#0b1d30');
 					});
-				});
 			}
-			if (currentIcon == 'sleet') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[4].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--db-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'sleet') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/sleet">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.add("bckgd--b-m");
 				getLocationDiv.style.backgroundColor = '#136999';
 				getSearchFieldDiv.style.backgroundColor = '#136999';
@@ -216,17 +160,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#136999';
 				getHannah.style.backgroundColor = '#136999';
 				getDailyBG.style.backgroundColor = '#66a9d7';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#136999');
 					});
-				});
 			}
-			if (currentIcon == 'wind') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[5].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
+			else if (currentIcon == 'wind') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/wind.svg">';
 				body.classList.add("bckgd--g-v");
 				getLocationDiv.style.backgroundColor = '#323b44';
 				getSearchFieldDiv.style.backgroundColor = '#323b44';
@@ -235,17 +174,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#323b44';
 				getHannah.style.backgroundColor = '#323b44';
 				getDailyBG.style.backgroundColor = '#566470';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#323b44');
 					});
-				});
 			}
-			if (currentIcon == 'fog') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[6].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'fog') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/fog.svg">';
 				body.classList.add("bckgd--g-m");
 				getLocationDiv.style.backgroundColor = '#5a6977';
 				getSearchFieldDiv.style.backgroundColor = '#5a6977';
@@ -254,17 +188,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#5a6977';
 				getHannah.style.backgroundColor = '#5a6977';
 				getDailyBG.style.backgroundColor = '#99a9bb';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#5a6977');
 					});
-				});
 			}
-			if (currentIcon == 'cloudy') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[7].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m");
+			else if (currentIcon == 'cloudy') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/cloudy.svg">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.add("bckgd--g-v");
 				getLocationDiv.style.backgroundColor = '#323b44';
 				getSearchFieldDiv.style.backgroundColor = '#323b44';
@@ -273,17 +202,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#323b44';
 				getHannah.style.backgroundColor = '#323b44';
 				getDailyBG.style.backgroundColor = '#566470';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#323b44');
 					});
-				});
 			}
-			if (currentIcon == 'partly-cloudy-day') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[8].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--db-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'partly-cloudy-day') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-day.svg">';
 				body.classList.add("bckgd--g-m");
 				getLocationDiv.style.backgroundColor = '#5a6977';
 				getSearchFieldDiv.style.backgroundColor = '#5a6977';
@@ -292,17 +216,12 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#5a6977';
 				getHannah.style.backgroundColor = '#5a6977';
 				getDailyBG.style.backgroundColor = '#99a9bb';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#5a6977');
 					});
-				});
 			}
-			if (currentIcon == 'partly-cloudy-night') {
-				getCurrentIcon.innerHTML = '<img class="icon--bg" src="icon/weather/' + dataIcons[9].icon + '">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--y-m", "bckgd--g-v");
+			else if (currentIcon == 'partly-cloudy-night') {
+				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-night.svg">';
 				body.classList.add("bckgd--db-m");
 				getLocationDiv.style.backgroundColor = '#0b1d30';
 				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
@@ -311,13 +230,9 @@ function getSkyData() {
 				getPowerButton.style.backgroundColor = '#0b1d30';
 				getHannah.style.backgroundColor = '#0b1d30';
 				getDailyBG.style.backgroundColor = '#586980';
-				// TOOLTIPS
-				$(document).ready(function () {
-					$(".icon--info").tooltip();
 					$('#icon--info').hover(function () {
 						changeTooltipColorTo('#0b1d30');
 					});
-				});
 			}
 
 			// CLEAR DAILY DATA
@@ -353,56 +268,38 @@ function getSkyData() {
 
 				// DAILY DYNAMIC ICON
 				iconWrapper = document.getElementById('data--daily--icon-wrapper');
+				iconWrapper.appendChild(makeDiv);
+				makeDiv.appendChild(getDailyIcon);
 
 				if (dailyIcon == 'clear-day') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[0].icon + '">';
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/clear-day.svg">';
 				}
-				if (dailyIcon == 'clear-night') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[1].icon + '">';
+				else if (dailyIcon == 'clear-night') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/clear-night.svg">';
 				}
-				if (dailyIcon == 'rain') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[2].icon + '">';
+				else if (dailyIcon == 'rain') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/rain.svg">';
 				}
-				if (dailyIcon == 'snow') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[3].icon + '">';
+				else if (dailyIcon == 'snow') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/snow.svg">';
 				}
-				if (dailyIcon == 'sleet') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[4].icon + '">';
+				else if (dailyIcon == 'sleet') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/sleet.svg">';
 				}
-				if (dailyIcon == 'wind') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[5].icon + '">';
+				else if (dailyIcon == 'wind') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/wind.svg">';
 				}
-				if (dailyIcon == 'fog') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[6].icon + '">';
+				else if (dailyIcon == 'fog') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/fog.svg">';
 				}
-				if (dailyIcon == 'cloudy') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[7].icon + '">';
+				else if (dailyIcon == 'cloudy') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/cloudy.svg">';
 				}
-				if (dailyIcon == 'partly-cloudy-day') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[8].icon + '">';
+				else if (dailyIcon == 'partly-cloudy-day') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/partly-cloudy-day.svg">';
 				}
-				if (dailyIcon == 'partly-cloudy-night') {
-					iconWrapper.appendChild(makeDiv);
-					makeDiv.appendChild(getDailyIcon);
-					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/' + dataIcons[9].icon + '">';
+				else if (dailyIcon == 'partly-cloudy-night') {
+					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/partly-cloudy-night.svg">';
 				}
 
 			} //DAILY DATA LOOP
@@ -413,8 +310,7 @@ function getSkyData() {
 			currentMonth = months[now.getMonth()] + " " + daysPLUSmonths;
 
 			// WRITE CURRENT DATE TO APP
-			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '</span>' + currentMonth + 'th' + '</h2>';
-			$('#master--loader').delay(350).fadeOut('slow');
+			getCurrentDate.innerHTML = '<h2>' + '<span class="bold">' + currentDay + '&nbsp;' + '</span>' + currentMonth + '</h2>';
 
 			//DATA TO HOURS AND MINUTES
 			unix_timestamp = skyData.daily.data[0].sunriseTime;
@@ -439,18 +335,17 @@ function getSkyData() {
 
 			//COUNTDOWN
 			var sunSetTime = skyData.daily.data[0].sunsetTime;
-			console.log(sunSetTime);
 			var sunTimer = new Date(sunSetTime * 1000).toString();
 			var sunTimerShort = sunTimer.slice(0, 24);
 			var countDownDate = new Date(sunTimerShort).getTime();
 
 			// CLEAR INTERVAL
 			function clearFirst() {
-				clearInterval(x);
+				clearInterval(countDown);
 			}
 
 			// SET INTERVAL
-			x = setInterval(function () {		
+			countDown = setInterval(function () {		
 				var now = new Date().getTime();
 				var distance = countDownDate - now;
 				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -462,7 +357,7 @@ function getSkyData() {
 					minutes + " : " + seconds + " " + "</h1>";
 
 				if (distance < 0) {
-					clearInterval(x);
+					clearInterval(countDown);
 					getCountdown.innerHTML = "<h1>" + "Expired" + "</h1>";
 				}
 			}, 1000);
@@ -491,7 +386,6 @@ function getSkyData() {
 				data.addColumn("string", "Day");
 				data.addColumn("number", "Wind");
 
-				skyData.daily.data.shift();
 				for (var i = 0; i < skyData.daily.data.length; i++) {
 
 					// DATESTAMP
@@ -522,13 +416,7 @@ function getSkyData() {
 					hAxis: {
 						slantedText: true,
 						slantedTextAngle: 90,
-						title: 'DAY',
-						titleTextStyle: {
-							color: '#ffffff',
-							fontSize: 12,
-							italic: false,
-							fontName: 'Poppins'
-						},
+		
 						textStyle: {
 							color: '#ffffff',
 							fontSize: 9,
@@ -538,13 +426,6 @@ function getSkyData() {
 					vAxis:
 
 					{
-						title: 'WIND SPEED (KM/H)',
-						titleTextStyle: {
-							color: '#ffffff',
-							fontSize: 12,
-							italic: false,
-							fontName: 'Poppins'
-						},
 						textStyle: {
 							color: '#ffffff',
 							fontSize: 12,
@@ -572,6 +453,8 @@ function getSkyData() {
 
 			} //FUNCTION DRAW CHART ENDING
 
+			$('#master--loader').delay(350).fadeOut('slow');
+
 		}, //SUCCESS
 		error: function (error) {
 			console.log(error);
@@ -583,7 +466,7 @@ function getSkyData() {
 } //FUNCTION
 
 // WRITE DEFAULT LOCATION TO APP
-getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
+getLocation.innerHTML = '<img class="icon--md" src="icon/ww-location.svg">' + '<h2>' + "Wellington, New Zealand" + '</h2>';
 getTopLocation.innerHTML = '<p>' + "Wellington, New Zealand" + '</p>';
 
 // FORMAT DATE FUCNTIONS
@@ -618,7 +501,7 @@ $(document).ready(function () {
 $('.search--text--field--div').tooltip({
 	template: '<div class="tooltip locationWarning"><div class="tooltip-arrow"></div><div class="tooltip-inner red"></div></div>',
 	trigger: 'manual',
-	title: "<p>Please enter a location...</p>",
+	title: "<p>Please enter a valid location...</p>",
 	html: true,
 	placement: "top",
 });
@@ -664,7 +547,7 @@ function validateSearchField() {
 	if (getSearchField.value.match(myCities)) {
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
-		getLocation.innerHTML = '<img class="icon--md" src="icon/' + dataIcons[10].icon + '">' + '<h2>' + input.value + '</h2>';
+		getLocation.innerHTML = '<img class="icon--md" src="icon/ww-location.svg">' + '<h2>' + input.value + '</h2>';
 
 		// WRITE CURRENT LOCATION TO APP
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';

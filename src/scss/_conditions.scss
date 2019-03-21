@@ -1,19 +1,39 @@
-body{
-    background-color: aqua
-}
+// SASS CONDITIONS
+// IMPORT VARIABLES
+@import "variables";
 
-body.bckgd--y-m{
-    .getLocationDiv{
-        background-color: $db-v;
+body.bckgd--y-m {
+    background-color: $ylw;
+    
+    #data--location--div{
+        background-color: $ylw-v !important;
     }
 
-    .tooltip{
-        color: red;
-    }
-}
+	.getLocationDiv {
+		background-color: $ylw-v;
+	}
 
-body.bckgd--db-m{
-    .getLocationDiv{
-        background-color: yellow;
-    }
+	.getSearchFieldDiv {
+		background-color: $ylw-v;
+	}
+
+	.getSearchField {
+		background-color: $ylw-v;
+	}
+
+	.getSearchButton {
+		color: $ylw-v;
+	}
+
+	.getPowerButton {
+		background-color: $ylw-v;
+	}
+
+	.getHannah {
+		background-color: $ylw-v;
+	}
+
+	.getDailyBG {
+		background-color: $ylw-p;
+	}
 }
