@@ -145,6 +145,7 @@ a {
 .icon--info {
 	cursor: help;
 	float: right;
+	margin-right: 5%;
 }
 
 .icon--info::after {
@@ -233,5 +234,22 @@ a {
 @media screen and (min-height : 800px) {
 	.master--warning {
 		display: block;
+	}
+}
+
+@media screen and (max-width : 500px) {
+	h1 {
+		font-size: 2.5em;
+	}
+	h2 {
+		font-size: 1em;
+	}
+	#data--daily--icon{
+		display: none;
+		visibility: hidden;
+	}
+	#data--current--icon{
+		display: none;
+		visibility: hidden;
 	}
 }

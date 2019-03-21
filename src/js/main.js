@@ -3,9 +3,6 @@
 /*jslint browser:true */
 /*jshint esversion: 6 */
 
-// LOADER
-$('#master--loader').show();
-
 // SKY KEY
 $.ajax({
 	url: '../config.json',
@@ -69,6 +66,7 @@ var getDailyTemp = document.getElementById("data--daily--temp");
 var getDailyTempLow = document.getElementById("data--daily--temp-low");
 var getDailyIcon = document.getElementById("data--daily--icon");
 var makeDiv = document.createElement('div');
+var x;
 
 var dataIcons = [{
 		icon: 'clear-day.svg',
@@ -113,6 +111,7 @@ function getSkyData() {
 		dataType: 'jsonp',
 		type: 'get',
 		success: function (skyData) {
+			clearFirst(x);
 
 			// BASIC LOG
 			console.log("SKY data loaded...");
@@ -429,23 +428,29 @@ function getSkyData() {
 			var hoursSet = date3.getHours();
 			var minutesSet = "0" + date3.getMinutes();
 			var secondsSet = "0" + date3.getSeconds();
-			var formattedSetTime = (hoursSet - 12) + ':' + minutesSet.substr(-2);
-			var formattedSetTimeSeconds = (hoursSet - 12) + ':' + minutesSet.substr(-2) + ':' + secondsSet + secondsSet.substr(-2);
+			var formattedSetTime = (hoursSet) + ':' + minutesSet.substr(-2);
+			var formattedSetTimeSeconds = (hoursSet) + ':' + minutesSet.substr(-2) + ':' + secondsSet + secondsSet.substr(-2);
 
 			//DISPLAYING SUNRISE + SUNSET HTML
 			sunrise = Math.trunc(skyData.daily.data[0].sunriseTime);
 			sunset = Math.trunc(skyData.daily.data[0].sunsetTime);
-			getformattedRiseTime.innerHTML = '<h1>' + formattedRiseTime + '<span class="ampm">' + ' am' + '</span>' + '</h1>';
-			getformattedSetTime.innerHTML = '<h1>' + formattedSetTime + '<span class="ampm">' + ' pm' + '</span>' + '</h1>';
+			getformattedRiseTime.innerHTML = '<h1>' + formattedRiseTime + '</h1>';
+			getformattedSetTime.innerHTML = '<h1>' + formattedSetTime + '</h1>';
 
 			//COUNTDOWN
 			var sunSetTime = skyData.daily.data[0].sunsetTime;
+			console.log(sunSetTime);
 			var sunTimer = new Date(sunSetTime * 1000).toString();
 			var sunTimerShort = sunTimer.slice(0, 24);
 			var countDownDate = new Date(sunTimerShort).getTime();
 
+			// CLEAR INTERVAL
+			function clearFirst() {
+				clearInterval(x);
+			}
+
 			// SET INTERVAL
-			var x = setInterval(function () {
+			x = setInterval(function () {		
 				var now = new Date().getTime();
 				var distance = countDownDate - now;
 				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -458,13 +463,13 @@ function getSkyData() {
 
 				if (distance < 0) {
 					clearInterval(x);
-					getCountdown.innerHTML = "<h1>" + "The sun has set today!" + "</h1>";
+					getCountdown.innerHTML = "<h1>" + "Expired" + "</h1>";
 				}
 			}, 1000);
 
 			// GETTING HUMIDITY
 			humidity = (skyData.daily.data[0].humidity) * 100;
-			getHumidity.innerHTML = '<h1>' + humidity  + '<span class="ampm space">' + ' %' + '</span>' + '</h1>';
+			getHumidity.innerHTML = '<h1>' + humidity + '<span class="ampm space">' + ' %' + '</span>' + '</h1>';
 
 			// GETTING UV INDEX
 			uvIndex = (skyData.daily.data[0].uvIndex);
@@ -472,7 +477,7 @@ function getSkyData() {
 
 			// GETTING WIND SPEED/GUST
 			windGust = Math.round((skyData.daily.data[0].windGust));
-			getWind.innerHTML = '<h1>' + windGust  + '<span class="ampm space">' + ' km/h' + '</span>' + '</h1>';
+			getWind.innerHTML = '<h1>' + windGust + '<span class="ampm space">' + ' km/h' + '</span>' + '</h1>';
 
 			// AREA CHART FOR WIND SPEED DURING THE DAY
 			google.charts.load('current', {

@@ -1,0 +1,19 @@
+body{
+    background-color: aqua
+}
+
+body.bckgd--y-m{
+    .getLocationDiv{
+        background-color: $db-v;
+    }
+
+    .tooltip{
+        color: red;
+    }
+}
+
+body.bckgd--db-m{
+    .getLocationDiv{
+        background-color: yellow;
+    }
+}
