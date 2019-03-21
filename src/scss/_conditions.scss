@@ -3,37 +3,121 @@
 @import "variables";
 
 body.bckgd--y-m {
-    background-color: $ylw;
-    
-    #data--location--div{
-        background-color: $ylw-v !important;
-    }
-
-	.getLocationDiv {
+	#data--location--div {
 		background-color: $ylw-v;
 	}
-
-	.getSearchFieldDiv {
+	#search--text--field--div {
 		background-color: $ylw-v;
 	}
-
-	.getSearchField {
+	#search--text--field {
 		background-color: $ylw-v;
 	}
-
-	.getSearchButton {
+	#search--button {
 		color: $ylw-v;
 	}
-
-	.getPowerButton {
+	#power--button {
 		background-color: $ylw-v;
 	}
-
-	.getHannah {
+	#data--extra-bg {
 		background-color: $ylw-v;
 	}
-
-	.getDailyBG {
+	#data--daily-bg {
 		background-color: $ylw-p;
+	}
+}
+
+body.bckgd--db-m {
+	#data--location--div {
+		background-color: $d-blu-v;
+	}
+	#search--text--field--div {
+		background-color: $d-blu-v;
+	}
+	#search--text--field {
+		background-color: $d-blu-v;
+	}
+	#search--button {
+		color: $d-blu-v;
+	}
+	#power--button {
+		background-color: $d-blu-v;
+	}
+	#data--extra-bg {
+		background-color: $d-blu-v;
+	}
+	#data--daily-bg {
+		background-color: $d-blu-p;
+	}
+}
+
+body.bckgd--b-m {
+	#data--location--div {
+		background-color: $l-blu-v;
+	}
+	#search--text--field--div {
+		background-color: $l-blu-v;
+	}
+	#search--text--field {
+		background-color: $l-blu-v;
+	}
+	#search--button {
+		color: $l-blu-v;
+	}
+	#power--button {
+		background-color: $l-blu-v;
+	}
+	#data--extra-bg {
+		background-color: $l-blu-v;
+	}
+	#data--daily-bg {
+		background-color: $l-blu-p;
+	}
+}
+
+body.bckgd--dg-m{
+	#data--location--div {
+		background-color: $d-gry-v;
+	}
+	#search--text--field--div {
+		background-color: $d-gry-v;
+	}
+	#search--text--field {
+		background-color: $d-gry-v;
+	}
+	#search--button {
+		color: $d-gry-v;
+	}
+	#power--button {
+		background-color: $d-gry-v;
+	}
+	#data--extra-bg {
+		background-color: $d-gry-v;
+	}
+	#data--daily-bg {
+		background-color: $d-gry-p;
+	}
+}
+
+body.bckgd--g-m{
+	#data--location--div {
+		background-color: $gry-v;
+	}
+	#search--text--field--div {
+		background-color: $gry-v;
+	}
+	#search--text--field {
+		background-color: $gry-v;
+	}
+	#search--button {
+		color: $gry-v;
+	}
+	#power--button {
+		background-color: $gry-v;
+	}
+	#data--extra-bg {
+		background-color: $gry-v;
+	}
+	#data--daily-bg {
+		background-color: $gry-p;
 	}
 }

@@ -70,9 +70,13 @@
 	margin-bottom: 25px;
 }
 
+#data--location--div{
+	width: 100%;
+}
+
 // DAILY DATA
-.top--temp{
-	margin-left: 5%;
+.top--temp {
+	margin-left: 2.5%;
 }
 
 .data--daily {
@@ -117,7 +121,8 @@ input {
 	box-shadow: none !important;
 }
 
-.search--text--field--div,.power--button{
+.search--text--field--div,
+.power--button {
 	width: 100%;
 	margin: 0 auto;
 }
@@ -188,6 +193,10 @@ input {
 	font-weight: $lgt;
 }
 
+.little {
+	font-size: $bdy;
+}
+
 .italic {
 	font-style: italic;
 }
@@ -206,15 +215,7 @@ input {
 }
 
 .massive {
-	font-size: 150px;
-}
-
-@media screen and (max-width : 580px) {
-	#data--current--date {
-		width: 100%;
-		height: 40px;
-		display: block !important;
-	}
+	font-size: 100px;
 }
 
 @media screen and (max-width : 413px) {

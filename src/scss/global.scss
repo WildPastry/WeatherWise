@@ -103,18 +103,27 @@ a {
 }
 
 // CONTAINER
-.container-fluid {
+// .container-fluid {
+// 	max-width: 500px;
+// 	padding: 15px;
+// 	position: relative;
+// 	width: 100%;
+// 	height: 100%;
+// 	margin-bottom: 20px;
+// }
+
+.contain {
 	max-width: 500px;
-	padding: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	position: relative;
 	width: 100%;
-	height: 100%;
-	margin-bottom: 20px;
+	margin: 0 auto 20px auto;
 }
 
 // ROW
 .row {
-	width: 95%;
+	width: 100%;
 	margin: 0 auto;
 }
 
@@ -145,7 +154,7 @@ a {
 .icon--info {
 	cursor: help;
 	float: right;
-	margin-right: 5%;
+	margin-right: 2.5%;
 }
 
 .icon--info::after {
@@ -153,8 +162,8 @@ a {
 }
 
 .icon--massive {
-	width: 200px;
-	height: 200px;
+	width: 140px;
+	height: 140px;
 }
 
 .icon--bg {
@@ -174,9 +183,9 @@ a {
 
 // BACKGROUNDS
 // YELLOW
-// .bckgd--y-m {
-// 	background: $ylw;
-// }
+.bckgd--y-m {
+	background: $ylw;
+}
 
 .bckgd--y-p {
 	background: $ylw-p;
@@ -197,6 +206,10 @@ a {
 
 .bckgd--g-v {
 	background: $gry-v;
+}
+
+.bckgd--dg-m {
+	background: $d-gry;
 }
 
 .bckgd--dg-v {
@@ -243,18 +256,26 @@ a {
 }
 
 @media screen and (max-width : 500px) {
+	.icon--massive {
+		width: 100px;
+		height: 100px;
+	}
+
+	.massive {
+		font-size: 80px
+	}
+
 	h1 {
 		font-size: 2.5em;
 	}
+
 	h2 {
 		font-size: 1em;
 	}
-	#data--daily--icon{
-		display: none;
-		visibility: hidden;
-	}
-	#data--current--icon{
-		display: none;
-		visibility: hidden;
-	}
+
+	// #data--daily--icon {
+	// 	display: none;
+	// 	visibility: hidden;
+	// }
+
 }

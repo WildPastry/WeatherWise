@@ -15,9 +15,9 @@
 <body>
 
 	<!-- MASTER WARNING -->
-	<!-- <div class="master--warning">
+	<div class="master--warning">
 		<img class="master--warning-img" src="icon/ww-warning.svg" alt="WeatherWise Screen Resize Warning">
-	</div> -->
+	</div>
 
 	<!-- LOADER -->
 	<div id="master--loader">
@@ -26,7 +26,7 @@
 	</div>
 
 	<!-- MASTER CONTAINER -->
-	<div class="container-fluid">
+	<div class="contain">
 
 		<!-- HEADER -->
 
@@ -58,8 +58,7 @@
 				<div class="search--text--field--div">
 					<div id="search--text--field--div" class="btn btn--input"><input id="search--text--field"
 							type="text" autocomplete="off" placeholder="Enter location" onfocus="this.placeholder = ''"
-							onblur="this.placeholder = 'Enter location'"
-							onClick="this.setSelectionRange(0, this.value.length)"></div>
+							onblur="this.placeholder = 'Enter location'"></div>
 				</div>
 			</div>
 
@@ -68,6 +67,7 @@
 				<div id="search--button" class="btn btn--search">SEARCH</div>
 			</div>
 
+		</div>
 			<!--INTRO-->
 
 			<!--SECTION 2 - MIKE-->
@@ -75,9 +75,7 @@
 
 				<!-- DATA LOCATION TITLE AND MARKER-->
 				<div id="data--location--div" class="col col-sm-12 data--location">
-					<div class="row">
-						<div class="master" id="data--location">
-						</div>
+					<div class="master" id="data--location">
 					</div>
 				</div>
 
@@ -94,13 +92,7 @@
 					<div class="col col-sm-6">
 						<div id="data--current--temp"></div>
 					</div>
-					<!-- HIGH AND LOW TEMP -->
-					<!-- <div class="col col-sm-3">
-						<div id="data--current--temp-high"></div>
-					</div>
-					<div class="col col-sm-3">
-						<div id="data--current--temp-low"></div>
-					</div> -->
+
 					<!-- CURRENT ICON -->
 					<div class="col col-sm-6">
 						<div id="data--current--icon"></div>
@@ -210,7 +202,7 @@
 				<!-- SUNRISE -->
 				<div class="row">
 					<div class="col col-sm-9">
-						<h2>SUNRISE</h2>
+						<h2>SUNRISE&nbsp;<span class="little">(NZDT)</span></h2>
 						<div id="data__time--sunrise"></div>
 					</div>
 					<div class="col col-sm-3">
@@ -221,7 +213,7 @@
 				<!-- SUNSET -->
 				<div class="row">
 					<div class="col col-sm-9">
-						<h2>SUNSET</h2>
+						<h2>SUNSET&nbsp;<span class="little">(NZDT)</span></h2>
 						<div id="data__time--sunset"></div>
 					</div>
 					<div class="col col-sm-3">

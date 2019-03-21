@@ -65,6 +65,8 @@ var getDailyTemp = document.getElementById("data--daily--temp");
 var getDailyTempLow = document.getElementById("data--daily--temp-low");
 var getDailyIcon = document.getElementById("data--daily--icon");
 var makeDiv = document.createElement('div');
+// var pacItem = document.getElementsByClassName("pac.item");
+// console.log(pacItem);
 
 // DATA
 function getSkyData() {
@@ -75,7 +77,10 @@ function getSkyData() {
 		type: 'get',
 		success: function (skyData) {
 
-			// BASIC LOG
+			// CLEAR INTERVAL
+			clearInterval(countDown);
+
+			// DATA LOG
 			console.log(skyData);
 
 			currentTemp = Math.trunc(skyData.currently.temperature);
@@ -87,151 +92,72 @@ function getSkyData() {
 			// WRITE CURRENT DATA TO APP
 			getTopTemp.innerHTML = '<p>' + 'Currently ' + '<span class="bold space">' + currentTemp + '°' + '&nbsp;' + '</h1>';
 			getCurrentTemp.innerHTML = '<h1 class="bold space massive">' + currentTemp + '°' + '</h1>';
-			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '&nbsp;&nbsp;' + '</span>' + 'High ' + '<span class="bold space">' + currentTempHigh + '°' + '&nbsp;&nbsp;' + '</span>' + 'Low ' + '<span class="bold space">' + currentTempLow + '°' + '</span>' +'</p>' + '<h3>' + currentDesc + '</h3>';
+			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '&nbsp;&nbsp;' + '</span>' + 'High ' + '<span class="bold space">' + currentTempHigh + '°' + '&nbsp;&nbsp;' + '</span>' + 'Low ' + '<span class="bold space">' + currentTempLow + '°' + '</span>' + '</p>' + '<h3>' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
-			body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--g-v", "bckgd--y-m");
+			body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--dg-vv", "bckgd--y-m");
 			$(".icon--info").tooltip();
 
 			if (currentIcon == 'clear-day') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-day.svg">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.add("bckgd--y-m");
-				// getLocationDiv.style.backgroundColor = '#ff9e3e';
-				// getSearchFieldDiv.style.backgroundColor = '#ff9e3e';
-				// getSearchField.style.backgroundColor = '#ff9e3e';
-				// getSearchButton.style.color = '#ff9e3e';
-				// getPowerButton.style.backgroundColor = '#ff9e3e';
-				// getHannah.style.backgroundColor = '#ff9e3e';
-				// getDailyBG.style.backgroundColor = '#ffca76';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#ff9e3e');
-					});
-			}
-			else if (currentIcon == 'clear-night') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#ff9e3e');
+				});
+			} else if (currentIcon == 'clear-night') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-night.svg">';
 				body.classList.add("bckgd--db-m");
-				getLocationDiv.style.backgroundColor = '#0b1d30';
-				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
-				getSearchField.style.backgroundColor = '#0b1d30';
-				getSearchButton.style.color = '#0b1d30';
-				getPowerButton.style.backgroundColor = '#0b1d30';
-				getHannah.style.backgroundColor = '#0b1d30';
-				getDailyBG.style.backgroundColor = '#586980';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#0b1d30');
-					});
-			}
-			else if (currentIcon == 'rain') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#0b1d30');
+				});
+			} else if (currentIcon == 'rain') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/rain.svg">';
 				body.classList.add("bckgd--b-m");
-				getLocationDiv.style.backgroundColor = '#136999';
-				getSearchFieldDiv.style.backgroundColor = '#136999';
-				getSearchField.style.backgroundColor = '#136999';
-				getSearchButton.style.color = '#136999';
-				getPowerButton.style.backgroundColor = '#136999';
-				getHannah.style.backgroundColor = '#136999';
-				getDailyBG.style.backgroundColor = '#66a9d7';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#136999');
-					});
-			}
-			else if (currentIcon == 'snow') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#136999');
+				});
+			} else if (currentIcon == 'snow') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/snow.svg">';
 				body.classList.add("bckgd--db-m");
-				getLocationDiv.style.backgroundColor = '#0b1d30';
-				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
-				getSearchField.style.backgroundColor = '#0b1d30';
-				getSearchButton.style.color = '#0b1d30';
-				getPowerButton.style.backgroundColor = '#0b1d30';
-				getHannah.style.backgroundColor = '#0b1d30';
-				getDailyBG.style.backgroundColor = '#586980';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#0b1d30');
-					});
-			}
-			else if (currentIcon == 'sleet') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#0b1d30');
+				});
+			} else if (currentIcon == 'sleet') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/sleet">' + '<p class="marginBot">&nbsp;</p>';
 				body.classList.add("bckgd--b-m");
-				getLocationDiv.style.backgroundColor = '#136999';
-				getSearchFieldDiv.style.backgroundColor = '#136999';
-				getSearchField.style.backgroundColor = '#136999';
-				getSearchButton.style.color = '#136999';
-				getPowerButton.style.backgroundColor = '#136999';
-				getHannah.style.backgroundColor = '#136999';
-				getDailyBG.style.backgroundColor = '#66a9d7';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#136999');
-					});
-			}
-			else if (currentIcon == 'wind') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#136999');
+				});
+			} else if (currentIcon == 'wind') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/wind.svg">';
-				body.classList.add("bckgd--g-v");
-				getLocationDiv.style.backgroundColor = '#323b44';
-				getSearchFieldDiv.style.backgroundColor = '#323b44';
-				getSearchField.style.backgroundColor = '#323b44';
-				getSearchButton.style.color = '#323b44';
-				getPowerButton.style.backgroundColor = '#323b44';
-				getHannah.style.backgroundColor = '#323b44';
-				getDailyBG.style.backgroundColor = '#566470';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#323b44');
-					});
-			}
-			else if (currentIcon == 'fog') {
+				body.classList.add("bckgd--dg-m");
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#323b44');
+				});
+			} else if (currentIcon == 'fog') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/fog.svg">';
 				body.classList.add("bckgd--g-m");
-				getLocationDiv.style.backgroundColor = '#5a6977';
-				getSearchFieldDiv.style.backgroundColor = '#5a6977';
-				getSearchField.style.backgroundColor = '#5a6977';
-				getSearchButton.style.color = '#5a6977';
-				getPowerButton.style.backgroundColor = '#5a6977';
-				getHannah.style.backgroundColor = '#5a6977';
-				getDailyBG.style.backgroundColor = '#99a9bb';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#5a6977');
-					});
-			}
-			else if (currentIcon == 'cloudy') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#5a6977');
+				});
+			} else if (currentIcon == 'cloudy') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/cloudy.svg">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.add("bckgd--g-v");
-				getLocationDiv.style.backgroundColor = '#323b44';
-				getSearchFieldDiv.style.backgroundColor = '#323b44';
-				getSearchField.style.backgroundColor = '#323b44';
-				getSearchButton.style.color = '#323b44';
-				getPowerButton.style.backgroundColor = '#323b44';
-				getHannah.style.backgroundColor = '#323b44';
-				getDailyBG.style.backgroundColor = '#566470';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#323b44');
-					});
-			}
-			else if (currentIcon == 'partly-cloudy-day') {
+				body.classList.add("bckgd--dg-m");
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#323b44');
+				});
+			} else if (currentIcon == 'partly-cloudy-day') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-day.svg">';
 				body.classList.add("bckgd--g-m");
-				getLocationDiv.style.backgroundColor = '#5a6977';
-				getSearchFieldDiv.style.backgroundColor = '#5a6977';
-				getSearchField.style.backgroundColor = '#5a6977';
-				getSearchButton.style.color = '#5a6977';
-				getPowerButton.style.backgroundColor = '#5a6977';
-				getHannah.style.backgroundColor = '#5a6977';
-				getDailyBG.style.backgroundColor = '#99a9bb';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#5a6977');
-					});
-			}
-			else if (currentIcon == 'partly-cloudy-night') {
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#5a6977');
+				});
+			} else if (currentIcon == 'partly-cloudy-night') {
 				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-night.svg">';
 				body.classList.add("bckgd--db-m");
-				getLocationDiv.style.backgroundColor = '#0b1d30';
-				getSearchFieldDiv.style.backgroundColor = '#0b1d30';
-				getSearchField.style.backgroundColor = '#0b1d30';
-				getSearchButton.style.color = '#0b1d30';
-				getPowerButton.style.backgroundColor = '#0b1d30';
-				getHannah.style.backgroundColor = '#0b1d30';
-				getDailyBG.style.backgroundColor = '#586980';
-					$('#icon--info').hover(function () {
-						changeTooltipColorTo('#0b1d30');
-					});
+				$('#icon--info').hover(function () {
+					changeTooltipColorTo('#0b1d30');
+				});
 			}
 
 			// CLEAR DAILY DATA
@@ -272,32 +198,23 @@ function getSkyData() {
 
 				if (dailyIcon == 'clear-day') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/clear-day.svg">';
-				}
-				else if (dailyIcon == 'clear-night') {
+				} else if (dailyIcon == 'clear-night') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/clear-night.svg">';
-				}
-				else if (dailyIcon == 'rain') {
+				} else if (dailyIcon == 'rain') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/rain.svg">';
-				}
-				else if (dailyIcon == 'snow') {
+				} else if (dailyIcon == 'snow') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/snow.svg">';
-				}
-				else if (dailyIcon == 'sleet') {
+				} else if (dailyIcon == 'sleet') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/sleet.svg">';
-				}
-				else if (dailyIcon == 'wind') {
+				} else if (dailyIcon == 'wind') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/wind.svg">';
-				}
-				else if (dailyIcon == 'fog') {
+				} else if (dailyIcon == 'fog') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/fog.svg">';
-				}
-				else if (dailyIcon == 'cloudy') {
+				} else if (dailyIcon == 'cloudy') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/cloudy.svg">';
-				}
-				else if (dailyIcon == 'partly-cloudy-day') {
+				} else if (dailyIcon == 'partly-cloudy-day') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/partly-cloudy-day.svg">';
-				}
-				else if (dailyIcon == 'partly-cloudy-night') {
+				} else if (dailyIcon == 'partly-cloudy-night') {
 					getDailyIcon.innerHTML += '<img class="icon--sml" src="icon/weather/partly-cloudy-night.svg">';
 				}
 
@@ -316,15 +233,12 @@ function getSkyData() {
 			var date2 = new Date(unix_timestamp * 1000);
 			var hours = date2.getHours();
 			var minutes = "0" + date2.getMinutes();
-			var seconds = "0" + date2.getSeconds();
 			var formattedRiseTime = hours + ':' + minutes.substr(-2);
 			sunset_timestamp = skyData.daily.data[0].sunsetTime;
 			var date3 = new Date(sunset_timestamp * 1000);
 			var hoursSet = date3.getHours();
 			var minutesSet = "0" + date3.getMinutes();
-			var secondsSet = "0" + date3.getSeconds();
 			var formattedSetTime = (hoursSet) + ':' + minutesSet.substr(-2);
-			var formattedSetTimeSeconds = (hoursSet) + ':' + minutesSet.substr(-2) + ':' + secondsSet + secondsSet.substr(-2);
 
 			//DISPLAYING SUNRISE + SUNSET HTML
 			sunrise = Math.trunc(skyData.daily.data[0].sunriseTime);
@@ -338,13 +252,8 @@ function getSkyData() {
 			var sunTimerShort = sunTimer.slice(0, 24);
 			var countDownDate = new Date(sunTimerShort).getTime();
 
-			// CLEAR INTERVAL
-			function clearFirst() {
-				clearInterval(countDown);
-			}
-
 			// SET INTERVAL
-			countDown = setInterval(function () {		
+			countDown = setInterval(function () {
 				var now = new Date().getTime();
 				var distance = countDownDate - now;
 				var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -362,7 +271,7 @@ function getSkyData() {
 			}, 1000);
 
 			// GETTING HUMIDITY
-			humidity = (skyData.daily.data[0].humidity) * 100;
+			humidity = ((skyData.daily.data[0].humidity)*100).toFixed(0);
 			getHumidity.innerHTML = '<h1>' + humidity + '<span class="ampm space">' + ' %' + '</span>' + '</h1>';
 
 			// GETTING UV INDEX
@@ -415,7 +324,7 @@ function getSkyData() {
 					hAxis: {
 						slantedText: true,
 						slantedTextAngle: 90,
-		
+
 						textStyle: {
 							color: '#ffffff',
 							fontSize: 9,
@@ -533,6 +442,10 @@ function init() {
 		var place = autocomplete.getPlace();
 		myLat = place.geometry.location.lat();
 		myLng = place.geometry.location.lng();
+		getSkyData();
+		// WRITE CURRENT LOCATION TO APP
+		getLocation.innerHTML = '<img class="icon--md" src="icon/ww-location.svg">' + '<h2>' + input.value + '</h2>';
+		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
 	});
 }
 google.maps.event.addDomListener(window, 'load', init);
@@ -546,9 +459,8 @@ function validateSearchField() {
 	if (getSearchField.value.match(myCities)) {
 		$('.search--text--field--div').tooltip('hide');
 		getSkyData();
-		getLocation.innerHTML = '<img class="icon--md" src="icon/ww-location.svg">' + '<h2>' + input.value + '</h2>';
-
 		// WRITE CURRENT LOCATION TO APP
+		getLocation.innerHTML = '<img class="icon--md" src="icon/ww-location.svg">' + '<h2>' + input.value + '</h2>';
 		getTopLocation.innerHTML = '<p>' + input.value + '</p>';
 		return true;
 	} else {
