@@ -14,7 +14,7 @@
 
 // FONT
 body {
-	background: $d-blu-v;
+	background: $ldr;
 	color: $wht;
 	font-family: $main-font;
 	font-weight: $reg;
@@ -102,16 +102,6 @@ a {
 	width: 280px;
 }
 
-// CONTAINER
-// .container-fluid {
-// 	max-width: 500px;
-// 	padding: 15px;
-// 	position: relative;
-// 	width: 100%;
-// 	height: 100%;
-// 	margin-bottom: 20px;
-// }
-
 .contain {
 	max-width: 500px;
 	padding-top: 15px;
@@ -123,13 +113,13 @@ a {
 
 // ROW
 .row {
-	width: 100%;
+	width: 80%;
 	margin: 0 auto;
 }
 
 // BUTTON
 .btn {
-	width: 90%;
+	width: 80%;
 	line-height: 40px;
 	height: 40px;
 	display: block;
@@ -154,7 +144,7 @@ a {
 .icon--info {
 	cursor: help;
 	float: right;
-	margin-right: 2.5%;
+	margin-right: 10%;
 }
 
 .icon--info::after {
@@ -183,7 +173,7 @@ a {
 
 // BACKGROUNDS
 // YELLOW
-.bckgd--y-m {
+.bckgd--y {
 	background: $ylw;
 }
 
@@ -196,7 +186,7 @@ a {
 }
 
 // GREY
-.bckgd--g-m {
+.bckgd--g {
 	background: $gry;
 }
 
@@ -208,8 +198,13 @@ a {
 	background: $gry-v;
 }
 
-.bckgd--dg-m {
+// DARK GREY
+.bckgd--dg {
 	background: $d-gry;
+}
+
+.bckgd--dg-p {
+	background: $d-gry-p;
 }
 
 .bckgd--dg-v {
@@ -217,20 +212,20 @@ a {
 }
 
 // BLUE
-.bckgd--b-m {
+.bckgd--lb {
 	background: $l-blu;
 }
 
-.bckgd--b-p {
+.bckgd--lb-p {
 	background: $l-blu-p;
 }
 
-.bckgd--b-v {
+.bckgd--lb-v {
 	background: $l-blu-v;
 }
 
 // DARK BLUE
-.bckgd--db-m {
+.bckgd--db {
 	background: $d-blu;
 }
 
@@ -244,12 +239,6 @@ a {
 
 // MEDIA
 @media screen and (min-width : 500px) {
-	.master--warning {
-		display: block;
-	}
-}
-
-@media screen and (min-height : 800px) {
 	.master--warning {
 		display: block;
 	}
@@ -273,9 +262,18 @@ a {
 		font-size: 1em;
 	}
 
-	// #data--daily--icon {
-	// 	display: none;
-	// 	visibility: hidden;
-	// }
+}
 
+@media screen and (max-width : 400px) {
+	.row {
+		width: 90%;
+	}
+
+	.btn {
+		width: 90%;
+	}
+
+	.icon--info {
+		margin-right: 5%;
+	}
 }

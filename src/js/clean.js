@@ -65,8 +65,6 @@ var getDailyTemp = document.getElementById("data--daily--temp");
 var getDailyTempLow = document.getElementById("data--daily--temp-low");
 var getDailyIcon = document.getElementById("data--daily--icon");
 var makeDiv = document.createElement('div');
-// var pacItem = document.getElementsByClassName("pac.item");
-// console.log(pacItem);
 
 // DATA
 function getSkyData() {
@@ -95,70 +93,79 @@ function getSkyData() {
 			getCurrentDesc.innerHTML = '<p>' + 'Feels like ' + '<span class="bold space">' + currentTemp + '°' + '&nbsp;&nbsp;' + '</span>' + 'High ' + '<span class="bold space">' + currentTempHigh + '°' + '&nbsp;&nbsp;' + '</span>' + 'Low ' + '<span class="bold space">' + currentTempLow + '°' + '</span>' + '</p>' + '<h3>' + currentDesc + '</h3>';
 
 			// CURRENT DYNAMIC BACKGROUND AND ICON
-			body.classList.remove("bckgd--b-m", "bckgd--g-m", "bckgd--db-m", "bckgd--dg-vv", "bckgd--y-m");
-			$(".icon--info").tooltip();
+				body.classList.remove("bckgd--lb", "bckgd--g", "bckgd--db", "bckgd--y");
 
-			if (currentIcon == 'clear-day') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-day.svg">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.add("bckgd--y-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#ff9e3e');
-				});
-			} else if (currentIcon == 'clear-night') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-night.svg">';
-				body.classList.add("bckgd--db-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#0b1d30');
-				});
-			} else if (currentIcon == 'rain') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/rain.svg">';
-				body.classList.add("bckgd--b-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#136999');
-				});
-			} else if (currentIcon == 'snow') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/snow.svg">';
-				body.classList.add("bckgd--db-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#0b1d30');
-				});
-			} else if (currentIcon == 'sleet') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/sleet">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.add("bckgd--b-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#136999');
-				});
-			} else if (currentIcon == 'wind') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/wind.svg">';
-				body.classList.add("bckgd--dg-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#323b44');
-				});
-			} else if (currentIcon == 'fog') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/fog.svg">';
-				body.classList.add("bckgd--g-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#5a6977');
-				});
-			} else if (currentIcon == 'cloudy') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/cloudy.svg">' + '<p class="marginBot">&nbsp;</p>';
-				body.classList.add("bckgd--dg-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#323b44');
-				});
-			} else if (currentIcon == 'partly-cloudy-day') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-day.svg">';
-				body.classList.add("bckgd--g-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#5a6977');
-				});
-			} else if (currentIcon == 'partly-cloudy-night') {
-				getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-night.svg">';
-				body.classList.add("bckgd--db-m");
-				$('#icon--info').hover(function () {
-					changeTooltipColorTo('#0b1d30');
-				});
-			}
+				if (currentIcon == 'clear-day') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-day.svg">' + '<p class="marginBot">&nbsp;</p>';
+					body.classList.add("bckgd--y");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#ff9e3e');
+					});
+				} else if (currentIcon == 'clear-night') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/clear-night.svg">';
+					body.classList.add("bckgd--db");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#0d3866');
+					});
+				} else if (currentIcon == 'rain') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/rain.svg">';
+					body.classList.add("bckgd--lb");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#136999');
+					});
+				} else if (currentIcon == 'snow') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/snow.svg">';
+					body.classList.add("bckgd--db");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#0d3866');
+					});
+				} else if (currentIcon == 'sleet') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/sleet">' + '<p class="marginBot">&nbsp;</p>';
+					body.classList.add("bckgd--lb");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#136999');
+					});
+				} else if (currentIcon == 'wind') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/wind.svg">';
+					body.classList.add("bckgd--g");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#586980');
+					});
+				} else if (currentIcon == 'fog') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/fog.svg">';
+					body.classList.add("bckgd--g");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#586980');
+					});
+				} else if (currentIcon == 'cloudy') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/cloudy.svg">' + '<p class="marginBot">&nbsp;</p>';
+					body.classList.add("bckgd--g");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#586980');
+					});
+				} else if (currentIcon == 'partly-cloudy-day') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-day.svg">';
+					body.classList.add("bckgd--g");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#586980');
+					});
+				} else if (currentIcon == 'partly-cloudy-night') {
+					getCurrentIcon.innerHTML = '<img class="icon--massive" src="icon/weather/partly-cloudy-night.svg">';
+					body.classList.add("bckgd--db");
+					$('#icon--info').hover(function () {
+						$(".icon--info").tooltip();
+						changeTooltipColorTo('#0d3866');
+					});
+				}
 
 			// CLEAR DAILY DATA
 			getDailyDate.innerHTML = "";
@@ -271,7 +278,7 @@ function getSkyData() {
 			}, 1000);
 
 			// GETTING HUMIDITY
-			humidity = ((skyData.daily.data[0].humidity)*100).toFixed(0);
+			humidity = ((skyData.daily.data[0].humidity) * 100).toFixed(0);
 			getHumidity.innerHTML = '<h1>' + humidity + '<span class="ampm space">' + ' %' + '</span>' + '</h1>';
 
 			// GETTING UV INDEX
@@ -424,10 +431,6 @@ function removeWarning() {
 // DYNAMIC TOOLTIP BACKGROUNDS
 function changeTooltipColorTo(color) {
 	$('.tooltip-inner').css('background-color', color);
-	$('.tooltip.top .tooltip-arrow').css('border-top-color', color);
-	$('.tooltip.right .tooltip-arrow').css('border-right-color', color);
-	$('.tooltip.left .tooltip-arrow').css('border-left-color', color);
-	$('.tooltip.bottom .tooltip-arrow').css('border-bottom-color', color);
 }
 
 // AUTOCOMPLETE

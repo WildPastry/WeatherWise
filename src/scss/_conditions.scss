@@ -2,7 +2,7 @@
 // IMPORT VARIABLES
 @import "variables";
 
-body.bckgd--y-m {
+body.bckgd--y {
 	#data--location--div {
 		background-color: $ylw-v;
 	}
@@ -26,7 +26,7 @@ body.bckgd--y-m {
 	}
 }
 
-body.bckgd--db-m {
+body.bckgd--db {
 	#data--location--div {
 		background-color: $d-blu-v;
 	}
@@ -50,7 +50,7 @@ body.bckgd--db-m {
 	}
 }
 
-body.bckgd--b-m {
+body.bckgd--lb {
 	#data--location--div {
 		background-color: $l-blu-v;
 	}
@@ -74,31 +74,7 @@ body.bckgd--b-m {
 	}
 }
 
-body.bckgd--dg-m{
-	#data--location--div {
-		background-color: $d-gry-v;
-	}
-	#search--text--field--div {
-		background-color: $d-gry-v;
-	}
-	#search--text--field {
-		background-color: $d-gry-v;
-	}
-	#search--button {
-		color: $d-gry-v;
-	}
-	#power--button {
-		background-color: $d-gry-v;
-	}
-	#data--extra-bg {
-		background-color: $d-gry-v;
-	}
-	#data--daily-bg {
-		background-color: $d-gry-p;
-	}
-}
-
-body.bckgd--g-m{
+body.bckgd--g{
 	#data--location--div {
 		background-color: $gry-v;
 	}
@@ -119,5 +95,29 @@ body.bckgd--g-m{
 	}
 	#data--daily-bg {
 		background-color: $gry-p;
+	}
+}
+
+body.bckgd--dg{
+	#data--location--div {
+		background-color: $d-gry-v;
+	}
+	#search--text--field--div {
+		background-color: $d-gry-v;
+	}
+	#search--text--field {
+		background-color: $d-gry-v;
+	}
+	#search--button {
+		color: $d-gry-v;
+	}
+	#power--button {
+		background-color: $d-gry-v;
+	}
+	#data--extra-bg {
+		background-color: $d-gry-v;
+	}
+	#data--daily-bg {
+		background-color: $d-gry-p;
 	}
 }
