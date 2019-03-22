@@ -1,4 +1,4 @@
-/*! weatherwise - v1.0.0 - 2019-03-20 */ 
+/*! weatherwise - v1.0.0 - 2019-03-22 */ 
 // LOADING THE PAGE
 $('#master--loader').show();
 
@@ -91,7 +91,8 @@ google.charts.load('current', {'packages':['corechart']});
             console.log(dailyDay); 
               data.addRow ([dailyDay, dataFromJSON.daily.data[i].windGust]);
             }
-                        
+                      
+            //CHART STYLING
             var options = {
               title: 'WEEKLY WIND SPEED',
               indexLabel: 'Poppins',

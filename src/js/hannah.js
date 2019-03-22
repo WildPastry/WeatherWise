@@ -90,7 +90,8 @@ google.charts.load('current', {'packages':['corechart']});
             console.log(dailyDay); 
               data.addRow ([dailyDay, dataFromJSON.daily.data[i].windGust]);
             }
-                        
+                      
+            //CHART STYLING
             var options = {
               title: 'WEEKLY WIND SPEED',
               indexLabel: 'Poppins',
