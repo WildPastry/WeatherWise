@@ -1,6 +1,7 @@
 /node_modules
 /production
 /dist
+/WeatherWise
 config.json
 *.DS_Store
 *Thumbs.db
