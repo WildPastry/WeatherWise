@@ -5,8 +5,6 @@ There are very few instances in which we can know a little bit about what the fu
 
 Weatherwise is a contemporary App which brings you more than the daily forecast. Minimilistic design is paired with coherent data to bring a unique and powerful user-interface to your disposal.
 
-(http://weatherwise.mykdesign.co.nz/)
-
 # GitHub team instructions
 • Clone the repository to your machine
 
