@@ -1,3 +1,8 @@
+/*! weatherwise - v1.0.0 - 2019-07-10 */ 
+/*! weatherwise - v1.0.0 - 2019-03-20 */
+/*jslint browser:true */
+/*jshint esversion: 6 */
+
 // SKY KEY
 $.ajax({
 	url: '../config.json',
