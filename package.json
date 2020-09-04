@@ -48,7 +48,7 @@
 		"grunt-contrib-watch": "^1.1.0",
 		"grunt-sass": "^3.0.2",
 		"matchdep": "^2.0.0",
-		"node-sass": "^4.11.0"
+		"node-sass": "^4.13.1"
 	},
 	"bugs": {
 		"url": "https://github.com/WildPastry/WeatherWise/issues"
