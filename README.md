@@ -5,7 +5,7 @@ There are very few instances in which we can know a little bit about what the fu
 
 Weatherwise is a contemporary App which brings you more than the daily forecast. Minimilistic design is paired with coherent data to bring a unique and powerful user-interface to your disposal.
 
-# GitHub team instructions
+## GitHub team instructions
 • Clone the repository to your machine
 
 • Navigate to the root directory of the repository in your terminal
@@ -42,10 +42,10 @@ Weatherwise is a contemporary App which brings you more than the daily forecast.
 
 • Merge to master-dev often to keep conflicts resolved
 
-# Design and Development
+## Design and Development
 WeatherWise is a collaborative student project designed and developed by Michael Parker, Hannah Wehipeihana and Lisa Simpson @ Yoobee School of Design.
 
-# Copyrights
+## Copyrights
 Weather data and API service provided by Dark Sky API (https://darksky.net/dev)
 
 Weather Underground Icons by Ashley Jager (https://www.npmjs.com/package/weather-underground-icons)
